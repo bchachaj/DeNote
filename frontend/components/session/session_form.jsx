@@ -25,7 +25,6 @@ class SessionForm extends React.Component {
 
     e.preventDefault();
     const user = this.state;
-    debugger;
     this.props.processForm(user);
   }
 
