@@ -9,6 +9,8 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleButton = this.handleButton.bind(this);
+    this.handleLink = this.handleLink.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,9 +32,9 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.form === 'login') {
-      return <Link to="/signup">Sign up instead!</Link>;
+      return <Link className="switchLink" to="/signup">Create Account</Link>;
     } else {
-      return <Link to="/login">Login instead!</Link>;
+      return <Link className="switchLink" to="/login">Sign in</Link>;
     }
   }
 
@@ -48,35 +50,67 @@ class SessionForm extends React.Component {
     );
   }
 
+  handleButton(){
+    if (this.props.form === 'login') {
+      return 'Sign in';
+    } else {
+      return 'Create Account';
+    }
+  }
+
+  handleLink(){
+    if (this.props.form === 'login') {
+      return (
+        <div className="sublogin">
+          <h4>Don't have an account?</h4>
+          {this.navLink()}
+        </div>
+      );
+
+    } else {
+      return (
+        <div className="sublogin">
+          <h4>Already have an account?</h4>
+          {this.navLink()}
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
+      <div className="main-container">
       <div className="login-form-container">
+        <div className="header">
+          <h1>{this.handleButton()}</h1>
+        </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Denote
           <br/>
-          Please {this.props.form} or {this.navLink()}
           {this.renderErrors()}
           <div className="login-form">
             <label>
-              Username:
               <input type="text"
+                placeholder="Username"
                  value={this.state.username}
                   onChange={this.update('username')}
                    className="login-input"/>
             </label>
             <br/>
             <label>
-              Password:
               <input type="password"
+                 placeholder="Password"
                  value={this.state.password}
                   onChange={this.update('password')}
                    className="login-input"/>
             </label>
             <br/>
-            <input type="submit" value="Submit"/>
+            <input className="auth-button" type="submit" value={this.handleButton()}/>
           </div>
         </form>
+
       </div>
+      {this.handleLink()}
+    </div>
     );
   }
 }

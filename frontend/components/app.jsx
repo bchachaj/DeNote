@@ -7,7 +7,6 @@ import SessionFormContainer from './session/session_form_container';
 const App = () => {
   return (
     <div>
-      <h1>Notes</h1>
       <header>
         <GreetingContainer/>
       </header>

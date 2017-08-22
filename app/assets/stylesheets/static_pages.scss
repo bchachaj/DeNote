@@ -1,3 +1,186 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$ever: #2dbe60;
+$dever: rgb(31, 174, 82);
+$egrey: #6a6a6a;
+$cgrey: rgb(105,105,105);
+$evergreen: rgb(111,181,54);
+$coolblue: rgb(163,217, 228);
+$deepred: rgb(85,15,8);
+$deepgreen: rgb(54,114,46);
+$offwhite: rgb(190,223,140);
+
+body {
+  background: whitesmoke;
+}
+
+body {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  background: #f3f3f3;
+}
+
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button {
+    background-color: #2dbe60;
+    border-radius: 7px;
+}
+button:hover {
+  background: $dever;
+}
+
+//Auth Styling
+
+
+.login-form-box {
+  margin: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-top: 10px;
+  padding-top: -15px;
+  background: white;
+  box-shadow: 0px 0px 1px #979797;
+  padding-bottom: 40px;
+}
+
+.login-form-container {
+}
+
+.login-input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.login-form-container h1 {
+  color: $egrey;
+  font-size: 26px;
+  line-height: 36px;
+  margin-bottom: 6px;
+  text-align: center;
+  font-family: 'Scope One', serif;
+  font-style: normal;
+  font-weight: 200;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 386px;
+  height: 396px;
+  margin: 0 auto;
+}
+.main-container {
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #f3f3f3;
+  border-top: 4px solid #2dbe60;
+}
+
+.login-form-container .login-input {
+  width: 100%;
+  border: 1px solid #f4f4f4;
+  border-radius: 7px;
+  height: 40px;
+  border-radius: 7px;
+  border: solid 1px #d0d0d0;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  background-color: #ffffff;
+  text-align: left;
+  padding-left: 20px;
+  margin: 4px;
+  font-size: 20px;
+}
+
+.login-input::placeholder {
+  color: #999999;
+}
+
+.login-form {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.login-input {
+  width: 500px;
+}
+
+a.switchLink {
+  color: #2dbe60;
+  text-decoration: none;
+
+}
+a.switchLink:hover {
+  color: $dever;
+}
+
+.sublogin {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+
+.sublogin h4 {
+  color: #747474;
+line-height: 1.63636364;
+font-family: gotham, helvetica, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 0.81666667rem;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+margin: 0;
+padding-bottom: 10px;
+}
+
+.input {
+  transition-duration: 1s;
+}
+
+.auth-button {
+
+  width: 100%;
+  border-radius: 7px;
+  height: 50px;
+  border-radius: 7px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  background-color: $ever;
+  margin: 4px;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid #1fae52;
+
+}
+
+.header {
+  background: image-url('logo.png') no-repeat center top;
+
+}
+
+.auth-button:hover {
+  background: $dever;
+}
+//End auth styling b
