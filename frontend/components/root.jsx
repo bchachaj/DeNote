@@ -2,9 +2,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from './app';
 
-const Root = () => (
+const Root = ({store}) => (
   <div>
-    <App/>
+    <Provider store={store}>
+      <App/>
+    </Provider>
   </div>
 
 );

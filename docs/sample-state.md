@@ -5,6 +5,9 @@
     user_id: 1,
     username: 'Hunter2'
   }
+  errors {
+    errors:[]
+  },
   },
   notes: {
     1: {
@@ -12,12 +15,13 @@
       body: "content",
       author_id: 1,
       notebook_id: 1
-      tags: {
-        1: {
-          id: 1
-          name: "School"
-        }
-      }
+      tag_ids: [1]
+    }
+  },
+  tags: {
+    1: {
+      id: 1
+      name: "School"
     }
   },
   notebooks: {

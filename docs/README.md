@@ -39,5 +39,3 @@ the API.
 ### Phase 5: Rich Text Editing (1 day)
 
 **Objective:** Allow rich text editing of notes. (Either Quill or Draft)
-
-### Phase 6: - Styling / Animations (1 day)
