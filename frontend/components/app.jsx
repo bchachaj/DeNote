@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProtectedRoute } from '/file/path/to/rout_util';
+// import { ProtectedRoute } from '/file/path/to/rout_util';
 
 const App = () => {
   return (
