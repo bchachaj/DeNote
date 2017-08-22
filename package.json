@@ -4,12 +4,11 @@
   "description": "App Academy Full Stack Final Project",
   "main": "index.js",
   "directories": {
-    "test": "test",
-    "start": "webpack --watch"
-    
+    "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch"
   },
   "keywords": [],
   "author": "Ben Chachaj",
