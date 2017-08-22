@@ -4,12 +4,26 @@
   "description": "App Academy Full Stack Final Project",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "start": "webpack --watch"
+    
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Ben Chachaj",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.1.2",
+    "redux": "^3.7.2",
+    "webpack": "^3.5.5"
+  }
 }
