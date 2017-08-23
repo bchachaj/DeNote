@@ -2,7 +2,10 @@ import React from 'react';
 import merge from 'lodash/merge';
 import {RECEIVE_CURRENT_USER, RECEIVE_ERRORS} from '../actions/session_actions';
 
-const nullUser = Object.freeze({currentUser: null, errors: []});
+const nullUser = Object.freeze({
+  currentUser: null,
+  errors: []
+});
 
 const sessionReducer = (state = nullUser, action) => {
   Object.freeze(state);
@@ -11,8 +14,11 @@ const sessionReducer = (state = nullUser, action) => {
       const currentUser = action.currentUser;
       return ({}, nullUser, {currentUser});
     case RECEIVE_ERRORS:
+      debugger;
       const errors = action.errors;
-      return merge({}, nullUser, {errors});
+      return Object.assign({}, nullUser, {
+        errors: errors
+      });
     default:
       return state;
   }

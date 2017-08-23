@@ -39,19 +39,18 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    if (this.props.errors){
     return (
       <div>
       <ul>
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
+            {console.log(error)}
           </li>
         ))}
       </ul>
     </div>
     );
-   }
   }
 
   handleButton(){
