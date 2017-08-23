@@ -1,7 +1,7 @@
 Evernote Inspired  web application build on React, Rails, and Redux.
 Enables users to create notes, notebooks, and tags to appropriately categorize their data.
 
-Heroku Link : https://www.heroku.com/
+Heroku Link : https://denote.herokuapp.com/
 
 Trello Link: https://trello.com/b/qjWon7RE/denote
 
