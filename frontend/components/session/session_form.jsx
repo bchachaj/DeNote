@@ -85,7 +85,8 @@ class SessionForm extends React.Component {
     return (
       <div className="main-container">
       <div className="login-form-container">
-        <div className="header">
+        <div className="header branding">
+          <span className="logo"></span>
           <h1>{this.handleButton()}</h1>
         </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">

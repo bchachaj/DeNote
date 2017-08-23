@@ -14,6 +14,44 @@ $offwhite: rgb(190,223,140);
 
 body {
   background: whitesmoke;
+
+}
+
+.branding .logo {
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  filter: brightness(75%);
+  height: 150px;
+  padding: 40px;
+  width: 100%;
+  color: transparent;
+  background-size: 160%;
+  background-position: center;
+  width: 100%;
+  padding-top: 54.166666666667%;
+  height: 0;
+  margin: 30px;
+  // position: relative;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+  width: 35px;
+  padding-bottom: 0px;
+
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  background-size: 200px;
+  width: 300px;
+    padding: 20px;
+    padding-top: 1em;
+    height: 100px;
 }
 
 body {
@@ -53,6 +91,7 @@ button:hover {
 }
 
 .login-form-container {
+    // background-image: url('logo.png');
 }
 
 .login-input {
@@ -62,13 +101,22 @@ button:hover {
 
 .login-form-container h1 {
   color: $egrey;
-  font-size: 26px;
+  font-size: 30px;
+  letter-spacing: 1px;
   line-height: 36px;
   margin-bottom: 6px;
   text-align: center;
   font-family: 'Scope One', serif;
   font-style: normal;
   font-weight: 200;
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
+
+
+  // -webkit-text-stroke-width: 0.5px;
+  //   -webkit-text-stroke-color: #f3f3f3;
+
 }
 
 .login-form-container {
@@ -77,8 +125,10 @@ button:hover {
   justify-content: center;
   align-items: center;
   width: 386px;
-  height: 396px;
+  min-height: 356px;
   margin: 0 auto;
+  margin-top: 40px;
+  padding-top: 40px;
 }
 .main-container {
   position: absolute;
@@ -177,10 +227,7 @@ padding-bottom: 10px;
 
 }
 
-.header {
-  background: image-url('logo.png') no-repeat center top;
 
-}
 
 .auth-button:hover {
   background: $dever;
