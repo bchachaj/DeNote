@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleButton = this.handleButton.bind(this);
     this.handleLink = this.handleLink.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
 
@@ -32,6 +33,17 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  handleDemo(e) {
+    e.preventDefault();
+    const user = {
+      username: 'Ben',
+      password: 'password'
+    }
+    this.props.processForm(user);
+  }
+
+
+
   navLink() {
     if (this.props.form === 'login') {
       return <Link className="switchLink" onClick={this.props.clearErrors}  to="/signup">Create Account</Link>;
@@ -48,7 +60,6 @@ class SessionForm extends React.Component {
 
     }
     return (
-      <div>
       <ul className="error-ul">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
@@ -56,7 +67,6 @@ class SessionForm extends React.Component {
           </li>
         ))}
       </ul>
-    </div>
     );
 }
 
@@ -97,7 +107,7 @@ class SessionForm extends React.Component {
         </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br/>
-          {this.renderErrors()}
+          <ul></ul>
           <div className="login-form">
             <label>
               <input type="text"
@@ -114,6 +124,9 @@ class SessionForm extends React.Component {
                   onChange={this.update('password')}
                    className="login-input"/>
             </label>
+            <div className="errors">
+            {this.renderErrors()}
+            </div>
             <br/>
             <input className="auth-button" type="submit" value={this.handleButton()}/>
           </div>
@@ -123,7 +136,7 @@ class SessionForm extends React.Component {
       {this.handleLink()}
       <div className="sublogin">
       <hr/>
-        <Link className="switchLink" onClick={console.log('ok')} to="#">Demo Login</Link>
+        <Link className="switchLink" onClick={this.handleDemo} to="#">Demo Login</Link>
       </div>
     </div>
     );
