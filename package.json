@@ -6,9 +6,14 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "6.6.0",
+    "npm": "4.1.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch"
+    "start": "webpack --watch",
+    "postinstall": "webpack"
   },
   "keywords": [],
   "author": "Ben Chachaj",
