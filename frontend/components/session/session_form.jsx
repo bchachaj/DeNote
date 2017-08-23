@@ -38,6 +38,7 @@ class SessionForm extends React.Component {
     }
   }
 
+
   renderErrors() {
     return (
       <div>
@@ -51,7 +52,7 @@ class SessionForm extends React.Component {
       </ul>
     </div>
     );
-  }
+}
 
   handleButton(){
     if (this.props.form === 'login') {

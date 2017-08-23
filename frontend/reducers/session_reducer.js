@@ -17,7 +17,7 @@ const sessionReducer = (state = nullUser, action) => {
       debugger;
       const errors = action.errors;
       return Object.assign({}, nullUser, {
-        errors: errors
+        errors
       });
     default:
       return state;
