@@ -13,6 +13,8 @@ class SessionForm extends React.Component {
     this.handleLink = this.handleLink.bind(this);
   }
 
+
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
       this.props.history.push('/');
@@ -32,21 +34,25 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.form === 'login') {
-      return <Link className="switchLink" to="/signup">Create Account</Link>;
+      return <Link className="switchLink" onClick={this.props.clearErrors}  to="/signup">Create Account</Link>;
     } else {
-      return <Link className="switchLink" to="/login">Sign in</Link>;
+      return <Link className="switchLink" onClick={this.props.clearErrors} to="/login">Sign in</Link>;
     }
   }
 
 
   renderErrors() {
+    if(this.props.errors === undefined) {
+      console.log('its broke');
+      return null;
+
+    }
     return (
       <div>
-      <ul>
+      <ul className="error-ul">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
-            {console.log(error)}
           </li>
         ))}
       </ul>
@@ -115,6 +121,10 @@ class SessionForm extends React.Component {
 
       </div>
       {this.handleLink()}
+      <div className="sublogin">
+      <hr/>
+        <Link className="switchLink" onClick={console.log('ok')} to="#">Demo Login</Link>
+      </div>
     </div>
     );
   }
