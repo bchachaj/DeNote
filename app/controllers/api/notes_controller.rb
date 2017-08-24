@@ -4,6 +4,10 @@ class Api::NotesController < ApplicationController
     @notes = Note.all
   end
 
+  def show
+    @note = Note.find(params[:id])
+  end
+
   def create
     @note = Note.new(note_params)
 
@@ -12,7 +16,6 @@ class Api::NotesController < ApplicationController
     else
       render json: @note.errors.full_messages, status: 422
     end
-
   end
 
   def update
@@ -33,15 +36,11 @@ class Api::NotesController < ApplicationController
     else
       render json: @note.errors.full_messages, status: 422
     end
-
   end
-
 
   private
 
   def note_params
     params.require(:note).permit(:title, :body)
   end
-
-
 end
