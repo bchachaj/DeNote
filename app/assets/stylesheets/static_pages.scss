@@ -18,7 +18,7 @@ body {
 }
 
 .branding .logo {
-  background-image: image-url('logo.png');
+  background-image: image-url('denot3.png');
   background-repeat: no-repeat;
   filter: brightness(75%);
   height: 150px;
@@ -149,7 +149,7 @@ button:hover {
   height: 40px;
   border-radius: 7px;
   border: solid 1px #d0d0d0;
-  cursor: pointer;
+  // cursor: pointer;
   position: relative;
   z-index: 2;
   background-color: #ffffff;

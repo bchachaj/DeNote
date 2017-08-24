@@ -55,9 +55,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     if(this.props.errors === undefined) {
-      console.log('its broke');
       return null;
-
     }
     return (
       <ul className="error-ul">
