@@ -12,6 +12,7 @@ const App = () => {
         <GreetingContainer/>
       </header>
         <NoteIndexContainer/>
+  
       <Switch>
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />

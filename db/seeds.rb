@@ -10,8 +10,10 @@
 Note.destroy_all
 
 
+randomTitle = ['Lorem Ipsum', 'Ipsum Lorem', 'Hipster Dipster']
+
 15.times do
 
-Note.create!(title: 'Lorem Ipsum', body: 'Master cleanse pickled franzen trust fund woke fashion axe. Affogato skateboard everyday carry fashion axe DIY, letterpress bespoke heirloom VHS try-hard gentrify. Paleo hoodie tote bag whatever. Williamsburg fashion axe drinking vinegar meh iceland. Tousled af quinoa DIY lumbersexual cred flannel mlkshk bespoke 3 wolf moon', author_id: 1, notebook_id: 1, archived: false);
+Note.create!(title: `#{randomTitle.sample}`, body: 'Master cleanse pickled franzen trust fund woke fashion axe. Affogato skateboard everyday carry fashion axe DIY, letterpress bespoke heirloom VHS try-hard gentrify. Paleo hoodie tote bag whatever. Williamsburg fashion axe drinking vinegar meh iceland. Tousled af quinoa DIY lumbersexual cred flannel mlkshk bespoke 3 wolf moon', author_id: 1, notebook_id: 1, archived: false);
 
 end
