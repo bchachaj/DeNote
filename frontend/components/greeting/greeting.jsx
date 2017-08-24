@@ -11,7 +11,9 @@ const sessionLinks = () => (
 
 const personalize = (currentUser, logout) => (
   <section className="auth-container">
-    <h3>Welcome, {currentUser.username}</h3>
+    <div className="header sidebar-branding">
+      <span className="logo"></span>
+    </div>
     <button className="logout header-button" onClick={logout.bind(this)}>Logout</button>
   </section>
 );
