@@ -1,4 +1,6 @@
 import React from 'react';
+import NoteIndexItem from './note_index_item';
+
 
 class NoteIndex extends React.Component {
   componentDidMount(){
@@ -12,7 +14,7 @@ class NoteIndex extends React.Component {
   render(){
     const { notes } = this.props;
     const allNotes = notes.map((note,idx) =>
-      <li key={idx}>{note.title}</li>
+      <NoteIndexItem key={note.id} note={note}/>
     );
     return (
     <section className="note-index">

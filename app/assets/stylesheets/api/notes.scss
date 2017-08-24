@@ -212,20 +212,35 @@ text-transform: uppercase;
 .note-ul::-webkit-scrollbar {
   border: 1px solid #ececec;
   background: #f3f3f3;
+
 }
 
 .note-ul::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
+  width: 95%;
+  border-radius: 7px;
+  border: 2px solid #ececec;
+  border-bottom: 550px solid #ececec;
 }
 
 
-.note-ul li {
+.note-index-item {
   padding: 10px;
   color: gray;
   width: 100%;
   height: 93px;
   border-bottom: 1px solid #ececec;
+  transition-duration: 0.3s;
+}
+
+.note-index-item:hover {
+  background: #2dbe60;
+  color: white;
+}
+
+.note-index-item:visited {
+  border: 2px solid #cecece;
 }
 
 // bottom
