@@ -10,8 +10,10 @@ const noteReducer = (state ={}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_ALL_NOTES:
+      debugger;
       return merge({}, action.notes);
     case RECEIVE_ONE_NOTE:
+      debugger;
       newState = merge({}, state, {[action.note.id]: action.note});
       return newState;
     default:

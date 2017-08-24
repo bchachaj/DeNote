@@ -9,10 +9,12 @@ export const REMOVE_NOTE = 'REMOVE_NOTE';
 export const CREATE_NOTE = 'CREATE_NOTE';
 
 ///INDEX
-export const requestAllNotes = () => dispatch => {
+export const requestAllNotes = () => (dispatch) => {
   return NoteAPI.fetchAllNotes()
-    .then(notes => dispatch(receiveAllNotes(notes)));
+    .then(notes => dispatch(receiveAllNotes(notes))
+  );
 };
+
 
 export const receiveAllNotes = (notes) => ({
   type: RECEIVE_ALL_NOTES,

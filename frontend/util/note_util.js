@@ -1,11 +1,11 @@
-const fetchAllNotes = () => {
+export const fetchAllNotes = () => {
   return $.ajax({
     method: 'GET',
     url: 'api/notes'
   });
 };
 
-const fetchSingleNote = (id) => {
+export const fetchSingleNote = (id) => {
   return $.ajax({
     method: 'GET',
     url: `/api/notes/${id}`
@@ -13,7 +13,7 @@ const fetchSingleNote = (id) => {
 };
 
 
-const createNote = (note) => {
+export const createNote = (note) => {
   return $.ajax({
     method: 'POST',
     url: 'api/notes',
