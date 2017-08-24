@@ -14,7 +14,7 @@ class NoteIndex extends React.Component {
   render(){
     const { notes } = this.props;
     const allNotes = notes.map((note,idx) =>
-      <NoteIndexItem key={note.id} note={note}/>
+      <NoteIndexItem key={note.id} note={note} onClick={console.log('item clicked')}/>
     );
     return (
     <section className="note-index">

@@ -18,9 +18,15 @@ body {
   min-height: 70px;
 }
 
+.closed {
+  transition-duration: 0.4s;
+  width: 0;
+  padding: 0;
+}
+
 .auth-container {
   width: 73px;
-  height: 80%;
+  height: 100%;
   float: left;
   transition: width 0.2s ease-in-out, left 0.2s ease-in-out 0.3s;
   background-color: #f8f8f8;
@@ -137,6 +143,7 @@ body {
 
 .sidebar {
   height: 200px;
+  margin-top: -150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -181,7 +188,19 @@ text-transform: uppercase;
 .note-index h1 {
   margin-top: 5px;
 }
+.note-index h3 {
+  color: #878787;
+  letter-spacing: 1px;
+  line-height: 36px;
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-family: 'Scope One', serif;
+  font-style: normal;
+  font-weight: 200;
+  padding: 1px;
+  letter-spacing: 0.5px;
 
+}
 
 
 .note-index-header {
@@ -224,23 +243,54 @@ text-transform: uppercase;
   border-bottom: 550px solid #ececec;
 }
 
+.index-title {
+  color: inherit;
+}
 
 .note-index-item {
   padding: 10px;
+  color: inherit;
   color: gray;
   width: 100%;
+  margin:0 auto;
   height: 93px;
-  border-bottom: 1px solid #ececec;
   transition-duration: 0.3s;
+  display: inline-block;
+  border-bottom: 1px solid #ececec;
+}
+p.note-index-body {
+  float: left;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  height: 80px;
+  width:300px;
+  font-size: 14px;
+  padding: 1px;
+  text-decoration:none;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    display:inline-block;
+    padding-bottom: 4px;
 }
 
 .note-index-item:hover {
   background: #2dbe60;
-  color: white;
+  color: white !important;
+
 }
 
 .note-index-item:visited {
   border: 2px solid #cecece;
+}
+
+.auth-container::after {
+  background-color: #f8f8f8;
+  border-right: 1px solid #ececec;
+  height: 100%;
+  width: 73px;
 }
 
 // bottom

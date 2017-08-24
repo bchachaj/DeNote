@@ -9,10 +9,11 @@ class NoteIndexItem extends React.Component {
 
   render(){
     return(
-      <div className="note-index-item">
-        <h4>Lorem Ipsum</h4>
-
-      </div>
+      <li className="note-index-item">
+        <h3 className="index-title">{this.props.note.title}</h3>
+        <div className="note-index-date"></div>
+      <p className="note-index-body">{this.props.note.body}</p>
+      </li>
     );
   }
 }

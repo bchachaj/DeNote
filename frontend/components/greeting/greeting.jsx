@@ -10,7 +10,8 @@ const sessionLinks = () => (
 );
 
 const personalize = (currentUser, logout) => (
-  <div>
+  <div className="side-menu">
+
   <section className="auth-container">
     <div className="header sidebar-branding">
       <span className="logo"></span>
