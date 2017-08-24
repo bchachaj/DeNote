@@ -153,12 +153,49 @@ body {
   bottom:0;
 
 }
+
+.note-index h1, h4{
+  color: #878787;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  margin-bottom: 6px;
+  font-family: 'Scope One', sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  width: 300px;
+  height: 50px;
+  margin: 1px;
+  display: inline-block;
+vertical-align: top;
+font-size: 21px;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+}
+.note-index h4 {
+  text-transform: lowercase;
+  font-size: 16px;
+  height: 25px;
+}
+
+.note-index h1 {
+  margin-top: 5px;
+}
+
+
+
 .note-index-header {
   font-family: gotham, helvetica, arial, sans-serif;
   font-style: normal;
   font-weight: 400;
+  height: 100px;
   color: #ececec;
   padding: 10px;
+  border-right: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
@@ -170,6 +207,19 @@ body {
   padding:0px;
   margin: 0px;
 }
+
+
+.note-ul::-webkit-scrollbar {
+  border: 1px solid #ececec;
+  background: #f3f3f3;
+}
+
+.note-ul::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+
 .note-ul li {
   padding: 10px;
   color: gray;
