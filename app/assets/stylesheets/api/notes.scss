@@ -14,6 +14,7 @@ body {
   overflow: hidden;
   padding: 0;
   margin: 0;
+  margin-left: 73px;
   min-height: 70px;
 }
 
@@ -142,5 +143,39 @@ body {
 
 }
 
+
+.note-index {
+  width: 350px;
+  height: 100vh;
+  background: white;
+  position: absolute;
+  top:0;
+  bottom:0;
+
+}
+.note-index-header {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #ececec;
+  padding: 10px;
+}
+
+
+.note-ul {
+  list-style-type: none;
+  overflow-x: hidden;
+  height: 100%;
+  overflow-y: scroll;
+  padding:0px;
+  margin: 0px;
+}
+.note-ul li {
+  padding: 10px;
+  color: gray;
+  width: 100%;
+  height: 93px;
+  border-bottom: 1px solid #ececec;
+}
 
 // bottom
