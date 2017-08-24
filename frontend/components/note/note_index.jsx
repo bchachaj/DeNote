@@ -19,9 +19,9 @@ class NoteIndex extends React.Component {
     return (
     <section className="note-index">
       <div className="note-index-header">
-        <h1>Notes</h1>
+        <h1 className="note-header">Notes</h1>
         <span className="note-count">
-          <h4>{notes.length} notes</h4>
+          <h4 className="note-header">{notes.length} notes</h4>
         </span>
       </div>
       <ul className="note-ul">
