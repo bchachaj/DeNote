@@ -16,8 +16,13 @@ class Note extends React.Component {
   <div>
     <NoteIndex/>
     {/* <NoteShow notes={this.props.notes}/> */}
+    <NoteShow/>
+
+
+    <Route path="/notes/:noteId" component={NoteShow}/>
 
     <Route path={`/notes`} component={NoteIndex}/>
+
   </div>
 );
 }

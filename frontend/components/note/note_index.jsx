@@ -1,12 +1,23 @@
 import React from 'react';
 import NoteIndexItem from './note_index_item';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, withRouter } from 'react-router-dom';
 import NoteShow from './note_show';
 
 class NoteIndex extends React.Component {
   componentDidMount(){
     this.props.requestAllNotes();
+    //chain on above promise
+    //push to history
   }
+
+  //if nextProps not empty, do things
+  componentWillReceiveProps(nextProps){
+    const pathId = nextProps.notes[0];
+    if(this.props.notes.length === 0) {
+      this.props.history.push(`/notes/${pathId.id}`);
+    }
+  }
+
 
   deleteNote(note){
     this.props.deleteNote(note);
@@ -35,7 +46,6 @@ class NoteIndex extends React.Component {
     <div className="test-note-show">
     </div>
 
-    <Route path="/notes/:noteId" component={NoteShow}/>
 
   </div>
 
@@ -45,4 +55,4 @@ class NoteIndex extends React.Component {
 }
 
 
-export default NoteIndex;
+export default withRouter(NoteIndex);
