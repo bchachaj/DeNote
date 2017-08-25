@@ -1,5 +1,5 @@
 import React from 'React';
-
+import { withRouter } from 'react-router-dom';
 
 class CreateNote extends React.Component {
 
@@ -14,12 +14,16 @@ class CreateNote extends React.Component {
     this.update = this.update.bind(this);
   }
 
+
   handleSubmit(e){
     e.preventDefault();
     this.state.author_id = this.props.currentUser.id;
     this.state.notebook_id = 1;
     this.state.archived = true;
-    this.props.createNote(this.state);
+
+    this.props.createNote(this.state)
+      .then(data => this.props.history.push(`/notes/${data.id}`));
+
   }
 
   update(property){
@@ -34,12 +38,14 @@ class CreateNote extends React.Component {
         <input
            type="text"
            value={this.state.title}
+           placeholder="Title your note"
            onChange={this.update('title')}
          />
 
         <input
            type="text"
            value={this.state.body}
+           placeholder="Just start typing..."
            onChange={this.update('body')}
          />
          <input type="submit" value="Save"/>
@@ -51,4 +57,4 @@ class CreateNote extends React.Component {
   }
 }
 
-export default CreateNote;
+export default withRouter(CreateNote);

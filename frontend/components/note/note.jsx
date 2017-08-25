@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { requestSingleNote } from '../../actions/note_actions';
 import { selectAllNotes } from '../../reducers/selectors';
 
-import CreateNote from './create_note';
+import CreateNote from './create_note_container';
 
 class Note extends React.Component {
   constructor(props){
