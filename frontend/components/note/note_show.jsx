@@ -17,13 +17,11 @@ class NoteShow extends React.Component {
 
   componentDidMount(){
     this.props.requestSingleNote(this.props.match.params.noteId);
-
-    //for edit?
-    // this.setState({ title: this.props.note.title, body: this.props.note.body });
-
+    debugger;
   }
 
   componentWillReceiveProps(nextProps) {
+
     if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.requestSingleNote(nextProps.match.params.noteId);
     }
@@ -31,15 +29,17 @@ class NoteShow extends React.Component {
 
   render(){
     let { note } = this.props;
-    let test = this.props.notes[0];
     if (!note) {
       return null;
-      // note = test;
     }
     return (
       <div className="note-show">
         <h1>{note.title}</h1>
-        <input className="note-header-input" value={this.state.title}/>
+        <form>
+            <input type="text" className="note-header-input" value={note.title}/>
+            <input type="textarea" rows="40" cols="50" className="note-header-input" value={note.body}/>
+            <input type="submit" value="Save" onSubmit={this.handleSubmit}/>
+.        </form>
         <p>{note.body}</p>
       </div>
     );

@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { requestSingleNote } from '../../actions/note_actions';
 import { selectAllNotes } from '../../reducers/selectors';
 
+import CreateNote from './create_note';
+
 class Note extends React.Component {
   constructor(props){
     super(props);
@@ -15,7 +17,6 @@ class Note extends React.Component {
   return (
   <div>
     <NoteIndex/>
-    {/* <NoteShow notes={this.props.notes}/> */}
     <NoteShow/>
 
 
