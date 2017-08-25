@@ -9,7 +9,7 @@ class NoteShow extends React.Component {
     super(props);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.props.requestSingleNote(this.props.match.params.noteId);
   }
 
