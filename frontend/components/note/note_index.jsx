@@ -30,6 +30,7 @@ class NoteIndex extends React.Component {
       <NoteIndexItem note={note}/>
      </Link>
     );
+    debugger;
     return (
     <div>
     <section className="note-index">

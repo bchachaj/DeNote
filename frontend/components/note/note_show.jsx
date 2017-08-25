@@ -41,6 +41,7 @@ class NoteShow extends React.Component {
     if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.requestSingleNote(nextProps.match.params.noteId);
     }
+    this.setState(nextProps.note);
   }
 
   render(){

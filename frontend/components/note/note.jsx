@@ -22,7 +22,7 @@ class Note extends React.Component {
 
     <Route path="/notes/:noteId" component={NoteShow}/>
     <Route path={`/notes`} component={NoteIndex}/>
-    <Route path={'/notes/new'} component={CreateNote}/>
+    <Route exact path={'/notes/new'} component={CreateNote}/>
   </div>
 );
 }
