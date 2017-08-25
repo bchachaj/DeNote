@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteIndexItem from './note_index_item';
-
+import { Link, Route } from 'react-router-dom';
+import NoteShow from './note_show';
 
 class NoteIndex extends React.Component {
   componentDidMount(){
@@ -14,9 +15,12 @@ class NoteIndex extends React.Component {
   render(){
     const { notes } = this.props;
     const allNotes = notes.map((note,idx) =>
-      <NoteIndexItem key={note.id} note={note} onClick={console.log('item clicked')}/>
+    <Link key={note.id} className="index-link" to={`/notes/${note.id}`}>
+      <NoteIndexItem note={note}/>
+     </Link>
     );
     return (
+    <div>
     <section className="note-index">
       <div className="note-index-header">
         <h1 className="note-header">Notes</h1>
@@ -28,6 +32,14 @@ class NoteIndex extends React.Component {
         {allNotes}
       </ul>
     </section>
+    <div className="test-note-show">
+    </div>
+
+    <Route path="/notes/:noteId" component={NoteShow}/>
+
+  </div>
+
+
   );
   }
 }

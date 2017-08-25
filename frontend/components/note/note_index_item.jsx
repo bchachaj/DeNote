@@ -13,14 +13,15 @@ class NoteIndexItem extends React.Component {
       <div>
 
         <li className="note-index-item">
-          <Link className="index-link" to={`/api/notes/${this.props.note.id}`}>
           <h3 className="index-title">{this.props.note.title}</h3>
           <div className="note-index-date"></div>
           <p className="note-index-body">{this.props.note.body}</p>
-          </Link>
         </li>
-        <Route exact path={`/api/notes/${this.props.note.id}`} component={NoteShow}/>
-     </div>
+
+
+
+   </div>
+
     );
   }
 }

@@ -1,20 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router-dom';
 import { selectOneNote } from '../../reducers/selectors';
 import { requestSingleNote } from '../../actions/note_actions';
 
 class NoteShow extends React.Component {
+
   constructor(props){
     super(props);
+    const notes = props.notes;
   }
 
   componentDidMount(){
     this.props.requestSingleNote(this.props.match.params.noteId);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
+      this.props.requestSingleNote(nextProps.match.params.noteId);
+    }
+  }
+
   render(){
     const { note } = this.props;
+    // console.log(note.title);
+    if (!note) {
+      return null;
+    }
     return (
       <div className="note-show">
         <h1>{note.title}</h1>
@@ -25,15 +37,16 @@ class NoteShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const noteId = ownProps.location.pathname.split("/").pop();
+  const noteId = state.ui;
   const note = state.notes[noteId];
+
   return {
     note,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  debugger;
+
   return {
     requestSingleNote: (noteId) => dispatch(requestSingleNote(noteId)),
   };
@@ -41,7 +54,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(NoteShow);
+)(NoteShow));
