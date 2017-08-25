@@ -7,15 +7,18 @@ class CreateNote extends React.Component {
     super(props);
     this.state = {
       title: "",
-      body: ""
+      body: "",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-
+    this.state.author_id = this.props.currentUser.id;
+    this.state.notebook_id = 1;
+    this.state.archived = true;
     this.props.createNote(this.state);
   }
 
@@ -27,7 +30,7 @@ class CreateNote extends React.Component {
   render(){
     return(
       <div>
-        <form>
+        <form className="note-show create" onSubmit={this.handleSubmit}>
         <input
            type="text"
            value={this.state.title}
@@ -39,16 +42,13 @@ class CreateNote extends React.Component {
            value={this.state.body}
            onChange={this.update('body')}
          />
-         <input type="submit" value="Save" onSubmit={this.handleSubmit}/>
+         <input type="submit" value="Save"/>
        </form>
 
       </div>
 
     );
   }
-
-
-
 }
 
 export default CreateNote;

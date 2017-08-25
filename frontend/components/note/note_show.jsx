@@ -9,10 +9,10 @@ class NoteShow extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      id: '',
       title: '',
       body: ''
     };
+    debugger;
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,6 +20,7 @@ class NoteShow extends React.Component {
   update(property) {
     return e => this.setState({ [property]: e.target.value });
   }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -89,7 +90,6 @@ const mapDispatchToProps = (dispatch) => {
     requestSingleNote: (noteId) => dispatch(requestSingleNote(noteId)),
     requestUpdateNote: (note) => dispatch(requestUpdateNote(note)),
     deleteNote: (noteId) => dispatch(deleteNote(noteId)),
-
   };
 };
 

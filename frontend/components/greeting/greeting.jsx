@@ -19,7 +19,9 @@ const personalize = (currentUser, logout) => (
 
     <div className="sidebar">
       <div className="side-section section-a">
+        <Link to="/notes/new">
           <i className="fa fa-plus" aria-hidden="true"></i>
+        </Link>
           <i className="fa fa-calendar-check-o" aria-hidden="true"></i>
           <i className="fa fa-search" aria-hidden="true"></i>
       </div>

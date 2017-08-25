@@ -3,6 +3,7 @@ import { createNote } from '../../actions/note_actions';
 
 const mapStateToProps = (state) => {
   let currentUser = state.session.currentUser;
+  debugger;
   return {
     currentUser,
   };
