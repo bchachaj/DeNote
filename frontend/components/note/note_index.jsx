@@ -29,8 +29,8 @@ class NoteIndex extends React.Component {
     <Link key={note.id} className="index-link" to={`/notes/${note.id}`}>
       <NoteIndexItem note={note}/>
      </Link>
-    );
-    debugger;
+   );
+
     return (
     <div>
     <section className="note-index">
@@ -41,7 +41,7 @@ class NoteIndex extends React.Component {
         </span>
       </div>
       <ul className="note-ul">
-        {allNotes}
+        {allNotes.reverse()}
       </ul>
     </section>
     <div className="test-note-show">
