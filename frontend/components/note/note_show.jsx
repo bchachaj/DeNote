@@ -50,17 +50,24 @@ class NoteShow extends React.Component {
       return null;
     }
     return (
+      <div className="home-container">
+      <div className="note-show-header">
+        <div className="top-controls">
+          <i className="fa fa-trash-o" aria-hidden="true"></i>
+        </div>
+        <div className="rich-text-controls"></div>
+      </div>
+
       <div className="note-show note">
-        <h1>{note.title}</h1>
         <form onSubmit={this.handleSubmit}>
             <input type="text"
-                   className="note-title-input"
+                   className="note-title"
                    onChange={this.update('title')}
                    value={this.state.title}/>
 
             <input type="textarea"
                    rows="40" cols="50"
-                   className="note-body-input"
+                   className="note-body"
                    onChange={this.update('body')}
                    value={this.state.body}/>
 
@@ -68,7 +75,8 @@ class NoteShow extends React.Component {
                    value="Save"
                    />
 
-.        </form>
+        </form>
+      </div>
       </div>
     );
   }

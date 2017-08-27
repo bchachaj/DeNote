@@ -1,5 +1,6 @@
 import React from 'React';
 import { withRouter } from 'react-router-dom';
+// import {Editor, EditorState} from 'draft-js';
 
 class CreateNote extends React.Component {
 
@@ -37,10 +38,11 @@ class CreateNote extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className="new-note-overlay">
         <form className="create-note note" onSubmit={this.handleSubmit}>
         <input
            type="text"
+           autoFocus
            className="note-title"
            value={this.state.title}
            placeholder="Title your note"
@@ -49,12 +51,16 @@ class CreateNote extends React.Component {
 
         <input
            type="textarea"
+           rows="80"
+           cols="100"
            className="note-body"
            value={this.state.body}
            placeholder="Just start typing..."
            onChange={this.update('body')}
          />
-         <input type="submit" value="Save"/>
+
+
+         <input className="note-save" type="submit" value="Done"/>
        </form>
 
       </div>

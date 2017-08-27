@@ -14,16 +14,18 @@ class Note extends React.Component {
   render() {
     const renderNew = '/notes/new';
     if (this.props.location === renderNew) {
-      return <CreateNote/>;
+      return (
+      <CreateNote/>
+            );
     } else {
       return (
         <div>
           <NoteIndex/>
           <NoteShow/>
 
-          <Route path="/notes/:noteId" component={NoteShow}/>
+          <Route exact path="/notes/:noteId" component={NoteShow}/>
           <Route path={`/notes`} component={NoteIndex}/>
-          <Route exact path={'/notes/new'} component={CreateNote}/>
+          <Route path={'/notes/new'} component={CreateNote}/>
         </div>
       );
     }

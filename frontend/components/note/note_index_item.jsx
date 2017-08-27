@@ -22,31 +22,15 @@ class NoteIndexItem extends React.Component {
     const current = Date.now();
     let formatDate = Date.parse(`${date}`);
     let diff = (current - formatDate) / 1000;
-    console.log(diff);
-    // if(diff >= 40320) {
-    //   return `${date.toDateString()}`;
-    // } else if (diff >= 10080) {
-    //   let shift = diff % 10080;
-    //     if (shift === 2) {
-    //       return 'Last week';
-    //     } else {
-    //       return `${shift} weeks ago`;
-    //     }
-    // } else if (diff >= 86400) {
-    //   let shift = diff % 86400;
-    //   return `${shift} days ago`;
-    // } else if (diff <= 86400 && diff >= 1440) {
-    //   let shift = diff % 1440;
-    //   return `${shift} hours ago`;
-    // }
+
      if (diff <= 3600){
       return 'moments ago';
     }else if (diff <= 86400 && diff >= 1440) {
       let shift = Math.floor(diff % 1440);
-      return `${this.helper(shift)} minutes ago`;
+      return `${this.helper(Math.floor(shift))} minutes ago`;
     }else if (diff >= 86400 && diff <= 604800) {
       let shift = diff % 86400;
-      return `${shift} days ago`;
+      return `${Math.floor(shift)} days ago`;
     }
 
   }
