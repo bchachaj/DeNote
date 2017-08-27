@@ -50,7 +50,7 @@ class NoteShow extends React.Component {
       return null;
     }
     return (
-      <div className="note-show">
+      <div className="note-show note">
         <h1>{note.title}</h1>
         <form onSubmit={this.handleSubmit}>
             <input type="text"

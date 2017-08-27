@@ -18,8 +18,12 @@ class CreateNote extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.state.author_id = this.props.currentUser.id;
+
+    //temporary
     this.state.notebook_id = 1;
     this.state.archived = true;
+    //end temporary
+
 
     this.props.createNote(this.state)
       .then(data => this.props.history.push(`/notes/${data.id}`));
@@ -34,16 +38,18 @@ class CreateNote extends React.Component {
   render(){
     return(
       <div>
-        <form className="note-show create" onSubmit={this.handleSubmit}>
+        <form className="create-note note" onSubmit={this.handleSubmit}>
         <input
            type="text"
+           className="note-title"
            value={this.state.title}
            placeholder="Title your note"
            onChange={this.update('title')}
          />
 
         <input
-           type="text"
+           type="textarea"
+           className="note-body"
            value={this.state.body}
            placeholder="Just start typing..."
            onChange={this.update('body')}

@@ -1,0 +1,44 @@
+// Place all the styles related to the api/notesz controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.create-note {
+  width: 100%;
+  height: 100%;
+  margin-left: 160px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+}
+
+.note-title {
+  font-family: caecilia, times, serif;
+  font-size: 28px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -1px;
+  line-height: 2em;
+  color: green;
+  border: none;
+  padding: 5px;
+}
+
+.note-title:focus {
+  outline: none;
+}
+
+.note-body {
+  border: none;
+  height: 500px;
+  width: 100%;
+  background: white;
+  color: gray;
+  position: absolute;
+  top: 50px;
+  left: 0;
+}

@@ -301,13 +301,13 @@ p.note-index-body {
 
 
 .note-show {
-  position: fixed;
-  right: 20px;
-  top: 135px;
-  width: 50%;
   color: gray;
   padding:30px;
-  background: aliceblue;
+  margin-left: 350px;
+  height: 100vh;
+  
+  z-index: -5;
+
 }
 
 .note-index-date {
