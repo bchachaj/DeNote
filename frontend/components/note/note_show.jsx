@@ -54,10 +54,16 @@ class NoteShow extends React.Component {
       <div className="note-show-header">
         <div className="top-controls">
           <i className="fa fa-trash-o" aria-hidden="true"></i>
+          <i className="fa fa-info" aria-hidden="true"></i>
         </div>
       </div>
 
-      <div className="rich-text-controls"></div>
+      <div className="note-controls">
+        <div className="note-menu">
+          <i className="fa fa-book" aria-hidden="true"></i>
+          <i className="fa fa-tag" aria-hidden="true"></i>
+        </div>
+      </div>
 
       <div className="note-show note">
         <form onSubmit={this.handleSubmit}>
