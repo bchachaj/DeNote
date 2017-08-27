@@ -8,10 +8,11 @@ import Note from './note/note';
 const App = () => {
   return (
     <div>
-      <header>
         <GreetingContainer/>
-      </header>
-        <Note/>
+    <div className="container">
+      <Note/>
+
+    </div>
 
       <Switch>
         <AuthRoute path="/login" component={SessionFormContainer} />

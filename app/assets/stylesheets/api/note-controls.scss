@@ -1,0 +1,36 @@
+.rich-text-controls {
+  height: 40px;
+  width: 100%;
+  background: white;
+  padding-top: 10px;
+  padding-left: 50px;
+  border-bottom: 3px solid #d9d9d9;
+  margin-top:-3px;
+  z-index: 999;
+}
+.note-show-header {
+  background: white;
+}
+
+.rich-text-controls::after{
+  height: 6px;
+  background: green;
+  width: 860px;
+  margin: 0 auto;
+}
+
+.top-controls {
+  height: 40px;
+}
+
+.container {
+  margin-left: 73px;
+}
+
+.note-container {
+  display: flex;
+}
+
+.note-show-main {
+  width: 100%;
+}

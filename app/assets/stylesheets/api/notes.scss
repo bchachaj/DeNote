@@ -143,7 +143,8 @@ body {
 
 .sidebar {
   height: 200px;
-  margin-top: -150px;
+  position: absolute;
+  top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -155,9 +156,6 @@ body {
   width: 350px;
   height: 100vh;
   background: white;
-  position: absolute;
-  top:0;
-  bottom:0;
 
 }
 
@@ -230,8 +228,8 @@ h1.note-header {
 
 .note-ul::-webkit-scrollbar {
   border: 1px solid #ececec;
-  background: #f3f3f3;
-
+  background: transparent;
+  opacity: 0.2;
 }
 
 .note-ul::-webkit-scrollbar-thumb {
@@ -302,12 +300,9 @@ p.note-index-body {
 
 .note-show {
   color: gray;
-  padding:30px;
-  margin-left: 350px;
-  height: 100vh;
-
-  z-index: -5;
-
+  padding:0px;
+  height: 100%;
+  width:100%
 }
 
 .note-index-date {
@@ -316,6 +311,7 @@ p.note-index-body {
   padding: 0;
   margin: 0;
 }
+
 
 
 

@@ -20,8 +20,10 @@ class Note extends React.Component {
     } else {
       return (
         <div>
-          <NoteIndex/>
-          <NoteShow/>
+          <div className="note-container">
+          <NoteIndex className="noteIndex"/>
+          <NoteShow className="noteShow"/>
+        </div>
 
           <Route exact path="/notes/:noteId" component={NoteShow}/>
           <Route path={`/notes`} component={NoteIndex}/>

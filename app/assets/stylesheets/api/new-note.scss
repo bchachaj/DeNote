@@ -31,6 +31,7 @@
   border: none;
   padding: 5px;
   letter-spacing: 1px;
+  background: transparent;
 }
 
 .note-title::placeholder {
@@ -63,6 +64,7 @@
   background: white;
   transition-duration: 0.4s;
   margin: 20px;
+  margin-top: 100px;
   margin-left: 0px;
 }
 .note-save:hover, .temp-note-save:hover {
@@ -104,17 +106,13 @@ font-size: 15px;
   border: none;
 }
 
-.home-container {
-  max-width: 1200px;
-}
-
 .note-show-header {
   height: 90px;
   width: 100%;
 }
 
 body {
-  max-width: 1200px;
+  max-width: 99vw !important;
   margin: 0 auto;
   background: white;
 }
