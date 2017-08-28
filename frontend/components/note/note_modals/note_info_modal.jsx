@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 
 class NoteInfo extends React.Component {
   constructor(props) {
@@ -30,8 +30,16 @@ class NoteInfo extends React.Component {
   render(){
     return(
       <div>
-        <h1>Note Information</h1>
-        <ReactModal>
+        <button onClick={this.openModal}
+        className="modal-test">
+          <i className="fa fa-info"></i>
+       </button>
+        <ReactModal
+          className="note-modal"
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          contentLabel="Note Info"
+          >
           <div className="modalFigurehead">
             <i className="fa fa-info"></i>
           </div>

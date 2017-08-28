@@ -75,3 +75,15 @@ align-items: center;
 a {
   text-decoration: none;
 }
+
+.modal-test {
+  border: none;
+  padding: 3px;
+  margin: 2px;
+  height: 25px;
+  background: none;
+}
+
+.modal-test:hover {
+  background: none;
+}

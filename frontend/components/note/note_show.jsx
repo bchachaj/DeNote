@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { selectOneNote, selectAllNotes } from '../../reducers/selectors';
 import { requestSingleNote, requestUpdateNote, deleteNote } from '../../actions/note_actions';
+import NoteInfo from './note_modals/note_info_modal';
+import DeleteNote from './note_modals/delete_modal';
 
 class NoteShow extends React.Component {
 
@@ -54,7 +56,9 @@ class NoteShow extends React.Component {
       <div className="note-show-header">
         <div className="top-controls">
           <i className="fa fa-trash-o" aria-hidden="true"></i>
+          <DeleteNote/>
           <i className="fa fa-info" aria-hidden="true"></i>
+          <NoteInfo/>
         </div>
       </div>
 

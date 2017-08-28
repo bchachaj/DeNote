@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 
 class DeleteNote extends React.Component {
   constructor(props) {
@@ -30,10 +30,18 @@ class DeleteNote extends React.Component {
   render(){
     return(
       <div>
-        <h1>Note Information</h1>
-        <ReactModal>
+        <button onClick={this.openModal} className="modal-test">
+          <i className="fa fa-trash"></i>
+        </button>
+
+        <ReactModal
+          className="note-modal"
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          contentLabel="Delete Note"
+          >
           <div className="modalFigurehead">
-            <i className="fa fa-trash"></i>
+            <i className="fa fa-trash-o"></i>
           </div>
           <h1 className="modal-header">Are you sure you want to delete this note?</h1>
 

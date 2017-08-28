@@ -19,15 +19,19 @@ const personalize = (currentUser, logout) => (
 
     <div className="sidebar">
       <div className="side-section section-a">
-        <Link to="/notes/new">
-          <i className="fa fa-plus" aria-hidden="true"></i>
-        </Link>
+          <Link to="/notes/new">
+            <i className="fa fa-plus" aria-hidden="true"></i>
+          </Link>
+
           <i className="fa fa-calendar-check-o" aria-hidden="true"></i>
           <i className="fa fa-search" aria-hidden="true"></i>
       </div>
 
       <div className="side-section section-b">
-        <i className="fa fa-file-text-o" aria-hidden="true"></i>
+        <Link to="/notes">
+          <i className="fa fa-file-text-o" aria-hidden="true"></i>
+        </Link>
+        
         <i className="fa fa-book" aria-hidden="true"></i>
         <i className="fa fa-tag" aria-hidden="true"></i>
       </div>
