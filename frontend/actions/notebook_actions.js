@@ -1,4 +1,4 @@
-import * as NotebookAPI from './util/notebook_util.js';
+import * as NotebookAPI from '../util/notebook_util';
 
 
 export const RECEIVE_ALL_NOTEBOOKS = 'RECEIVE_ALL_NOTEBOOKBOOKS';
@@ -11,7 +11,7 @@ export const CREATE_NOTEBOOK = 'CREATE_NOTEBOOK';
 
 ///INDEX
 export const requestAllNotebooks = () => (dispatch) => {
-  return NotebookAPI.fetchAllNotes()
+  return NotebookAPI.fetchAllNotebooks()
     .then(nb => dispatch(receiveAllNotebooks(nb))
   );
 };
@@ -29,9 +29,9 @@ export const requestSingleNotebook = (id) => dispatch => {
     .then(notebook => dispatch(receiveOneNotebook(notebook)));
 };
 
-export const receiveOneNotebook = (note) => ({
+export const receiveOneNotebook = (notebook) => ({
   type: RECEIVE_ONE_NOTEBOOK,
-  note
+  notebook
 });
 
 //CREATE

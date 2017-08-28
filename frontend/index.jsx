@@ -11,6 +11,9 @@ import { fetchAllNotes,
          requestAllNotes,
          requestSingleNote
         } from './actions/note_actions';
+import {
+        requestAllNotebooks
+} from './actions/notebook_actions';
 import { selectAllNotes } from './reducers/selectors.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,6 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestAllNotes = requestAllNotes;
   window.requestSingleNote = requestSingleNote;
   window.selectAllNotes = selectAllNotes;
+
+  //notebook
+  window.requestAllNotebooks = requestAllNotebooks;
+
 /////////End
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
