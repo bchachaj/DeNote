@@ -87,3 +87,10 @@ a {
 .modal-test:hover {
   background: none;
 }
+
+.note-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

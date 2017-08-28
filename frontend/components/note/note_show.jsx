@@ -55,9 +55,9 @@ class NoteShow extends React.Component {
       <div className="note-show-main">
       <div className="note-show-header">
         <div className="top-controls">
-          <i className="fa fa-trash-o" aria-hidden="true"></i>
-          <DeleteNote/>
-          <i className="fa fa-info" aria-hidden="true"></i>
+          <DeleteNote delete={this.props.deleteNote}
+            id={note.id}
+          />
           <NoteInfo/>
         </div>
       </div>

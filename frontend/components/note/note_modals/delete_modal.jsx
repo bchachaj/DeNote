@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import { withRouter } from 'react-router-dom';
 
 class DeleteNote extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class DeleteNote extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.handleAction = this.handleAction.bind(this);
   }
 
   openModal(){
@@ -26,14 +28,20 @@ class DeleteNote extends React.Component {
     console.log(this.state);
   }
 
+  handleAction(e){
+    e.preventDefault();
+    console.log('something something');
+    this.props.delete(this.props.id).then(() => {
+      this.closeModal();
+      this.props.history.push('/');
+    });
+  }
+
 
   render(){
     return(
       <div>
-        <button onClick={this.openModal} className="modal-test">
-          <i className="fa fa-trash"></i>
-        </button>
-
+        <i className="fa fa-trash-o" onClick={this.openModal}></i>
         <ReactModal
           className="note-modal"
           isOpen={this.state.modalIsOpen}
@@ -42,18 +50,18 @@ class DeleteNote extends React.Component {
           >
           <div className="modalFigurehead">
             <i className="fa fa-trash-o"></i>
+            <h3 className="modal-header">DELETE NOTE</h3>
           </div>
-          <h1 className="modal-header">Are you sure you want to delete this note?</h1>
-
-          <div className="button-group">
+          <h1 className="modal-text">Are you sure you want to delete this note?</h1>
+          <div className="modal-button-group">
           <button
-            className="modal-button"
+            className="modal-button cancel"
             onClick={this.closeModal}>
             Cancel</button>
 
             <button
               className="modal-button"
-              onClick={console.log('delete')}>
+              onClick={this.handleAction}>
               Delete</button>
             </div>
         </ReactModal>
@@ -62,4 +70,4 @@ class DeleteNote extends React.Component {
   }
 }
 
-export default DeleteNote;
+export default withRouter(DeleteNote);

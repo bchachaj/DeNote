@@ -32,6 +32,6 @@ export const editNote = (note) => {
 export const deleteNote = (note) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/notes/${note.id}`
+    url: `/api/notes/${note}`
   });
 };

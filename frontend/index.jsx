@@ -6,7 +6,7 @@ import * as NoteAPI from './util/note_util';
 import configureStore from './store/store';
 import { login, logout, signup } from './actions/session_actions';
 import { fetchAllNotes, fetchSingleNote, requestAllNotes, requestSingleNote } from './actions/note_actions';
-import { selectAllNotes } from './reducers/selectors.js'
+import { selectAllNotes } from './reducers/selectors.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 

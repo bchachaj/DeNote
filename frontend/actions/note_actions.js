@@ -47,11 +47,11 @@ export const createNote = note => dispatch => {
 
 export const deleteNote = note => dispatch => {
   return NoteAPI.deleteNote(note)
-    .then(dnote =>  dispatch(removeNote(dnote)));
+    .then(dnote => dispatch(removeNote(dnote)));
 };
 
 export const removeNote = note => ({
-  type: REMOVE_NOTE,
+  type: RECEIVE_ALL_NOTES,
   note
 });
 

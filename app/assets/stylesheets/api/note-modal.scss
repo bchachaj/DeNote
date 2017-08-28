@@ -2,4 +2,68 @@
   z-index: 9999;
   height: 100vh;
   width: 100vw;
+  outline: none;
+  color: gray;
+}
+
+.ReactModal__Overlay:focus {
+  outline: none;
+}
+
+.ReactModal__Content {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding-bottom: 500px;
+}
+
+.modal-button {
+  position: relative;
+  margin-top: 20px;
+  padding: 3px;
+  margin: 10px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-button-group {
+  height: 50px;
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-text {
+  font-size: 30px;
+  font-family: 'Scope One', serif;
+  margin-bottom: 50px;
+}
+
+.modal-header {
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  font-size: 16px;
+}
+
+.cancel {
+  background-color: #ececec;
+  color: #606060;
+  color: gray;
+  border: 1px solid #d9d9d9;
+}
+
+.cancel:hover {
+  background: #d9d9d9;
+}
+
+.modalFigurehead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
 }

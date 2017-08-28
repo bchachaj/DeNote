@@ -30,10 +30,8 @@ class NoteInfo extends React.Component {
   render(){
     return(
       <div>
-        <button onClick={this.openModal}
-        className="modal-test">
-          <i className="fa fa-info"></i>
-       </button>
+       <i className="fa fa-info" onClick={this.openModal}></i>
+
         <ReactModal
           className="note-modal"
           isOpen={this.state.modalIsOpen}
@@ -42,16 +40,19 @@ class NoteInfo extends React.Component {
           >
           <div className="modalFigurehead">
             <i className="fa fa-info"></i>
+            <h3 className="modal-header">NOTE INFO</h3>
           </div>
-          <h1 className="modal-header">NOTE INFO</h1>
+          <h1 className="modal-text">Note Title</h1>
           <h6>Overview</h6>
           <p>Created: date</p>
           <p>Updated: date</p>
 
+          <div className="modal-button-group">
           <button
             className="modal-button"
             onClick={this.closeModal}>
             Close</button>
+          </div>
         </ReactModal>
       </div>
     );
