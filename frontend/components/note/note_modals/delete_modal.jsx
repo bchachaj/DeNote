@@ -31,7 +31,7 @@ class DeleteNote extends React.Component {
   handleAction(e){
     e.preventDefault();
     this.props.delete(this.props.id).then(() => {
-      this.props.history.push(`/notes/${this.props.nextProp}`);
+      this.props.history.push(`/notes/${this.props.nextProp.id}`);
     });
   }
 
