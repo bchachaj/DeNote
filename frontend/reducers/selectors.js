@@ -7,3 +7,5 @@ export const selectOneNote = ({notes}, id) => {
   const note = notes[id] || {};
   return note;
 };
+
+export const selectAllNotebooks = (state) => values(state.notebooks);

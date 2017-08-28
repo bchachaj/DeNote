@@ -5,6 +5,7 @@ import Greeting from './greeting/greeting_container';
 import SessionFormContainer from './session/session_form_container';
 import Note from './note/note';
 import NoteShow from './note/note_show';
+import Notebook from './notebook/notebook';
 
 const App = () => {
   return (
@@ -13,12 +14,14 @@ const App = () => {
 
     <div className="container">
       <Note/>
+      <Notebook/>
     </div>
 
       <Switch>
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <ProtectedRoute path="/notes" component={Note}/>
+        <ProtectedRoute path="/notebooks" component={Notebook}/>
       </Switch>
 
 
