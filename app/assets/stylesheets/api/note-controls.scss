@@ -1,0 +1,96 @@
+.note-controls {
+  height: 30px;
+  width: 100%;
+  background: white;
+  padding-top: 10px;
+  padding-left: 50px;
+}
+.note-show-header {
+  background: white;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+
+.top-controls {
+  height: 30px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  color: gray;
+}
+
+.top-controls i {
+  padding: 3px;
+  margin-right: 18px;
+}
+.top-controls i:hover {
+  color: #2dbe60;
+ }
+
+.container {
+  margin-left: 73px;
+}
+
+.note-container {
+  display: flex;
+}
+
+.note-show-main {
+  width: 100%;
+}
+
+.fa-info {
+  display: flex;
+  color: gray;
+text-align: center;
+font-size: 10px;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.note-menu {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  float: left;
+  margin: 0 auto;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.note-menu i {
+  color: lightgray;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 0px;
+  margin: 8px;
+  height: 20px;
+  width: 20px;
+  border-right: 1px solid #d9d9d9;
+}
+
+a {
+  text-decoration: none;
+}
+
+.modal-test {
+  border: none;
+  padding: 3px;
+  margin: 2px;
+  height: 25px;
+  background: none;
+}
+
+.modal-test:hover {
+  background: none;
+}
+
+.note-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

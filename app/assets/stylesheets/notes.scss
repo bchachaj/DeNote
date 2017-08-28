@@ -1,3 +1,92 @@
 // Place all the styles related to the Notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// html {
+//   height: 100vh;
+//   width: 100vw;
+//   overflow: hidden;
+// }
+
+// body {
+//   width: 100%;
+//   height: 100%;
+//   overflow: hidden;
+//   padding: 0;
+//   margin: 0;
+//
+// }
+.fa-file-text-o {
+  transform: rotateX(180deg);
+}
+
+.auth-container {
+  width: 73px;
+  height: 60%;
+  float: left;
+
+  transition: width 0.2s ease-in-out, left 0.2s ease-in-out 0.3s;
+  background-color: #f8f8f8;
+  border-right: 1px solid #ececec;
+  padding: 12px 12px 24px 12px;
+  z-index: 200;
+  overflow: hidden;
+  box-sizing: border-box;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-branding {
+  width: 70px;
+}
+.sidebar-branding .logo {
+  background-size: 70px;
+  width: 70px;
+  background-image: image-url('denot3.png');
+  background-repeat: no-repeat;
+  filter: brightness(75%);
+  height: 100px;
+  padding: 40px;
+  width: 100%;
+  color: transparent;
+  background-size: 160%;
+  background-position: center;
+  width: 100%;
+  padding-top: 54.166666666667%;
+  height: 0;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 35px;
+  padding-bottom: 0px;
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  background-size: 103px;
+  width: 50px;
+  padding: 1px;
+  height: 50px;
+  top: 0px;
+}
+
+.logout {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  border: none;
+  border-radius: 1px;
+  background: none;
+  color: black;
+  height: 60px;
+  width: 76px;
+  border-top: 1px solid #ececec;
+}
+.logout:hover {
+  background: none;
+}

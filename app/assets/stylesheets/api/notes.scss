@@ -1,3 +1,320 @@
 // Place all the styles related to the api/notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  height: 100vh;
+  width: 100vw;
+
+  overflow: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  margin-left: 73px;
+  min-height: 70px;
+}
+
+.closed {
+  transition-duration: 0.4s;
+  width: 0;
+  padding: 0;
+}
+
+.auth-container {
+  width: 73px;
+  height: 100%;
+  float: left;
+  transition: width 0.2s ease-in-out, left 0.2s ease-in-out 0.3s;
+  background-color: #f8f8f8;
+  border-right: 1px solid #ececec;
+  padding: 12px 12px 24px 12px;
+  z-index: 200;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sidebar-branding {
+  width: 70px;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+}
+.sidebar-branding .logo {
+  background-size: 70px;
+  width: 70px;
+  background-image: image-url('denot3.png');
+  background-repeat: no-repeat;
+  filter: brightness(75%);
+  height: 100px;
+  padding: 40px;
+  width: 100%;
+  color: transparent;
+  background-size: 160%;
+  background-position: center;
+  width: 100%;
+  padding-top: 54.166666666667%;
+  height: 0;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 35px;
+  padding-bottom: 0px;
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  background-size: 103px;
+  width: 50px;
+  padding: 1px;
+  height: 50px;
+  top: 0px;
+
+}
+
+.logout {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  border: none;
+  border-radius: 1px;
+  background: none;
+  color: black;
+  height: 60px;
+  width: 76px;
+  border-top: 1px solid #ececec;
+}
+.logout:hover {
+  background: none;
+}
+
+
+.side-section {
+  width: 42px;
+  min-height: 142px;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.side-section i {
+  padding: 4px;
+  background: #2dbe60;
+  color: white;
+  border-radius: 50%;
+  margin: 1px;
+  height: 26px;
+  width: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.6s;
+  border: 1px solid #ececec;
+}
+
+.section-a i {
+  color: inherit;
+  background: white;
+  color: #2dbe60;
+}
+.section-a i:hover {
+  color: inherit;
+  background: #2dbe60;
+  color: white;
+}
+
+.section-b i:hover {
+  background: white;
+  color: #2dbe60;
+}
+
+
+.sidebar {
+  height: 200px;
+  position: absolute;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+
+.note-index {
+  width: 350px;
+  height: 100vh;
+  background: white;
+
+}
+
+.note-header {
+  color: #878787;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  margin-bottom: 6px;
+  font-family: 'Scope One', sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  width: 300px;
+  height: 50px;
+  margin: 1px;
+  display: inline-block;
+vertical-align: top;
+font-size: 21px;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+}
+h4.note-header {
+  text-transform: lowercase;
+  font-size: 16px;
+  height: 25px;
+}
+
+h1.note-header {
+  margin-top: 5px;
+}
+.note-index h3 {
+  color: #878787;
+  letter-spacing: 1px;
+  line-height: 36px;
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-family: 'Scope One', serif;
+  font-style: normal;
+  font-weight: 200;
+  padding: 1px;
+  letter-spacing: 0.5px;
+
+}
+
+
+.note-index-header {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  height: 100px;
+  color: #ececec;
+  padding: 10px;
+  border-right: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.note-ul {
+  list-style-type: none;
+  overflow-x: hidden;
+  height: 100%;
+  overflow-y: scroll;
+  padding:0px;
+  margin: 0px;
+}
+
+
+.note-ul::-webkit-scrollbar {
+  border: 1px solid #ececec;
+  background: transparent;
+  opacity: 0.2;
+}
+
+.note-ul::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  width: 95%;
+  border-radius: 7px;
+  border: 2px solid #ececec;
+  border-bottom: 550px solid #ececec;
+}
+
+.index-title {
+  color: inherit;
+  margin-top: 0px;
+}
+
+.note-index-item {
+  padding: 5px;
+  color: inherit;
+  color: gray;
+  width: 100%;
+  margin:0 auto;
+  height: 93px;
+  transition-duration: 0.3s;
+  display: inline-block;
+  border-bottom: 1px solid #ececec;
+}
+p.note-index-body {
+  float: left;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  height: 40px;
+  width:300px;
+  font-size: 14px;
+  padding: 1px;
+  text-decoration:none;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    display:inline-block;
+    padding-bottom: 4px;
+}
+
+.note-index-item:hover {
+  background: #2dbe60;
+  color: white !important;
+
+}
+
+.note-index-item:visited {
+  border: 2px solid #cecece;
+}
+
+.auth-container::after {
+  background-color: #f8f8f8;
+  border-right: 1px solid #ececec;
+  height: 100%;
+  width: 73px;
+}
+
+.index-link {
+  text-decoration: none;
+  color: #878787;
+}
+
+
+.note-show {
+  color: gray;
+  padding:0px;
+  height: 100%;
+  width:100%;
+  padding-left: 48px;
+  padding-top: 12px;
+}
+
+.note-index-date {
+  font-size: 14px;
+  color: gray;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+// bottom

@@ -15,10 +15,6 @@ export const clearErrors = (errors) => {
   };
 };
 
-//NB demo login = dispatch predefined user object to server(and make in database)
-
-
-
 export const login = user => dispatch => (
   APIUtil.login(user).then(user =>         dispatch(receiveCurrentUser(user)),
   err => {
