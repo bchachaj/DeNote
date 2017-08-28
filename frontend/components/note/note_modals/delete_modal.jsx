@@ -25,7 +25,7 @@ class DeleteNote extends React.Component {
   }
 
   afterOpenModal(){
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleAction(e){

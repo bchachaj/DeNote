@@ -1,7 +1,7 @@
 export const fetchAllNotes = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/notes'
+    url: '/api/notes'
   });
 };
 
@@ -16,7 +16,7 @@ export const fetchSingleNote = (id) => {
 export const createNote = (note) => {
   return $.ajax({
     method: 'POST',
-    url: 'api/notes',
+    url: '/api/notes',
     data: { note }
   });
 };

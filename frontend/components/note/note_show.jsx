@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { selectOneNote, selectAllNotes } from '../../reducers/selectors';
-import { requestSingleNote, requestUpdateNote, deleteNote } from '../../actions/note_actions';
+import { requestSingleNote,
+         requestUpdateNote,
+         deleteNote
+        } from '../../actions/note_actions';
 import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
 
@@ -49,7 +52,6 @@ class NoteShow extends React.Component {
       return null;
     }
     let nextNote = this.props.notes[1];
-    // debugger;
     return (
       <div className="note-show-main">
       <div className="note-show-header">

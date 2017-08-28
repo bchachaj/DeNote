@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
     const user = {
       username: 'Ben',
       password: 'password'
-    }
+    };
     this.props.login(user);
   }
 
@@ -47,9 +47,18 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.form === 'login') {
-      return <Link className="switchLink" onClick={this.props.clearErrors}  to="/signup">Create Account</Link>;
+      return (
+        <Link className="switchLink"
+             onClick={this.props.clearErrors}
+             to="/signup">Create Account
+        </Link>
+      );
     } else {
-      return <Link className="switchLink" onClick={this.props.clearErrors} to="/login">Sign in</Link>;
+      return (
+        <Link className="switchLink"
+              onClick={this.props.clearErrors}
+              to="/login">Sign in</Link>
+      );
     }
   }
 
