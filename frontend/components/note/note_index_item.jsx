@@ -19,19 +19,41 @@ class NoteIndexItem extends React.Component {
   }
 
   formatDate(date){
-    const current = Date.now();
-    let formatDate = Date.parse(`${date}`);
-    let diff = (current - formatDate) / 1000;
+    const current = new Date();
+    // let formatDate = Date.parse(`${date}`);
+    let diff = Math.floor((current - Date.parse(date)) / 1000);
+    let check = Math.floor(diff % 60);
+    // if(check > 1) {
+    //   return `${check} months ago`;
+    // }
+    // check = Math.floor(diff / 604800);
+    // if(check > 1) {
+    //   return `${check} weeks ago`;
+    // }
+    // check = Math.floor(diff / 86400);
+    // if(check > 1) {
+    //   return `${check} days ago`;
+    // }
+    // check = Math.floor(diff / 3600);
 
-     if (diff <= 3600){
-      return 'moments ago';
-    }else if (diff <= 86400 && diff >= 1440) {
-      let shift = Math.floor(diff % 1440);
-      return `${this.helper(Math.floor(shift))} minutes ago`;
-    }else if (diff >= 86400 && diff <= 604800) {
-      let shift = diff % 86400;
-      return `${Math.floor(shift)} days ago`;
+    if(check < 60) {
+      return `${check} minutes ago`;
     }
+    return 'moments ago';
+
+    // 2419200
+    // 604800
+    // 86400
+    // 3600
+    //  if (diff <= 3600){
+    //   return 'moments ago';
+    // }else if (diff <= 86400 && diff >= 1440) {
+    //   let shift = Math.floor(diff % 1440);
+    //   return `${this.helper(Math.floor(shift))} minutes ago`;
+    // }else if (diff >= 86400 && diff <= 604800) {
+    //   let shift = diff % 86400;
+    //   return `${Math.floor(shift)} days ago`;
+    // }
 
   }
 
@@ -42,7 +64,7 @@ class NoteIndexItem extends React.Component {
 
         <li className="note-index-item">
           <h3 className="index-title">{this.props.note.title}</h3>
-          <div className="note-index-date">{this.formatDate(date)}</div>
+          <div className="note-index-date">{/*this.formatDate(date)*/}</div>
           <p className="note-index-body">{this.props.note.body}</p>
         </li>
 

@@ -19,7 +19,6 @@ const App = () => {
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <ProtectedRoute path="/notes" component={Note}/>
-        {/* <Route path="/notes/:noteId" component={NoteShow}/> */}
       </Switch>
 
 
