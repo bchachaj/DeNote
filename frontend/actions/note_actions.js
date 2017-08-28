@@ -51,7 +51,7 @@ export const deleteNote = note => dispatch => {
 };
 
 export const removeNote = note => ({
-  type: RECEIVE_ALL_NOTES,
+  type: REMOVE_NOTE,
   note
 });
 

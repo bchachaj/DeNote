@@ -6,28 +6,23 @@ import NoteShow from './note_show';
 class NoteIndex extends React.Component {
   componentDidMount(){
     this.props.requestAllNotes();
-    //chain on above promise
-    //push to history
   }
 
-  //if nextProps not empty, do things
   componentWillReceiveProps(nextProps){
+
     const pathId = nextProps.notes[0];
-    if(this.props.notes.length === 0) {
+    if(this.props.notes.length === 0 && pathId.id && this.props.match.params.noteId !== pathId.id.toString()) {
       this.props.history.push(`/notes/${pathId.id}`);
+      //check if not already on same path
     }
   }
 
-
-  deleteNote(note){
-    this.props.deleteNote(note);
-  }
 
   render(){
     const { notes } = this.props;
     const allNotes = notes.map((note,idx) =>
     <Link key={note.id} className="index-link" to={`/notes/${note.id}`}>
-      <NoteIndexItem note={note}/>
+      <NoteIndexItem note={note} delete={this.props.deleteNote}/>
      </Link>
    );
 
@@ -41,12 +36,9 @@ class NoteIndex extends React.Component {
         </span>
       </div>
       <ul className="note-ul">
-        {allNotes.reverse()}
+        {allNotes}
       </ul>
     </section>
-    <div className="test-note-show">
-    </div>
-
 
   </div>
 

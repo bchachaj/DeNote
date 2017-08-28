@@ -44,8 +44,8 @@ class NoteInfo extends React.Component {
           </div>
           <h1 className="modal-text">Note Title</h1>
           <h6>Overview</h6>
-          <p>Created: date</p>
-          <p>Updated: date</p>
+          <p>Created: {this.props.created}</p>
+          <p>Updated: {this.props.change}</p>
 
           <div className="modal-button-group">
           <button

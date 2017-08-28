@@ -16,6 +16,8 @@ class NoteShow extends React.Component {
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    let test;
+    // this.test = test;
   }
 
   update(property) {
@@ -34,16 +36,20 @@ class NoteShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.note === undefined && nextProps.note) {
-      this.setState({
-         title: nextProps.note.title,
-         body: nextProps.note.body
-       });
-    }
+    let testPath;
+    const testParam = nextProps.match.params.noteId;
     if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.requestSingleNote(nextProps.match.params.noteId);
     }
-    this.setState(nextProps.note);
+    if(nextProps.note){
+      this.setState(nextProps.note);
+    } else{
+      let next = nextProps.notes[0];
+      testPath = next.id;
+      this.setState(nextProps.notes[0]);
+      debugger;
+    }
+    this.test = testPath;
   }
 
   render(){
@@ -51,14 +57,17 @@ class NoteShow extends React.Component {
     if (!note) {
       return null;
     }
+
+    const removeThis = 94;
+
     return (
       <div className="note-show-main">
       <div className="note-show-header">
         <div className="top-controls">
           <DeleteNote delete={this.props.deleteNote}
-            id={note.id}
+            id={note.id} nextProp={removeThis}
           />
-          <NoteInfo/>
+          <NoteInfo change={note.updated_at} created={note.created_at}/>
         </div>
       </div>
 

@@ -12,26 +12,18 @@ class Note extends React.Component {
   }
 
   render() {
-    const renderNew = '/notes/new';
-    if (this.props.location === renderNew) {
-      return (
-      <CreateNote/>
-            );
-    } else {
       return (
         <div>
           <div className="note-container">
           <NoteIndex className="noteIndex"/>
           <NoteShow className="noteShow"/>
         </div>
-
-          <Route exact path="/notes/:noteId" component={NoteShow}/>
+          <Route path="/notes/:noteId" component={NoteShow}/>
           <Route path={`/notes`} component={NoteIndex}/>
-          <Route path={'/notes/new'} component={CreateNote}/>
+          <Route exact path={'/notes/new'} component={CreateNote}/>
         </div>
       );
     }
-  }
 }
 
 export default withRouter(Note);

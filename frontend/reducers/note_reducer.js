@@ -14,6 +14,10 @@ const noteReducer = (state ={}, action) => {
     case RECEIVE_ONE_NOTE:
       newState = merge({}, state, {[action.note.id]: action.note});
       return newState;
+    case REMOVE_NOTE:
+      let delState = merge({}, state);
+      delete delState[action.note.id];
+      return delState;
     default:
       return state;
   }

@@ -30,10 +30,8 @@ class DeleteNote extends React.Component {
 
   handleAction(e){
     e.preventDefault();
-    console.log('something something');
     this.props.delete(this.props.id).then(() => {
-      this.closeModal();
-      this.props.history.push('/');
+      this.props.history.push(`/notes/${this.props.nextProp}`);
     });
   }
 
