@@ -1,12 +1,27 @@
 import React from 'react';
 import { connect, withRouter } from 'react-redux';
-import { requestSingleNotebook } from '../actions/notebook_actions';
+import { requestSingleNotebook } from '../../actions/notebook_actions';
+import NoteIndexItem from '../note/note_index_item';
 
 class NotebookShow extends React.Component {
-  render() {
-    return (
-      <h1>I'm a notebook</h1>
 
+
+  render() {
+    let allNotes;
+    return (
+      <div>
+        <section className="note-index">
+          <div className="note-index-header">
+            <h1 className="note-header">Notes</h1>
+            <span className="note-count">
+              <h4 className="note-header"> notes</h4>
+            </span>
+          </div>
+          <ul className="note-ul">
+            {allNotes}
+          </ul>
+        </section>
+    </div>
     );
   }
 }

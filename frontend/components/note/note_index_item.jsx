@@ -68,8 +68,6 @@ class NoteIndexItem extends React.Component {
           <p className="note-index-body">{this.props.note.body}</p>
         </li>
 
-
-
    </div>
 
     );
