@@ -23,8 +23,9 @@ class NotebookModal extends React.Component {
     return(
       <div>
         <i className="fa fa-book" onClick={this.openModal}></i>
-
         <ReactModal
+
+          animationType={"slide"}
           className="notebook-modal"
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}

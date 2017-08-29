@@ -11,7 +11,7 @@ class NotebookIndexItem extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="notebook-item">
         <li>{this.props.notebook.title}</li>
       </div>
     );

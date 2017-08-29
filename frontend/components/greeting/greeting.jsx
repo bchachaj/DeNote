@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Redirect, Link, Route } from 'react-router-dom';
 import NotebookModal from '../notebook/notebook_modals/notebook_modal';
+import { CSSTransitionGroup } from 'react-transition-group';
+
 
 
 const personalize = (currentUser, logout) => (
@@ -26,7 +28,14 @@ const personalize = (currentUser, logout) => (
           <i className="fa fa-file-text-o" aria-hidden="true"></i>
         </Link>
 
-        <NotebookModal/>
+
+        <CSSTransitionGroup
+           transitionName="example"
+           transitionEnterTimeout={2500}
+           transitionLeaveTimeout={2300}>
+           <NotebookModal key={1}/>
+        </CSSTransitionGroup>
+
         <i className="fa fa-tag" aria-hidden="true"></i>
       </div>
     </div>
