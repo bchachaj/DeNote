@@ -14,7 +14,7 @@ import { fetchAllNotes,
 import {
         requestAllNotebooks
 } from './actions/notebook_actions';
-import { selectAllNotes } from './reducers/selectors.js';
+import { selectAllNotes, selectAllNotebooks } from './reducers/selectors.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -35,13 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchAllNotes = NoteAPI.fetchAllNotes;
   window.fetchSingleNote = NoteAPI.fetchSingleNote;
   window.requestAllNotes = requestAllNotes;
+  window.requestAllNotebooks = requestAllNotebooks;
   window.requestSingleNote = requestSingleNote;
   window.selectAllNotes = selectAllNotes;
-
+  window.selectAllNotebooks = selectAllNotebooks;
   //notebook
-  window.requestAllNotebooks = requestAllNotebooks;
+  window.fetchAllNotebooks = NotebookAPI.fetchAllNotebooks;
 
 /////////End
+
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
+
 });

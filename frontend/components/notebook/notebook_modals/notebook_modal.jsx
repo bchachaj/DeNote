@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-
+import NotebookIndex from '../notebook_index_container';
 
 class NotebookModal extends React.Component {
   constructor(props){
@@ -32,10 +32,13 @@ class NotebookModal extends React.Component {
          >
 
          <div className="notebook-modal-header">
-           <h1>Notebook Index Header</h1>
+           <h1>Notebooks</h1>
+
+           <i className="fa fa-plus" onClick={console.log('create here')}></i>
          </div>
 
-         <ul><h1>Notebooks will go here</h1></ul>
+
+        <NotebookIndex/>
 
        </ReactModal>
       </div>

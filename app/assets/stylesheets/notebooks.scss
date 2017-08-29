@@ -1,3 +1,83 @@
-// Place all the styles related to the notebooks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.notebook-modal {
+  width: 350px;
+  position: relative;
+  left: 73px;
+  float: left;
+  outline: none;
+  height: 100%;
+  background: white;
+  border-right: 1px solid #d9d9d9;
+}
+
+.notebook-modal ul li {
+  height: 52px;
+  width: 99%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 18px;
+  font-family: serif;
+}
+
+.notebook-modal ul li:hover {
+  background: #2dbe60;
+  color: white;
+}
+
+
+.notebook-modal-header {
+  color: #878787;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  margin-bottom: 6px;
+  font-family: 'Scope One', sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  width: 350px;
+  height: 121px;
+  margin: 1px;
+  display: inline-block;
+vertical-align: top;
+font-size: 21px;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+border-bottom: 1px #d9d9d9;
+margin-bottom: 3px;
+text-align: left;
+}
+.notebook-modal-header h1 {
+  color: #878787;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  font-family: 'Scope One', sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  height: 100px;
+  margin: 1px;
+  display: inline-block;
+vertical-align: top;
+font-size: 21px;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+border-bottom: 1px #d9d9d9;
+margin-bottom: 3px;
+text-align: left;
+padding: 4px;
+}
+
+
+.notebook-modal-header i {
+  position: absolute;
+  color: #d9d9d9;
+  right: 10px;
+  top: 10px;
+}

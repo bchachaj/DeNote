@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestAllNotebooks: () => dispatch(requestAllNotebooks),
+    requestAllNotebooks: () => dispatch(requestAllNotebooks()),
   };
 };
 

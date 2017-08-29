@@ -1,13 +1,7 @@
 import React from 'react';
 import { Switch, Redirect, Link, Route } from 'react-router-dom';
+import NotebookModal from '../notebook/notebook_modals/notebook_modal';
 
-const sessionLinks = () => (
-  <nav className="login-signup">
-    <Link to="/login">Login</Link>
-    &nbsp;or&nbsp;
-    <Link to="/signup">Signup</Link>
-  </nav>
-);
 
 const personalize = (currentUser, logout) => (
   <div className="side-menu">
@@ -31,8 +25,8 @@ const personalize = (currentUser, logout) => (
         <Link to="/notes">
           <i className="fa fa-file-text-o" aria-hidden="true"></i>
         </Link>
-        
-        <i className="fa fa-book" aria-hidden="true"></i>
+
+        <NotebookModal/>
         <i className="fa fa-tag" aria-hidden="true"></i>
       </div>
     </div>
