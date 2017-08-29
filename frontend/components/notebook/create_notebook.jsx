@@ -7,9 +7,12 @@ class CreateNotebook extends React.Component {
 
   render() {
     return(
+
       <h1>Create Notebook</h1>
     );
   }
+
+
 }
 
 
