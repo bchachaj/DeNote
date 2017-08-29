@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { requestSingleNotebook } from '../../actions/notebook_actions';
 import NoteIndexItem from '../note/note_index_item';
 import { selectAllNotes } from '../../reducers/selectors';
+import { deleteNote } from '../../actions/note_actions';
+
 
 class NotebookShow extends React.Component {
 
@@ -12,14 +14,17 @@ class NotebookShow extends React.Component {
   }
 
   componentDidMount(){
+    // debugger;
     this.props.requestSingleNotebook(this.props.match.params.notebookId);
   }
 //will receive props
   componentWillReceiveProps(nextProps) {
+    // debugger;
+    // let testPath = nextProps.location.pathname.split("/");
     // const testParam = nextProps.match.params.noteId;
-    // if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
-    //   this.props.requestSingleNote(nextProps.match.params.noteId);
-    // }
+    if (this.props.match.params.notebookId !== nextProps.match.params.notebookId) {
+    this.props.requestSingleNotebook(nextProps.match.params.notebookId);
+    }
     //
     // this.setState(nextProps.note);
   }
@@ -27,14 +32,14 @@ class NotebookShow extends React.Component {
 
   render() {
     let { notes } = this.props;
-    notes = notes.filter(el => el.notebook_id === this.props.id);
     let allNotes = notes.map((note, idx) =>
       <Link key={note.id} className="index-link" to={`/notes/${note.id}`}>
         <NoteIndexItem note={note} delete={this.props.deleteNote}/>
        </Link>
      );
+
     return (
-      <div>
+      <div className="notebook-show">
         <section className="note-index">
           <div className="note-index-header">
             <h1 className="note-header">
@@ -54,7 +59,12 @@ class NotebookShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const notes = selectAllNotes(state);
+  const notebookPath = ownProps.match.params.notebookId;
+  const notesState = selectAllNotes(state);
+  const notes = notesState.filter((el) =>
+    el.notebook_id === parseInt(notebookPath)
+  );
+  debugger;
   return {
     notes,
   };
