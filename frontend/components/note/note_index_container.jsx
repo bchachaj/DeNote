@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import NoteIndex from './note_index';
-import { selectAllNotes } from '../../reducers/selectors';
+import { selectAllNotes, selectAllNotebooks } from '../../reducers/selectors';
 import { requestAllNotes, deleteNote } from '../../actions/note_actions';
 
 
 const mapStateToProps = (state) => {
 
   return {
-    notes: selectAllNotes(state)
+    notes: selectAllNotes(state),
+    notebooks: selectAllNotebooks(state)
   };
 };
 

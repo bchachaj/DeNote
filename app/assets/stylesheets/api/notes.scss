@@ -156,7 +156,8 @@ body {
   width: 350px;
   height: 100vh;
   background: white;
-
+  position: absolute;
+  left: 73px;
 }
 
 .note-header {
@@ -305,6 +306,7 @@ p.note-index-body {
   width:100%;
   padding-left: 48px;
   padding-top: 12px;
+  height: 100vh;
 }
 
 .note-index-date {

@@ -13,9 +13,7 @@ const App = () => {
     <Greeting/>
 
     <div className="container">
-      <Note/>
-      <Notebook/>
-    </div>
+
 
       <Switch>
         <AuthRoute path="/login" component={SessionFormContainer} />
@@ -24,6 +22,7 @@ const App = () => {
         <ProtectedRoute path="/notebooks" component={Notebook}/>
       </Switch>
 
+    </div>
     </div>
   );
 

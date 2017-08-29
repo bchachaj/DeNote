@@ -21,11 +21,10 @@ export const deleteNotebook = (notebookID) => {
 };
 
 export const createNotebook = (notebook) => {
+  debugger;
   return $.ajax({
     method: 'POST',
     url: '/api/notebooks',
-    data: {
-      notebook
-    }
+    data: { notebook }
   });
 };

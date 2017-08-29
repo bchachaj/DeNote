@@ -23,3 +23,31 @@ a:hover {
   top: 0;
   left: 73px;
 }
+
+
+.notebook-header h1{
+  background-color: #393d41;
+  height: 120px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Scope One', serif;
+  color: white;
+  font-size: 21px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  padding-top: 25px;
+  text-transform: none;
+  font-weight: 200;
+
+}
+
+
+
+.highlighted {
+  border: 10px solid red;
+  background: purple;
+}

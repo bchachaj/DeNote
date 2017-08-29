@@ -25,7 +25,7 @@ class CreateNote extends React.Component {
     this.state.archived = true;
     //end temporary
 
-
+    //if history has notebook id -> add to state and push to that url
     this.props.createNote(this.state)
       .then(data => this.props.history.push(`/notes/${data.id}`));
 

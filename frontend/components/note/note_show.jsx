@@ -39,11 +39,10 @@ class NoteShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const testParam = nextProps.match.params.noteId;
-    if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
+    if(testParam && (this.props.match.params.noteId !== nextProps.match.params.noteId)) {
       this.props.requestSingleNote(nextProps.match.params.noteId);
     }
 
-    this.setState(nextProps.note);
   }
 
   render(){
@@ -75,7 +74,7 @@ class NoteShow extends React.Component {
             <input type="text"
                    className="note-title"
                    onChange={this.update('title')}
-                   value={this.state.title}/>
+                   value={this.props.note.title}/>
 
 
            <input
@@ -83,7 +82,7 @@ class NoteShow extends React.Component {
               rows="80"
               cols="100"
               className="note-body"
-              value={this.state.body}
+              value={this.props.note.body}
               onChange={this.update('body')}
             />
 

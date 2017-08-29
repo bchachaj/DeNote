@@ -4,6 +4,8 @@ import { Link, Route, withRouter } from 'react-router-dom';
 import NoteShow from './note_show';
 
 class NoteIndex extends React.Component {
+
+
   componentDidMount(){
     this.props.requestAllNotes();
   }
@@ -11,18 +13,21 @@ class NoteIndex extends React.Component {
   componentWillReceiveProps(nextProps){
     const test = nextProps.location;
     const pathId = nextProps.notes[0];
-    if (this.props.notes.length === 0 && pathId.id && this.props.match.params.noteId !== pathId.id.toString()) {
+    if ((this.props.notes.length === 0) && pathId.id && (this.props.match.params.noteId !== pathId.id.toString())) {
       //^ checking if not already on same path..^
       this.props.history.push(`/notes/${pathId.id}`);
     }
   }
 
 
+
   render(){
     const { notes } = this.props;
     const allNotes = notes.map((note,idx) =>
     <Link key={note.id} className="index-link" to={`/notes/${note.id}`}>
-      <NoteIndexItem note={note} delete={this.props.deleteNote}/>
+      <NoteIndexItem note={note}
+                    delete={this.props.deleteNote}
+                  />
      </Link>
    );
 

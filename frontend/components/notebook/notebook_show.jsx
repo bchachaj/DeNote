@@ -32,15 +32,19 @@ class NotebookShow extends React.Component {
   render() {
     let { notes, notebook } = this.props;
     let allNotes = notes.map((note, idx) =>
-      <Link key={note.id} className="index-link" to={`/notebooks/${notebook.id}/notes/${note.id}`}>
-        <NoteIndexItem note={note} delete={this.props.deleteNote}/>
-       </Link>
+      <Link key={note.id}
+            className="index-link"
+            to={`/notebooks/${notebook.id}/notes/${note.id}`}>
+
+           <NoteIndexItem note={note} delete={this.props.deleteNote}/>
+
+      </Link>
      );
 
     return (
       <div className="notebook-show">
         <section className="note-index">
-          <div className="note-index-header">
+          <div className="note-index-header notebook-header">
             <h1 className="note-header">
               {notebook.title}
             </h1>
@@ -61,6 +65,8 @@ const mapStateToProps = (state, ownProps) => {
   const notebookPath = parseInt(ownProps.match.params.notebookId);
   const notesState = selectAllNotes(state);
 
+
+  //Grab notes belonging to this notebook
   const notes = notesState.filter((el) =>
     el.notebook_id === notebookPath
   );

@@ -14,8 +14,6 @@ class NotebookIndexItem extends React.Component {
         <Link to={`/notebooks/${this.props.notebook.id}/notes`}>
           <li>{this.props.notebook.title}</li>
         </Link>
-
-      {/* <Route to="notebook/:notebookId/notes" component={NotebookShow}/> */}
     </div>
     );
   }

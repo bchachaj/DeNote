@@ -8,7 +8,9 @@ class NoteIndexItem extends React.Component {
     super(props);
     this.formatDate = this.formatDate.bind(this);
     this.helper = this.helper.bind(this);
+
   }
+
 
   helper(date) {
     if (date > 60) {

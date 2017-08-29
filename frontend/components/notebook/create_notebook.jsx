@@ -8,13 +8,13 @@ class CreateNotebook extends React.Component {
       title: '',
       description: ''
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.state.author_id = this.props.currentUser.id;
-
+    const parseAuthor = parseInt(this.props.currentUser.id);
     this.props.createNotebook(this.state)
     .then(data => this.props.history.push(`notebooks/${data.id}/notes`));
   }
@@ -38,6 +38,17 @@ class CreateNotebook extends React.Component {
            placeholder="Title your notebook"
            onChange={this.update('title')}
          />
+
+         <input
+            type="textarea"
+            autoFocus
+            rows="80"
+            cols="100"
+            className="note-body"
+            value={this.state.description}
+            placeholder="Add a description..."
+            onChange={this.update('description')}
+          />
 
          <input className="note-save" type="submit" value="Create Notebook"/>
        </form>

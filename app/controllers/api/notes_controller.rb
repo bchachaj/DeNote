@@ -10,7 +10,6 @@ class Api::NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-
     if @note.save
       render :show
     else

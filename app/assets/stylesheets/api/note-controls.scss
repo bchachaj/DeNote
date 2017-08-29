@@ -35,10 +35,14 @@
 
 .note-container {
   display: flex;
+  flex-direction: row-reverse;
 }
 
 .note-show-main {
   width: 100%;
+  position:absolute;
+  left: 425px;
+  top: 0px;
 }
 
 .fa-info {
