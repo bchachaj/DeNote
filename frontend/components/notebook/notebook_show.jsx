@@ -16,7 +16,8 @@ class NotebookShow extends React.Component {
   }
 
   render() {
-    const { notes } = this.props;
+    let { notes } = this.props;
+    notes = notes.filter(el => el.notebook_id === this.props.id);
     let allNotes = notes.map((note, idx) =>
       <Link key={note.id} className="index-link" to={`/notes/${note.id}`}>
         <NoteIndexItem note={note} delete={this.props.deleteNote}/>

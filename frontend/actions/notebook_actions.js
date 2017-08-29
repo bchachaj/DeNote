@@ -1,7 +1,7 @@
 import * as NotebookAPI from '../util/notebook_util';
 
 
-export const RECEIVE_ALL_NOTEBOOKS = 'RECEIVE_ALL_NOTEBOOKBOOKS';
+export const RECEIVE_ALL_NOTEBOOKS = 'RECEIVE_ALL_NOTEBOOKS';
 export const RECEIVE_ONE_NOTEBOOK = 'RECEIVE_ONE_NOTEBOOK';
 
 export const REMOVE_NOTEBOOK = 'REMOVE_NOTEBOOK';

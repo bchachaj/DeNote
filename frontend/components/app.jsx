@@ -14,7 +14,7 @@ const App = () => {
 
     <div className="container">
       <Note/>
-      {/* <Notebook/> */}
+      <Notebook/>
     </div>
 
       <Switch>
@@ -23,10 +23,6 @@ const App = () => {
         <ProtectedRoute path="/notes" component={Note}/>
         <ProtectedRoute path="/notebooks" component={Notebook}/>
       </Switch>
-
-
-
-
 
     </div>
   );

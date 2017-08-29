@@ -6,17 +6,17 @@ export const fetchAllNotebooks = () => {
   });
 };
 
-export const fetchOneNotebook = (notebook) => {
+export const fetchOneNotebook = (notebookID) => {
   return $.ajax({
     method: 'POST',
-    url: `/api/notebooks/${notebook.id}`,
+    url: `/api/notebooks/${notebookID}`,
   });
 };
 
-export const deleteNotebook = (notebook) => {
+export const deleteNotebook = (notebookID) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/notebooks/${notebook.id}`
+    url: `/api/notebooks/${notebookID}`
   });
 };
 

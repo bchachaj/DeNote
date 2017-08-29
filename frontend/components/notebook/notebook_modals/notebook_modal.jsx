@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import NotebookIndex from '../notebook_index_container';
+import { Link } from 'react-router-dom';
 
 class NotebookModal extends React.Component {
   constructor(props){
@@ -24,7 +25,7 @@ class NotebookModal extends React.Component {
       <div>
         <i className="fa fa-book" onClick={this.openModal}></i>
         <ReactModal
-
+          onClick={this.closeModal}
           animationType={"slide"}
           className="notebook-modal"
           isOpen={this.state.modalIsOpen}
@@ -35,7 +36,9 @@ class NotebookModal extends React.Component {
          <div className="notebook-modal-header">
            <h1>Notebooks</h1>
 
-           <i className="fa fa-plus" onClick={console.log('create here')}></i>
+           <Link to="/notebooks/new">
+              <i className="fa fa-plus"></i>
+           </Link>
          </div>
 
 
