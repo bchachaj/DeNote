@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import NotebookShow from './notebook_show';
 import CreateNotebook from './create_notebook';
 import NotebookModal from './notebook_modals/notebook_modal';
+import NoteShow from '../note/note_show';
 
 class Notebook extends React.Component {
   render() {
@@ -15,8 +16,9 @@ class Notebook extends React.Component {
             <NotebookShow className="noteShow"/>
           </div>
 
-          <Route path="/notebooks/:noteId" component={NotebookShow}/>
           <Route path="/notebooks" component={NotebookModal}/>
+          <Route path="/notebooks/:notebookId" component={NotebookShow}/>
+          <Route path="/notebooks/:notebookId/notes/:noteId" component={NoteShow}/>
           <Route exact path={'/notebook/new'} component={CreateNotebook}/>
         </div>
       );

@@ -4,5 +4,11 @@
 
 
 .notebook-container {
+  position: absolute;
+  top: 0;
 
+}
+
+.notebook-container .fa-book {
+  visibility: hidden;
 }

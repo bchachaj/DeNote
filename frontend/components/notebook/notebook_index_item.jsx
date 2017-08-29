@@ -8,9 +8,6 @@ class NotebookIndexItem extends React.Component {
     super(props);
   }
 
-
-
-
   render() {
     return(
       <div className="notebook-item">

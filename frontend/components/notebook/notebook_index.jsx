@@ -23,7 +23,7 @@ class NotebookIndex extends React.Component {
 
     return(
       <div>
-        <ul>{allNotebooks}</ul>
+        <ul className="note-ul">{allNotebooks}</ul>
       </div>
     );
   }

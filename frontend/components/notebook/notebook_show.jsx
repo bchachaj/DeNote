@@ -23,12 +23,14 @@ class NotebookShow extends React.Component {
         <NoteIndexItem note={note} delete={this.props.deleteNote}/>
        </Link>
      );
-
+    debugger;
     return (
       <div>
         <section className="note-index">
           <div className="note-index-header">
-            <h1 className="note-header">Notes</h1>
+            <h1 className="note-header">
+              ¡This.props.notebook.title¡
+            </h1>
             <span className="note-count">
               <h4 className="note-header">{notes.length} notes</h4>
             </span>
@@ -44,8 +46,6 @@ class NotebookShow extends React.Component {
 
 const mapStateToProps = state => {
   const notes = selectAllNotes(state);
-  debugger;
-  // const notesOfNotebook = notes.filter(el => el.notebook_id === )
   return {
     notes,
   };
