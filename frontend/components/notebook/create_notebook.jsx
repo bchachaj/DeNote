@@ -12,6 +12,8 @@ class CreateNotebook extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
+
   handleSubmit(e){
     e.preventDefault();
     const parseAuthor = parseInt(this.props.currentUser.id);
