@@ -14,26 +14,25 @@ class NotebookShow extends React.Component {
   }
 
   componentDidMount(){
-    // debugger;
     this.props.requestSingleNotebook(this.props.match.params.notebookId);
   }
+
 //will receive props
   componentWillReceiveProps(nextProps) {
-    // debugger;
-    // let testPath = nextProps.location.pathname.split("/");
-    // const testParam = nextProps.match.params.noteId;
-    if (this.props.match.params.notebookId !== nextProps.match.params.notebookId) {
+
+    if (this.props.match.params.notebookId !==
+      nextProps.match.params.notebookId)
+    {
     this.props.requestSingleNotebook(nextProps.match.params.notebookId);
     }
-    //
-    // this.setState(nextProps.note);
+
   }
 
 
   render() {
-    let { notes } = this.props;
+    let { notes, notebook } = this.props;
     let allNotes = notes.map((note, idx) =>
-      <Link key={note.id} className="index-link" to={`/notes/${note.id}`}>
+      <Link key={note.id} className="index-link" to={`/notebooks/${notebook.id}/notes/${note.id}`}>
         <NoteIndexItem note={note} delete={this.props.deleteNote}/>
        </Link>
      );
@@ -43,7 +42,7 @@ class NotebookShow extends React.Component {
         <section className="note-index">
           <div className="note-index-header">
             <h1 className="note-header">
-              ¡This.props.notebook.title¡
+              {notebook.title}
             </h1>
             <span className="note-count">
               <h4 className="note-header">{notes.length} notes</h4>
@@ -59,14 +58,17 @@ class NotebookShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const notebookPath = ownProps.match.params.notebookId;
+  const notebookPath = parseInt(ownProps.match.params.notebookId);
   const notesState = selectAllNotes(state);
+
   const notes = notesState.filter((el) =>
-    el.notebook_id === parseInt(notebookPath)
+    el.notebook_id === notebookPath
   );
-  debugger;
+  const notebook = state.notebooks[notebookPath];
+
   return {
     notes,
+    notebook
   };
 };
 
