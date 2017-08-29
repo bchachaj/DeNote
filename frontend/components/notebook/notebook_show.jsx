@@ -14,6 +14,16 @@ class NotebookShow extends React.Component {
   componentDidMount(){
     this.props.requestSingleNotebook(this.props.match.params.notebookId);
   }
+//will receive props
+  componentWillReceiveProps(nextProps) {
+    // const testParam = nextProps.match.params.noteId;
+    // if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
+    //   this.props.requestSingleNote(nextProps.match.params.noteId);
+    // }
+    //
+    // this.setState(nextProps.note);
+  }
+
 
   render() {
     let { notes } = this.props;
@@ -44,7 +54,6 @@ class NotebookShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   const notes = selectAllNotes(state);
   return {
     notes,
@@ -59,7 +68,7 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default withRouter(connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NotebookShow));
+)(NotebookShow);

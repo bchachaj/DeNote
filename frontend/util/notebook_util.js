@@ -8,7 +8,7 @@ export const fetchAllNotebooks = () => {
 
 export const fetchOneNotebook = (notebookID) => {
   return $.ajax({
-    method: 'POST',
+    method: 'GET',
     url: `/api/notebooks/${notebookID}`,
   });
 };

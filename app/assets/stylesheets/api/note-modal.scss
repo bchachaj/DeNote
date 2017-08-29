@@ -17,6 +17,11 @@
   padding-bottom: 500px;
 }
 
+.ReactModal__Content p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .modal-button {
   position: relative;
   margin-top: 20px;
@@ -30,12 +35,20 @@
 
 .modal-button-group {
   height: 50px;
-  width: 500px;
+  width: 300px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.modal-button-group .modal-button {
+  position: relative;
+  right: 0px;
+  top: 25px;
+}
+
+
 
 .modal-text {
   font-size: 30px;
@@ -66,4 +79,6 @@
   align-items: center;
   justify-content: center;
   padding: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
 }

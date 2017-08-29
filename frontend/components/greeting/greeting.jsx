@@ -29,12 +29,12 @@ const personalize = (currentUser, logout) => (
         </Link>
 
 
-        <CSSTransitionGroup
+        {/* <CSSTransitionGroup
            transitionName="example"
            transitionEnterTimeout={2500}
-           transitionLeaveTimeout={2300}>
+           transitionLeaveTimeout={2300}> */}
            <NotebookModal key={1}/>
-        </CSSTransitionGroup>
+        {/* </CSSTransitionGroup> */}
 
         <i className="fa fa-tag" aria-hidden="true"></i>
       </div>

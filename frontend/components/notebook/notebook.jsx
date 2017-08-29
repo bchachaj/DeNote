@@ -12,14 +12,12 @@ class Notebook extends React.Component {
     return(
         <div>
           <div className="notebook-container">
-            {/* <NotebookModal className="noteIndex"/>
-            <NotebookShow className="noteShow"/> */}
           </div>
 
           <Route path="/notebooks" component={NotebookModal}/>
-          <Route path="/notebooks/:notebookId" component={NotebookShow}/>
+          <Route path="/notebooks/:notebookId/notes" component={NotebookShow}/>
           <Route path="/notebooks/:notebookId/notes/:noteId" component={NoteShow}/>
-          <Route exact path={'/notebook/new'} component={CreateNotebook}/>
+          <Route exact path={'/notebooks/new'} component={CreateNotebook}/>
         </div>
       );
  }

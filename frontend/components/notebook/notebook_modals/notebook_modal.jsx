@@ -42,7 +42,7 @@ class NotebookModal extends React.Component {
          </div>
 
 
-        <NotebookIndex/>
+        <NotebookIndex onClick={this.closeModal}/>
 
        </ReactModal>
       </div>
