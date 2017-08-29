@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
 import NotebookShow from './notebook_show';
+import NoteIndexItem from './notebook_index_item';
+
 
 class NotebookIndex extends React.Component {
 
@@ -14,11 +16,9 @@ class NotebookIndex extends React.Component {
   }
 
   render() {
-    debugger;
-    //get notebooks for ul
     const { notebooks } = this.props;
     const allNotebooks = notebooks.map((notebook, idx) =>
-      <li key={idx}>{notebook.title}</li>
+      <NoteIndexItem key={notebook.id} notebook={notebook}/>
     );
 
     return(
