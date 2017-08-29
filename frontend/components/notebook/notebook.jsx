@@ -12,8 +12,8 @@ class Notebook extends React.Component {
     return(
         <div>
           <div className="notebook-container">
-            <NotebookModal className="noteIndex"/>
-            <NotebookShow className="noteShow"/>
+            {/* <NotebookModal className="noteIndex"/>
+            <NotebookShow className="noteShow"/> */}
           </div>
 
           <Route path="/notebooks" component={NotebookModal}/>

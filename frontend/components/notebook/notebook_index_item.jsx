@@ -1,6 +1,6 @@
 import React from 'react';
 import NotebookShow from './notebook_show';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 
 class NotebookIndexItem extends React.Component {
@@ -14,7 +14,9 @@ class NotebookIndexItem extends React.Component {
         <Link to={`/notebook/${this.props.notebook.id}/notes`}>
           <li>{this.props.notebook.title}</li>
         </Link>
-      </div>
+
+      {/* <Route to="notebook/:notebookId/notes" component={NotebookShow}/> */}
+    </div>
     );
   }
 }

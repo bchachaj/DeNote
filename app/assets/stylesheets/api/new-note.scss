@@ -44,7 +44,10 @@
 
 .note-body {
   border: none;
-  max-width: 500px;
+  width: 500px;
+  word-wrap: break-word;
+   word-break: break-all;
+   height: 80px;
   margin-top: 10px;
   display: flex;
   white-space: pre-wrap;
