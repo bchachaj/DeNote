@@ -15,6 +15,13 @@ class NotebookIndex extends React.Component {
     this.props.requestAllNotebooks();
   }
 
+  componentWillReceiveProps(nextProps) {
+    debugger;
+    if(nextProps.notes && nextProps.notes.length === 0) {
+      nextProps.requestAllNotes();
+    }
+  }
+
   render() {
     const { notebooks } = this.props;
     const allNotebooks = notebooks.map((notebook, idx) =>
