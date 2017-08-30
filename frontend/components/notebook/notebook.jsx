@@ -16,8 +16,9 @@ class Notebook extends React.Component {
 
           <Route path="/notebooks" component={NotebookModal}/>
           <Route path="/notebooks/:notebookId/notes" component={NotebookShow}/>
-          <Route exact path="/notebooks/:notebookId/notes/:noteId" component={NoteShow}/>
+          <Route path="/notebooks/:notebookId/notes/:noteId" component={NoteShow}/>
           <Route exact path={'/notebooks/new'} component={CreateNotebook}/>
+
         </div>
       );
  }

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import NotebookIndex from '../notebook_index_container';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class NotebookModal extends React.Component {
   constructor(props){
@@ -9,7 +9,14 @@ class NotebookModal extends React.Component {
     this.state = {modalIsOpen: false};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+
   }
+
+  // componentDidMount(){
+  //   // if(this.props.location.pathname === '/notebooks') {
+  //   //   this.setState({modalIsOpen: true});
+  //   // }
+  // }
 
   openModal(){
     this.setState({modalIsOpen: true});
@@ -18,6 +25,8 @@ class NotebookModal extends React.Component {
   closeModal(){
     this.setState({modalIsOpen: false});
   }
+
+
 
 
   render(){
@@ -51,4 +60,4 @@ class NotebookModal extends React.Component {
   }
 }
 
-export default NotebookModal;
+export default withRouter(NotebookModal);

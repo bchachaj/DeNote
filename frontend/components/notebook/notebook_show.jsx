@@ -24,9 +24,9 @@ class NotebookShow extends React.Component {
 
 //will receive props
   componentWillReceiveProps(nextProps) {
-
-    if (this.props.match.params.notebookId !==
-      nextProps.match.params.notebookId)
+    let renderFirst = this.props.notes[0];
+    if (renderFirst && (this.props.match.params.notebookId !==
+      nextProps.match.params.notebookId))
     {
     this.props.requestSingleNotebook(nextProps.match.params.notebookId);
     }
@@ -36,6 +36,9 @@ class NotebookShow extends React.Component {
 
   render() {
     let { notes, notebook } = this.props;
+    if(!notes) {
+      return null;
+    }
     let allNotes = notes.map((note, idx) =>
       <Link key={note.id}
             className="index-link"
@@ -45,6 +48,8 @@ class NotebookShow extends React.Component {
 
       </Link>
      );
+
+
 
     return (
       <div className="notebook-show">
