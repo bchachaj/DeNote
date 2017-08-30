@@ -56,7 +56,10 @@ componentWillReceiveProps(nextProps) {
     if (!note) {
       return null;
     }
-    let nextNote = this.props.notes[1];
+    let nextNote = this.props.notes[0];
+    if (nextNote === note) {
+      nextNote = this.props.notes[1];
+    }
     return (
       <div className="note-show-main">
       <div className="note-show-header">

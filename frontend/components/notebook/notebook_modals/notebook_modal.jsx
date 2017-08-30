@@ -12,12 +12,6 @@ class NotebookModal extends React.Component {
 
   }
 
-  // componentDidMount(){
-  //   // if(this.props.location.pathname === '/notebooks') {
-  //   //   this.setState({modalIsOpen: true});
-  //   // }
-  // }
-
   openModal(){
     this.setState({modalIsOpen: true});
   }

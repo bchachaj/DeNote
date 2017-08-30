@@ -31,11 +31,10 @@ class DeleteNote extends React.Component {
   handleAction(e){
     e.preventDefault();
     const keep = this.props.nextProp.id;
+    const path = this.props.location.pathname.split('/');
     this.props.delete(this.props.id).then(() => {
-      debugger;
-      let linkPath = this.props.location.pathname.split("/");
-      if(linkPath[1] === 'notesbooks') {
-        this.props.history.push(`/notebooks/${parseInt(linkPath[2])}/notes/${keep}`);
+      if(path[1] === 'notebooks') {
+        this.props.history.push(`/notebooks/${parseInt(path[2])}/notes/${keep}`);
       } else {
         this.props.history.push(`/notes/${keep}`);
       }
