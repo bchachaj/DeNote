@@ -45,8 +45,9 @@ class NotebookModal extends React.Component {
            </Link>
          </div>
 
-
-        <NotebookIndex onClick={this.closeModal}/>
+        <div class="wrapper-function" onClick={this.closeModal}>
+          <NotebookIndex/>
+        </div>
 
        </ReactModal>
       </div>
