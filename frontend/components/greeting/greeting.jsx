@@ -11,7 +11,9 @@ return(
 
   <section className="auth-container">
     <div className="header sidebar-branding">
-      <span className="logo"></span>
+      <Link to='/'>
+        <span className="logo"></span>
+      </Link>
     </div>
 
     <div className="sidebar">
@@ -29,7 +31,7 @@ return(
           <i className="fa fa-file-text-o" aria-hidden="true"></i>
         </Link>
 
-         <NotebookModal/>
+         {/* <NotebookModal/> */}
          <Link to="/notebooks">
            <i className="fa fa-book" aria-hidden="true"></i>
          </Link>

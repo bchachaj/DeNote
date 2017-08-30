@@ -39,7 +39,6 @@ class DeleteNotebook extends React.Component {
   render(){
     return(
       <div>
-        <i className="icon-trash notebook-delete" onClick={this.openModal}></i>
 
         <ReactModal
           className="note-modal"

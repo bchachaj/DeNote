@@ -33,6 +33,19 @@ class NotebookShow extends React.Component {
 
   }
 
+  noNotes(){
+    return(
+      <div className="no-note-zone">
+        <div className="no-zone-inner">
+          <i className="fa fa-file-text-o text-1" id="text-1"></i>
+          <i className="fa fa-file-text-o text-2" id="text-2"></i>
+          <h2>Click the <strong>+</strong> to add a note</h2>
+          <p>Collet inspiration in this notebook</p>
+        </div>
+      </div>
+    );
+  }
+
 
   render() {
     let { notes, notebook } = this.props;
@@ -49,6 +62,15 @@ class NotebookShow extends React.Component {
       </Link>
      );
 
+     let renderThis;
+
+     if(notes.length === 0) {
+       renderThis = this.noNotes();
+     } else {
+       renderThis = allNotes;
+     }
+
+
 
     return (
       <div className="notebook-show">
@@ -62,7 +84,7 @@ class NotebookShow extends React.Component {
             </span>
           </div>
           <ul className="note-ul">
-            {allNotes}
+            {renderThis}
           </ul>
         </section>
     </div>

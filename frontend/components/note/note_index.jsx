@@ -19,6 +19,16 @@ class NoteIndex extends React.Component {
     }
   }
 
+  noNotes(){
+    return(
+      <div className="no-note-zone">
+        <div className="no-zone-inner">
+          <h2>Click the + to add a note</h2>
+          <p>Collet inspiration in this notebook</p>
+        </div>
+      </div>
+    );
+  }
 
 
   render(){
@@ -30,6 +40,15 @@ class NoteIndex extends React.Component {
                   />
      </Link>
    );
+
+   let renderThis;
+
+   if(notes.length === 0) {
+     renderThis = this.noNotes();
+   } else {
+     renderThis = allNotes;
+   }
+
 
     return (
     <div>
@@ -43,7 +62,7 @@ class NoteIndex extends React.Component {
       <div className="scrollbar">
 
       <ul className="note-ul">
-        {allNotes}
+        {renderThis}
       </ul>
     </div>
     </section>

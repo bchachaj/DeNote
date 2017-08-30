@@ -20,7 +20,7 @@ class NotebookIndexItem extends React.Component {
     } else {
       linkPath = `/notebooks/${this.props.notebook.id}/notes`;
     }
-    debugger;
+
     return(
       <div className="notebook-item">
 
@@ -28,6 +28,9 @@ class NotebookIndexItem extends React.Component {
           <li>{this.props.notebook.title}</li>
         </Link>
 
+        <Link to={`/notebooks/${this.props.notebook.id}/delete`}>
+          <i className="fa fa-trash-o"></i>
+        </Link>
         {/* <DeleteNotebook delete={this.props.delete} id={this.props.notebook.id}/> */}
     </div>
     );
