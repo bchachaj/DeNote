@@ -10,6 +10,13 @@ class NotebookModal extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
 
+
+  }
+
+  componentDidMount(){
+    if(this.props.location.pathname === '/notebooks'){
+      this.setState({modalIsOpen: true});
+    }
   }
 
   openModal(){
@@ -18,6 +25,7 @@ class NotebookModal extends React.Component {
 
   closeModal(){
     this.setState({modalIsOpen: false});
+    this.props.history.push('/');
   }
 
 
@@ -26,7 +34,7 @@ class NotebookModal extends React.Component {
   render(){
     return(
       <div>
-        <i className="fa fa-book" onClick={this.openModal}></i>
+        {/* <i className="fa fa-book" onClick={this.openModal}></i> */}
 
         <ReactModal
           onClick={this.closeModal}
@@ -45,7 +53,7 @@ class NotebookModal extends React.Component {
            </Link>
          </div>
 
-        <div class="wrapper-function" onClick={this.closeModal}>
+        <div className="wrapper-function" onClick={this.closeModal}>
           <NotebookIndex/>
         </div>
 

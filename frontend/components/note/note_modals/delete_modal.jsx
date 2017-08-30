@@ -34,6 +34,7 @@ class DeleteNote extends React.Component {
     const path = this.props.location.pathname.split('/');
     this.props.delete(this.props.id).then(() => {
       if(path[1] === 'notebooks') {
+        //stay in this notebook
         this.props.history.push(`/notebooks/${parseInt(path[2])}/notes/${keep}`);
       } else {
         this.props.history.push(`/notes/${keep}`);

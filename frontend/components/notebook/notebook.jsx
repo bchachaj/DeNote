@@ -6,6 +6,7 @@ import NotebookShow from './notebook_show';
 import CreateNotebook from './create_notebook_container';
 import NotebookModal from './notebook_modals/notebook_modal';
 import NoteShow from '../note/note_show';
+import DeleteNotebook from './notebook_modals/delete_book_modal';
 
 class Notebook extends React.Component {
   render() {
@@ -14,7 +15,8 @@ class Notebook extends React.Component {
           <div className="notebook-container">
           </div>
 
-          <Route path="/notebooks" component={NotebookModal}/>
+          <Route exact path="/notebooks" component={NotebookModal}/>
+          <Route path="/notebooks/:notebookId/delete" component={DeleteNotebook}/>
           <Route path="/notebooks/:notebookId/notes" component={NotebookShow}/>
           <Route path="/notebooks/:notebookId/notes/:noteId" component={NoteShow}/>
           <Route exact path={'/notebooks/new'} component={CreateNotebook}/>

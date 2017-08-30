@@ -30,6 +30,9 @@ return(
         </Link>
 
          <NotebookModal/>
+         <Link to="/notebooks">
+           <i className="fa fa-book" aria-hidden="true"></i>
+         </Link>
 
         <i className="fa fa-tag" aria-hidden="true"></i>
       </div>

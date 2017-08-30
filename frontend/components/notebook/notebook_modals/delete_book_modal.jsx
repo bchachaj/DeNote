@@ -13,7 +13,11 @@ class DeleteNotebook extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.handleAction = this.handleAction.bind(this);
+    // this.handleAction = this.handleAction.bind(this);
+  }
+
+  componentDidMount(){
+    console.log(this.props);
   }
 
   openModal(){
@@ -24,15 +28,9 @@ class DeleteNotebook extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
-  afterOpenModal(){
-    // console.log(this.state);
-  }
-
   handleAction(e){
     e.preventDefault();
     this.props.delete(this.props.id).then(() => {
-      //need logic to check whether being deleted from note 'main' index or from
-      //notebook
       this.props.history.push(`/notebooks`);
     });
   }
@@ -41,7 +39,8 @@ class DeleteNotebook extends React.Component {
   render(){
     return(
       <div>
-        <i className="fa fa-trash-o notebook-delete" onClick={this.openModal}></i>
+        <i className="icon-trash notebook-delete" onClick={this.openModal}></i>
+
         <ReactModal
           className="note-modal"
           isOpen={this.state.modalIsOpen}
