@@ -14,7 +14,6 @@ class NotebookIndexItem extends React.Component {
       el.notebook_id === this.props.notebook.id
     );
     let e = booknotes[0];
-    debugger;
     let linkPath;
     if(e){
       linkPath = `/notebooks/${this.props.notebook.id}/notes/${e.id}`;

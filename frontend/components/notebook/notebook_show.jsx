@@ -14,7 +14,6 @@ class NotebookShow extends React.Component {
 
   componentDidMount(){
     let e = this.props.notes[0];
-    debugger;
     if(e) {
 
     this.props.requestSingleNotebook(this.props.match.params.notebookId)
