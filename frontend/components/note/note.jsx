@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter,Switch } from 'react-router-dom';
 import NoteShow from './note_show';
 import NoteIndex from './note_index_container';
 import {connect} from 'react-redux';
@@ -15,10 +15,11 @@ class Note extends React.Component {
       return (
         <div>
           <div className="note-container">
-
-          <Route path="/notes/:noteId" component={NoteShow}/>
+          <Switch>
+            <Route exact path={'/notes/new'} component={CreateNote}/>
+            <Route path="/notes/:noteId" component={NoteShow}/>
+          </Switch>
           <Route path={`/notes`} component={NoteIndex}/>
-          <Route exact path={'/notes/new'} component={CreateNote}/>
         </div>
         </div>
       );

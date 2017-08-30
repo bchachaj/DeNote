@@ -35,27 +35,6 @@ class NoteShow extends React.Component {
     this.props.requestUpdateNote(this.state);
   }
 
-  // componentDidMount(){
-  //   this.props.requestSingleNote(this.props.match.params.noteId).then(
-  //     () => { this.props.requestSingleNotebook(this.props.note.notebook_id);}
-  //   );
-  // }
-  //
-  // componentWillReceiveProps(nextProps) {
-  //   // debugger;
-  //   if (nextProps.note && (this.props.match.params.noteId !== nextProps.match.params.noteId)) {
-  //     this.props.requestSingleNote(nextProps.note.id);
-  //   } else {
-  //     this.props.requestSingleNote(this.props.match.params.noteId);
-  //   }
-  //   // if(nextProps.note) {
-  //   //   this.setState({
-  //   //     title: nextProps.note.title,
-  //   //     body: nextProps.note.body
-  //   //   });
-  //   // }
-  // }
-
   componentDidMount(){
   this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
     this.props.requestSingleNotebook(this.props.note.notebook_id);
@@ -129,9 +108,13 @@ const mapStateToProps = (state, ownProps) => {
   const noteId = state.ui.note_ui;
   const note = state.notes[noteId];
   const notes = selectAllNotes(state);
+  const notebookIds = Object.keys(state.notebooks);
+  const notebooks = state.notebooks;
+  //
   return {
     notes,
-    note
+    note,
+    notebookIds
   };
 };
 

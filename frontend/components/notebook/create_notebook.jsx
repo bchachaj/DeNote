@@ -18,7 +18,7 @@ class CreateNotebook extends React.Component {
     e.preventDefault();
     const parseAuthor = parseInt(this.props.currentUser.id);
     this.props.createNotebook(this.state)
-    .then(data => this.props.history.push(`notebooks/${data.id}/notes`));
+    .then(data => this.props.history.push(`/notebooks/${data.id}/notes`));
   }
 
   update(property){
