@@ -5,7 +5,8 @@ import { CSSTransitionGroup } from 'react-transition-group';
 
 
 
-const personalize = (currentUser, logout) => (
+const personalize = (currentUser, logout) => {
+return(
   <div className="side-menu">
 
   <section className="auth-container">
@@ -42,7 +43,8 @@ const personalize = (currentUser, logout) => (
   </section>
   <button className="logout header-button" onClick={logout}>Logout</button>
  </div>
-);
+ );
+};
 
 
 const Greeting = ({currentUser, logout}) => (

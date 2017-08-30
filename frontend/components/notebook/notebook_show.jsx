@@ -14,7 +14,12 @@ class NotebookShow extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestSingleNotebook(this.props.match.params.notebookId);
+    let renderFirst = this.props.notes[0];
+    let thisNotebook = this.props.match.params.notebookId;
+    let ensureFirst = `/notebooks/${thisNotebook}/notes/${renderFirst.id}`;
+    this.props.requestSingleNotebook(thisNotebook).then(
+      this.props.history.push(ensureFirst)
+    );
   }
 
 //will receive props

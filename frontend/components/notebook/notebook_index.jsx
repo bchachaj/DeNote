@@ -16,7 +16,6 @@ class NotebookIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger;
     if(nextProps.notes && nextProps.notes.length === 0) {
       nextProps.requestAllNotes();
     }
@@ -24,6 +23,9 @@ class NotebookIndex extends React.Component {
 
   render() {
     const { notebooks } = this.props;
+    if (!notebooks) {
+      return null;
+    }
     const allNotebooks = notebooks.map((notebook, idx) =>
       <NotebookIndexItem key={notebook.id} notebook={notebook}/>
     );
