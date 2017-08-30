@@ -29,7 +29,9 @@ class NotebookIndexItem extends React.Component {
         </Link>
 
         <Link to={`/notebooks/${this.props.notebook.id}/delete`}>
-          <i className="fa fa-trash-o"></i>
+          <div className="delete-notebook">
+            <i className="fa fa-trash-o"></i>
+          </div>
         </Link>
         {/* <DeleteNotebook delete={this.props.delete} id={this.props.notebook.id}/> */}
     </div>

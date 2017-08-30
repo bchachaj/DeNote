@@ -67,7 +67,7 @@ componentWillReceiveProps(nextProps) {
           <DeleteNote delete={this.props.deleteNote}
             id={note.id} nextProp={nextNote}
           />
-          <NoteInfo change={note.updated_at} created={note.created_at}/>
+          <NoteInfo note={note} change={note.updated_at} created={note.created_at}/>
         </div>
       </div>
 

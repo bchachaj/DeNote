@@ -13,17 +13,16 @@
 
 .notebook-modal ul li {
   height: 52px;
-  width: 89%;
+  width: 94%;
   box-sizing: border-box;
   margin: 0 auto;
-  border-bottom: 1px outset #f2f2f2;
-  display: flex;
-  flex-direction: column;
+  border-bottom: 1px solid #d9d9d9;
   display: flex;
   flex-direction: column;
   padding: 10px;
   font-size: 18px;
   font-family: serif;
+  margin-top: 1px;
 }
 
 
@@ -34,6 +33,7 @@
 .notebook-item:hover {
   background: #2dbe60;
   color: white;
+  border-bottom: 1px solid transparent;
 }
 
 // .notebook-modal ul li:hover {
@@ -48,7 +48,7 @@
   letter-spacing: 1px;
   line-height: 36px;
   margin-bottom: 6px;
-  font-family: 'Scope One', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   font-style: normal;
   font-weight: 200;
   width: 450px;
@@ -59,7 +59,7 @@ vertical-align: top;
 font-size: 21px;
 letter-spacing: 0.5px;
 text-transform: uppercase;
-border-bottom: 1px #d9d9d9;
+border-bottom: 1px solid #d9d9d9;
 margin-bottom: 3px;
 text-align: left;
 }
@@ -75,21 +75,20 @@ text-align: left;
   height: 80px;
   margin: 1px;
   display: inline-block;
-vertical-align: top;
-font-size: 21px;
-letter-spacing: 0.5px;
-text-transform: uppercase;
-border-bottom: 1px #d9d9d9;
-margin-bottom: 3px;
-text-align: left;
-padding: 14px;
-margin-left: 5px;
+  vertical-align: top;
+  font-size: 21px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  text-align: left;
+  padding: 14px;
+  margin-left: 5px;
 }
 
 
 .notebook-modal-header i {
   position: absolute;
-  color: #d9d9d9;
+  color: gray;
   right: 10px;
   top: 10px;
 }
@@ -119,19 +118,17 @@ margin-left: 5px;
 
 
 .ReactModalPortal > div {
-    width: 100%;
-    transition-duration: 2s;
-    background: teal;
+    opacity: 1
 }
 
 .ReactModalPortal .ReactModal__Overlay {
-  transition: width 2600ms ease-in-out;
+  transition: opacity 1600ms ease-in-out;
   background: rgba(0, 0, 0, 0.15);
   &--after-open {
-    width: 100%;
+    opacity: 1;
   }
   &--before-close {
-      width: 0;
+      opacity: 0;
   }
 }
 

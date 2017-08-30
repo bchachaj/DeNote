@@ -42,8 +42,9 @@ class NoteInfo extends React.Component {
             <i className="fa fa-info"></i>
             <h3 className="modal-header">NOTE INFO</h3>
           </div>
-          <h1 className="modal-text">Note Title</h1>
+          <h1 className="modal-text">{this.props.note.title}</h1>
           <h6>Overview</h6>
+          <br/>
           <p>Created: {this.props.created}</p>
           <p>Updated: {this.props.change}</p>
 

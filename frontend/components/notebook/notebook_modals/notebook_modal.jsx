@@ -10,7 +10,6 @@ class NotebookModal extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
 
-
   }
 
   componentDidMount(){
@@ -21,7 +20,6 @@ class NotebookModal extends React.Component {
 
   componentWillUpdate(nextProps, nextState){
     if (this.state.modalIsOpen && !nextState.modalIsOpen) {
-      console.log('ok');
       this.props.history.push('/');
     }
   }
@@ -36,11 +34,9 @@ class NotebookModal extends React.Component {
 
 
 
-
   render(){
     return(
       <div>
-        {/* <i className="fa fa-book" onClick={this.openModal}></i> */}
 
         <ReactModal
           onClick={this.closeModal}

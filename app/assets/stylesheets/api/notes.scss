@@ -166,7 +166,7 @@ body {
   letter-spacing: 1px;
   line-height: 36px;
   margin-bottom: 6px;
-  font-family: 'Scope One', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   font-style: normal;
   font-weight: 200;
   width: 300px;
@@ -193,7 +193,7 @@ h1.note-header {
   line-height: 36px;
   font-size: 18px;
   margin-bottom: 6px;
-  font-family: 'Scope One', serif;
+  font-family: 'Playfair Display', serif;
   font-style: normal;
   font-weight: 200;
   padding: 1px;
@@ -275,6 +275,7 @@ p.note-index-body {
     white-space:nowrap;
     display:inline-block;
     padding-bottom: 4px;
+  font-family: sans-serif;
 }
 
 .note-index-item:hover {

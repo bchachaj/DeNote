@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { withRouter } from 'react-router-dom';
+import { requestAllNotebooks, deleteNotebook } from '../../../actions/notebook_actions';
+import { connect } from 'react-redux';
+
 
 class DeleteNotebook extends React.Component {
   constructor(props) {
@@ -9,15 +12,13 @@ class DeleteNotebook extends React.Component {
     this.state = {
       modalIsOpen: false
     };
-
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    // this.handleAction = this.handleAction.bind(this);
+    this.handleAction = this.handleAction.bind(this);
   }
 
   componentDidMount(){
-    console.log(this.props);
+    this.setState({modalIsOpen: true});
   }
 
   openModal(){
@@ -29,8 +30,10 @@ class DeleteNotebook extends React.Component {
   }
 
   handleAction(e){
+    const notebookId = parseInt(this.props.match.params.notebookId);
+
     e.preventDefault();
-    this.props.delete(this.props.id).then(() => {
+    this.props.deleteNotebook(notebookId).then(() => {
       this.props.history.push(`/notebooks`);
     });
   }
@@ -46,11 +49,14 @@ class DeleteNotebook extends React.Component {
           onRequestClose={this.closeModal}
           contentLabel="Delete Notebook"
           >
+
           <div className="modalFigurehead">
             <i className="fa fa-trash-o"></i>
             <h3 className="modal-header">DELETE NOTEBOOK</h3>
           </div>
+
           <h1 className="modal-text">Are you sure you want to delete this notebook?</h1>
+          
           <div className="modal-button-group">
           <button
             className="modal-button cancel"
@@ -68,4 +74,16 @@ class DeleteNotebook extends React.Component {
   }
 }
 
-export default withRouter(DeleteNotebook);
+
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteNotebook: notebookId => dispatch(deleteNotebook(notebookId))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(DeleteNotebook);

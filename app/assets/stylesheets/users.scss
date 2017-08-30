@@ -30,7 +30,7 @@ a:hover {
   height: 101px;
   width: 100%;
   text-align: center;
-  font-family: 'Scope One', serif;
+  font-family: 'Playfair Display', serif;
   color: white;
   font-size: 21px;
   position: absolute;
@@ -45,6 +45,16 @@ a:hover {
 
 }
 
+.notebook-header h4.note-header {
+  width: 330px;
+}
+h1.modal-text {
+  text-align: center;
+}
+
+.note-index-header h1 {
+  font-family: 'Scope One', sans-serif;
+}
 
 
 .highlighted {
