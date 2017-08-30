@@ -12,7 +12,9 @@ class NotebookIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestAllNotebooks();
+    this.props.requestAllNotebooks().then(() => {
+      this.props.requestAllNotes();
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,7 +29,7 @@ class NotebookIndex extends React.Component {
       return null;
     }
     const allNotebooks = notebooks.map((notebook, idx) =>
-      <NotebookIndexItem key={notebook.id} notebook={notebook} delete={this.props.deleteNotebook}/>
+      <NotebookIndexItem notes={this.props.notes} key={notebook.id} notebook={notebook} delete={this.props.deleteNotebook}/>
     );
 
     return(

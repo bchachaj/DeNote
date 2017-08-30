@@ -5,9 +5,10 @@ import CreateNote from './create_note';
 
 const mapStateToProps = (state) => {
   let currentUser = state.session.currentUser;
-
+  let notebookId = state.ui.notebook_ui;
   return {
-    currentUser,
+    notebookId,
+    currentUser
   };
 };
 

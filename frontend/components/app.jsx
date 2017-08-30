@@ -20,6 +20,7 @@ const App = () => {
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <ProtectedRoute path="/notes" component={Note}/>
         <ProtectedRoute path="/notebooks" component={Notebook}/>
+        <Redirect from="/" to="/notes" push />
       </Switch>
 
     </div>

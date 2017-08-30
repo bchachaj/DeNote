@@ -9,10 +9,22 @@ class NotebookIndexItem extends React.Component {
   }
 
   render() {
+    const { notes } = this.props;
+    const booknotes = notes.filter((el) =>
+      el.notebook_id === this.props.notebook.id
+    );
+    let e = booknotes[0];
+    debugger;
+    let linkPath;
+    if(e){
+      linkPath = `/notebooks/${this.props.notebook.id}/notes/${e.id}`;
+    } else {
+      linkPath = `/notebooks/${this.props.notebook.id}/notes`;
+    }
     return(
       <div className="notebook-item">
 
-        <Link to={`/notebooks/${this.props.notebook.id}/notes`}>
+        <Link to={linkPath}>
           <li>{this.props.notebook.title}</li>
         </Link>
 

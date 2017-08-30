@@ -3,12 +3,12 @@ import { combineReducers } from 'redux';
 import sessionReducer from './session_reducer';
 import noteReducer from './note_reducer';
 import notebookReducer from './notebook_reducer';
-import uiDisplayReducer from './ui_display';
+import uiReducer from './ui_combiner';
 const rootReducer = combineReducers({
   session: sessionReducer,
   notes: noteReducer,
   notebooks: notebookReducer,
-  ui: uiDisplayReducer
+  ui: uiReducer
 });
 
 

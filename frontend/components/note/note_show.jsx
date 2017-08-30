@@ -6,6 +6,8 @@ import { requestSingleNote,
          requestUpdateNote,
          deleteNote
         } from '../../actions/note_actions';
+
+import { requestSingleNotebook } from '../../actions/notebook_actions';
 import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
 
@@ -33,20 +35,42 @@ class NoteShow extends React.Component {
     this.props.requestUpdateNote(this.state);
   }
 
+  // componentDidMount(){
+  //   this.props.requestSingleNote(this.props.match.params.noteId).then(
+  //     () => { this.props.requestSingleNotebook(this.props.note.notebook_id);}
+  //   );
+  // }
+  //
+  // componentWillReceiveProps(nextProps) {
+  //   // debugger;
+  //   if (nextProps.note && (this.props.match.params.noteId !== nextProps.match.params.noteId)) {
+  //     this.props.requestSingleNote(nextProps.note.id);
+  //   } else {
+  //     this.props.requestSingleNote(this.props.match.params.noteId);
+  //   }
+  //   // if(nextProps.note) {
+  //   //   this.setState({
+  //   //     title: nextProps.note.title,
+  //   //     body: nextProps.note.body
+  //   //   });
+  //   // }
+  // }
+
   componentDidMount(){
-    this.props.requestSingleNote(this.props.match.params.noteId);
+  this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
+    this.props.requestSingleNotebook(this.props.note.notebook_id);
+  });
+}
+
+componentWillReceiveProps(nextProps) {
+  const testParam = nextProps.match.params.noteId;
+  if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
+    this.props.requestSingleNote(nextProps.match.params.noteId);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const testParam = nextProps.match.params.noteId;
-    if(testParam && (this.props.match.params.noteId !== nextProps.match.params.noteId)) {
-      this.props.requestSingleNote(nextProps.match.params.noteId);
-    }
-    this.setState({
-      title: nextProps.note.title,
-      body: nextProps.note.body
-    });
-  }
+  this.setState(nextProps.note);
+}
+
 
   render(){
     let { note } = this.props;
@@ -101,7 +125,8 @@ class NoteShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const noteId = state.ui;
+  //YEP
+  const noteId = state.ui.note_ui;
   const note = state.notes[noteId];
   const notes = selectAllNotes(state);
   return {
@@ -115,6 +140,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     requestSingleNote: (noteId) => dispatch(requestSingleNote(noteId)),
     requestUpdateNote: (note) => dispatch(requestUpdateNote(note)),
+    requestSingleNotebook: (notebook) => dispatch(requestSingleNotebook(notebook)),
     deleteNote: (noteId) => dispatch(deleteNote(noteId)),
   };
 };

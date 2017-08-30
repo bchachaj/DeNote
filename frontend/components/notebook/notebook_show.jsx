@@ -13,21 +13,23 @@ class NotebookShow extends React.Component {
   }
 
   componentDidMount(){
-    let renderFirst = this.props.notes[0];
-    let thisNotebook = this.props.match.params.notebookId;
-    let ensureFirst = `/notebooks/${thisNotebook}/notes/${renderFirst.id}`;
-    this.props.requestSingleNotebook(thisNotebook).then(
-      this.props.history.push(ensureFirst)
-    );
+    let e = this.props.notes[0];
+    debugger;
+    if(e) {
+
+    this.props.requestSingleNotebook(this.props.match.params.notebookId)
+      .then(() => {
+        this.props.history.push(`/notebooks/${this.props.notebook.id}/notes/${e.id}`)
+      });
+    }
   }
 
-//will receive props
   componentWillReceiveProps(nextProps) {
-    let renderFirst = this.props.notes[0];
-    if (renderFirst && (this.props.match.params.notebookId !==
+    let e = this.props.notes[0];
+    if (e && (this.props.match.params.notebookId !==
       nextProps.match.params.notebookId))
     {
-    this.props.requestSingleNotebook(nextProps.match.params.notebookId);
+      this.props.requestSingleNotebook(nextProps.match.params.notebookId);
     }
 
   }
@@ -35,7 +37,7 @@ class NotebookShow extends React.Component {
 
   render() {
     let { notes, notebook } = this.props;
-    if(!notes) {
+    if(!notes || !notebook) {
       return null;
     }
     let allNotes = notes.map((note, idx) =>
@@ -43,7 +45,7 @@ class NotebookShow extends React.Component {
             className="index-link"
             to={`/notebooks/${notebook.id}/notes/${note.id}`}>
 
-           <NoteIndexItem note={note} delete={this.props.deleteNote}/>
+           <NoteIndexItem note={note} delete={this.props.deleteNote} />
 
       </Link>
      );
@@ -70,9 +72,9 @@ class NotebookShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+
   const notebookPath = parseInt(ownProps.match.params.notebookId);
   const notesState = selectAllNotes(state);
-
 
   //Grab notes belonging to this notebook
   const notes = notesState.filter((el) =>

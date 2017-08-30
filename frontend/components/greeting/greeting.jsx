@@ -29,13 +29,7 @@ return(
           <i className="fa fa-file-text-o" aria-hidden="true"></i>
         </Link>
 
-
-        {/* <CSSTransitionGroup
-           transitionName="example"
-           transitionEnterTimeout={2500}
-           transitionLeaveTimeout={2300}> */}
-           <NotebookModal key={1}/>
-        {/* </CSSTransitionGroup> */}
+         <NotebookModal/>
 
         <i className="fa fa-tag" aria-hidden="true"></i>
       </div>

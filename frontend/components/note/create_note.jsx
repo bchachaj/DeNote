@@ -19,16 +19,20 @@ class CreateNote extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.state.author_id = this.props.currentUser.id;
-
+    const nId = this.props.notebookId;
     //temporary
-    this.state.notebook_id = 1;
+    this.state.notebook_id = nId|| 1;
     this.state.archived = true;
     //end temporary
 
     //if history has notebook id -> add to state and push to that url
-    this.props.createNote(this.state)
-      .then(data => this.props.history.push(`/notes/${data.id}`));
-
+    if(this.props.notebookId) {
+      this.props.createNote(this.state)
+        .then(data => this.props.history.push(`/notebooks/${nId}/notes/${data.id}`));
+    } else {
+      this.props.createNote(this.state)
+        .then(data => this.props.history.push(`/notes/${data.id}`));
+    }
   }
 
   update(property){
