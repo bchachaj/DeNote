@@ -231,6 +231,7 @@ h1.note-header {
   border: 1px solid #ececec;
   background: transparent;
   opacity: 0.2;
+  display: none;
 }
 
 .note-ul::-webkit-scrollbar-thumb {
@@ -316,7 +317,36 @@ p.note-index-body {
   margin: 0;
 }
 
+//
+.scrollbar {
+    background-color: white;
+    margin-bottom: 25px;
+    float: left;
+    height: 90%;
+    width: 100%;
+       overflow-y: scroll;
+       padding-bottom: 140px;
+}
 
+.note-ul {
+  padding-bottom: 145px;
+}
+
+// .scrollbar::-webkit-scrollbar {
+//     width: 9px;
+//     background-color: rgba(144,144,144,0.5);
+//     height: 20px;
+// }
+//
+// .scrollbar::-webkit-scrollbar-thumb {
+//   background: #000000;
+//   height: 20px;
+// }
+//
+// .scrollbar::-webkit-scrollbar-track {
+//     -webkit-box-shadow: inset 2px 2px 6px rba(255,255,255,0.3);
+//     background-color: rba(233,255,255,0.6);
+// }
 
 
 // bottom

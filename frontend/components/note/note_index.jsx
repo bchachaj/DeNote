@@ -40,9 +40,12 @@ class NoteIndex extends React.Component {
           <h4 className="note-header">{notes.length} notes</h4>
         </span>
       </div>
+      <div className="scrollbar">
+
       <ul className="note-ul">
         {allNotes}
       </ul>
+    </div>
     </section>
 
   </div>

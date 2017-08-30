@@ -6,7 +6,6 @@ import NoteIndexItem from '../note/note_index_item';
 import { selectAllNotes } from '../../reducers/selectors';
 import { deleteNote } from '../../actions/note_actions';
 
-
 class NotebookShow extends React.Component {
 
   constructor(props){
@@ -48,7 +47,6 @@ class NotebookShow extends React.Component {
 
       </Link>
      );
-
 
 
     return (
