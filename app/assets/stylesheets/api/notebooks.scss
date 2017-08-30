@@ -29,6 +29,8 @@
   z-index: 999;
   position: absolute;
   top: 250px;
+  left: 0px;
+  right: 0px;
   font-size: 40px;
   width: 100%;
 text-align: center;
@@ -42,8 +44,9 @@ margin: 0 auto;
 
 
 .no-note-zone strong {
-  font-size: 21px;
-  padding: 2px;
+  font-size: 30px;
+  padding: 3px;
+  padding-bottom: 0px;
   color: rgb(96,189,132);
 }
 
@@ -54,4 +57,8 @@ margin: 0 auto;
 .no-zone-inner{
   margin-bottom: 24%;
   width: 80%;
+}
+
+a.active, a.focus {
+  outline: none;
 }

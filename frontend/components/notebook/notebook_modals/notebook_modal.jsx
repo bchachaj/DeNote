@@ -19,6 +19,13 @@ class NotebookModal extends React.Component {
     }
   }
 
+  componentWillUpdate(nextProps, nextState){
+    if (this.state.modalIsOpen && !nextState.modalIsOpen) {
+      console.log('ok');
+      this.props.history.push('/');
+    }
+  }
+
   openModal(){
     this.setState({modalIsOpen: true});
   }

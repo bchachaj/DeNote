@@ -12,8 +12,6 @@ const uiDisplayReducer = (state = nullUI, action) => {
   switch (action.type) {
     case RECEIVE_ONE_NOTE:
       return action.note.id || state;
-    // case RECEIVE_ONE_NOTEBOOK:
-    //   return action.notebook.id || state;
     default:
       return state;
   }
