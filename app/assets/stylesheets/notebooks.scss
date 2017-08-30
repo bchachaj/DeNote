@@ -72,7 +72,7 @@ text-align: left;
   font-family: 'Scope One', sans-serif;
   font-style: normal;
   font-weight: 200;
-  height: 100px;
+  height: 80px;
   margin: 1px;
   display: inline-block;
 vertical-align: top;
@@ -94,7 +94,28 @@ margin-left: 5px;
   top: 10px;
 }
 
+.notebook-header h4.note-header {
+  position: relative;
+  left: 0px;
+  top: 90px;
+  padding: 4px;
+  padding-left: 15px;
+  width: 100%;
+  border-bottom: 1px solid #d9d9d9;
+}
 
+.notebook-header {
+  margin-bottom: 15px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  padding-left: 0px;
+  width: 97%;
+  border-bottom: none;
+}
+
+.notebook-header h1 {
+  height: 70px;
+}
 
 
 .ReactModalPortal > div {
@@ -112,4 +133,12 @@ margin-left: 5px;
   &--before-close {
       width: 0;
   }
+}
+
+
+.book-delete {
+  position: absolute;
+  top:0;
+  bottom:0;
+  right: 20px;
 }

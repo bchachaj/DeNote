@@ -2,7 +2,7 @@ import React from 'react';
 
 import NotebookIndex from './notebook_index';
 
-import { requestAllNotebooks } from '../../actions/notebook_actions';
+import { requestAllNotebooks, deleteNotebook } from '../../actions/notebook_actions';
 import { requestAllNotes } from '../../actions/note_actions';
 import { selectAllNotebooks, selectAllNotes } from '../../reducers/selectors';
 
@@ -18,7 +18,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     requestAllNotebooks: () => dispatch(requestAllNotebooks()),
-    requestAllNotes: () => dispatch(requestAllNotes())
+    requestAllNotes: () => dispatch(requestAllNotes()),
+    deleteNotebook: (notebook) => dispatch(deleteNotebook(notebook))
   };
 };
 

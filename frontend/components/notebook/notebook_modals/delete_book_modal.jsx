@@ -2,7 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import { withRouter } from 'react-router-dom';
 
-class DeleteNote extends React.Component {
+class DeleteNotebook extends React.Component {
   constructor(props) {
     super(props);
 
@@ -31,10 +31,9 @@ class DeleteNote extends React.Component {
   handleAction(e){
     e.preventDefault();
     this.props.delete(this.props.id).then(() => {
-
       //need logic to check whether being deleted from note 'main' index or from
       //notebook
-      this.props.history.push(`/notes/${this.props.nextProp.id}`);
+      this.props.history.push(`/notebooks`);
     });
   }
 
@@ -42,18 +41,18 @@ class DeleteNote extends React.Component {
   render(){
     return(
       <div>
-        <i className="fa fa-trash-o" onClick={this.openModal}></i>
+        <i className="fa fa-trash-o notebook-delete" onClick={this.openModal}></i>
         <ReactModal
           className="note-modal"
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
-          contentLabel="Delete Note"
+          contentLabel="Delete Notebook"
           >
           <div className="modalFigurehead">
             <i className="fa fa-trash-o"></i>
-            <h3 className="modal-header">DELETE NOTE</h3>
+            <h3 className="modal-header">DELETE NOTEBOOK</h3>
           </div>
-          <h1 className="modal-text">Are you sure you want to delete this note?</h1>
+          <h1 className="modal-text">Are you sure you want to delete this notebook?</h1>
           <div className="modal-button-group">
           <button
             className="modal-button cancel"
@@ -71,4 +70,4 @@ class DeleteNote extends React.Component {
   }
 }
 
-export default withRouter(DeleteNote);
+export default withRouter(DeleteNotebook);

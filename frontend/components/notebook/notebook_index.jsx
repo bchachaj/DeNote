@@ -27,7 +27,7 @@ class NotebookIndex extends React.Component {
       return null;
     }
     const allNotebooks = notebooks.map((notebook, idx) =>
-      <NotebookIndexItem key={notebook.id} notebook={notebook}/>
+      <NotebookIndexItem key={notebook.id} notebook={notebook} delete={this.props.deleteNotebook}/>
     );
 
     return(
