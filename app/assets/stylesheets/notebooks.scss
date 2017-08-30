@@ -3,7 +3,7 @@
 .notebook-modal {
   width: 450px;
   position: relative;
-  left: 73px;
+  left: 0px;
   float: left;
   outline: none;
   height: 100%;
@@ -30,6 +30,7 @@
   width: 100%;
   height: 52px;
   display: flex;
+  transition-duration: 0.3s;
 }
 
 .notebook-item a {
@@ -49,14 +50,6 @@
   background: #2dbe60;
   color: white;
 }
-.notebook-item:hover > i {
-  color: green;
-}
-
-// .notebook-modal ul li:hover {
-//   background: #2dbe60;
-//   color: white;
-// }
 
 
 .notebook-modal-header {
@@ -142,7 +135,7 @@ text-align: left;
 
 .ReactModalPortal .ReactModal__Overlay {
   transition: opacity 1600ms ease-in-out;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.85);
   &--after-open {
     opacity: 1;
   }
@@ -150,7 +143,9 @@ text-align: left;
       opacity: 0;
   }
 }
-
+.ReactModal__Overlay {
+  margin-left: 73px;
+}
 
 .book-delete {
   position: absolute;
@@ -172,4 +167,12 @@ text-align: left;
 
 .delete-notebook {
   height: 50%;
+}
+
+.notebook-header .note-header {
+  font-family: 'Playfair Display', sans-serif;
+}
+
+h4.note-header {
+  font-family: sans-serif;
 }

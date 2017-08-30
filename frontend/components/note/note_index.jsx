@@ -23,8 +23,10 @@ class NoteIndex extends React.Component {
     return(
       <div className="no-note-zone">
         <div className="no-zone-inner">
-          <h2>Click the + to add a note</h2>
-          <p>Collet inspiration in this notebook</p>
+          <i className="fa fa-file-text-o text-1" id="text-1"></i>
+          <i className="fa fa-file-text-o text-2" id="text-2"></i>
+          <h2>Click the <strong>+</strong> to add a note</h2>
+          <p>Collect inspiration in this notebook</p>
         </div>
       </div>
     );
@@ -62,7 +64,7 @@ class NoteIndex extends React.Component {
       <div className="scrollbar">
 
       <ul className="note-ul">
-        {renderThis}
+        {allNotes}
       </ul>
     </div>
     </section>

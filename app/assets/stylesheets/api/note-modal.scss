@@ -4,6 +4,7 @@
   width: 100vw;
   outline: none;
   color: gray;
+
 }
 
 .ReactModal__Overlay:focus {
@@ -11,7 +12,7 @@
 }
 
 .ReactModal__Content {
-  width: 50vw;
+  width: 100vw;
   height: 50vh;
   outline: none;
   margin: 0 auto;
