@@ -30,6 +30,30 @@ class NoteShow extends React.Component {
     this.displayDropdown = this.displayDropdown.bind(this);
   }
 
+  componentDidMount(){
+    this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
+      this.props.requestAllNotebooks();
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const testParam = nextProps.match.params.noteId;
+    if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
+      this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
+      this.props.requestAllNotebooks()
+    );
+    }
+    this.setState(nextProps.note);
+  }
+
+
+  displayDropdown(e){
+    e.stopPropagation();
+    const css = (this.state.showHideDropdown === 'hidden') ? 'show' : 'hidden';
+    this.setState({showHideDropdown: css});
+
+  }
+
   update(property) {
     return e => this.setState({ [property]: e.target.value });
   }
@@ -42,13 +66,6 @@ class NoteShow extends React.Component {
       body: this.state.body,
       id: this.state.id
     });
-  }
-
-  displayDropdown(e){
-    e.stopPropagation();
-    const css = (this.state.showHideDropdown === 'hidden') ? 'show' : 'hidden';
-    this.setState({showHideDropdown: css});
-
   }
 
   setNotebook(e){
@@ -64,20 +81,6 @@ class NoteShow extends React.Component {
   // }
 
 
-componentDidMount(){
-  this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
-    this.props.requestAllNotebooks();
-  });
-}
-
-componentWillReceiveProps(nextProps) {
-  const testParam = nextProps.match.params.noteId;
-  if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
-    this.props.requestSingleNote(nextProps.match.params.noteId);
-  }
-  this.props.requestAllNotebooks();
-  this.setState(nextProps.note);
-}
 
 
   render(){
@@ -98,6 +101,7 @@ componentWillReceiveProps(nextProps) {
       </div>
     );
 
+    debugger;
 
     return (
       <div className="note-show-main">
@@ -166,13 +170,12 @@ const mapStateToProps = (state, ownProps) => {
   const noteId = state.ui.note_ui;
   const note = state.notes[noteId];
   const notes = selectAllNotes(state);
-  // const notebookIds = Object.keys(state.notebooks);
   const notebooks = selectAllNotebooks(state);
   //
   return {
     notes,
     note,
-    // notebookIds,
+
     notebooks
   };
 };
@@ -182,9 +185,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     requestSingleNote: (noteId) => dispatch(requestSingleNote(noteId)),
     requestUpdateNote: (note) => dispatch(requestUpdateNote(note)),
-    requestAllNotebooks: () => dispatch(requestAllNotebooks),
-    // requestSingleNotebook: (notebook) => dispatch(
-    //   requestSingleNotebook(notebook)),
+    requestAllNotebooks: () => dispatch(requestAllNotebooks()),
     deleteNote: (noteId) => dispatch(deleteNote(noteId)),
     createNotebook: (notebook) => dispatch(createNotebook(notebook))
   };
