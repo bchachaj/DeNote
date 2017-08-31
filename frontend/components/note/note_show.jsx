@@ -13,6 +13,8 @@ import { requestSingleNotebook, requestAllNotebooks,
 import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
 
+import { Editor, EditorState } from 'draft-js';
+
 class NoteShow extends React.Component {
 
   constructor(props){
@@ -68,7 +70,7 @@ class NoteShow extends React.Component {
   // }
 
 
-  componentDidMount(){
+  componentWillMount(){
   this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
     this.props.requestAllNotebooks();
   });

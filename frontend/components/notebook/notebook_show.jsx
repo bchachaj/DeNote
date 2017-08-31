@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { requestSingleNotebook } from '../../actions/notebook_actions';
+import { requestSingleNotebook, requestAllNotebooks } from '../../actions/notebook_actions';
 import NoteIndexItem from '../note/note_index_item';
 import { selectAllNotes } from '../../reducers/selectors';
 import { deleteNote } from '../../actions/note_actions';
@@ -18,10 +18,13 @@ class NotebookShow extends React.Component {
 
     this.props.requestSingleNotebook(this.props.match.params.notebookId)
       .then(() => {
-        this.props.history.push(`/notebooks/${this.props.notebook.id}/notes/${e.id}`)
+        this.props.history.push(`/notebooks/${this.props.notebook.id}/notes/${e.id}`);
       });
+    } else {
+      this.props.requestSingleNotebook(this.props.match.params.notebookId);
     }
   }
+
 
   componentWillReceiveProps(nextProps) {
     let e = this.props.notes[0];
@@ -102,16 +105,18 @@ const mapStateToProps = (state, ownProps) => {
     el.notebook_id === notebookPath
   );
   const notebook = state.notebooks[notebookPath];
-
+  const notebooks = state.notebooks;
   return {
     notes,
-    notebook
+    notebook,
+    notebooks
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestSingleNotebook: id => dispatch(requestSingleNotebook(id))
+    requestSingleNotebook: id => dispatch(requestSingleNotebook(id)),
+    requestAllNotebooks: () => dispatch(requestAllNotebooks())
   };
 };
 

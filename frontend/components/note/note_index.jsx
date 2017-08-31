@@ -15,7 +15,7 @@ class NoteIndex extends React.Component {
     const pathId = nextProps.notes[0];
     if ((this.props.notes.length === 0) && pathId.id && (this.props.match.params.noteId !== pathId.id.toString())) {
       //^ checking if not already on same path..^
-      this.props.history.push(`/notes/${pathId.id}`);
+      this.props.requestAllNotes().then(this.props.history.push(`/notes/${pathId.id}`));
     }
   }
 
