@@ -38,7 +38,6 @@ class CreateNotebookModal extends React.Component {
   handleAction(e){
     const notebookId = parseInt(this.props.match.params.notebookId);
     let correctPath;
-    debugger;
     e.preventDefault();
     this.props.createNotebook({
        title: this.state.title,

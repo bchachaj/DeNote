@@ -84,7 +84,7 @@ class NoteShow extends React.Component {
 
   render(){
 
-    let { note } = this.props;
+    let { note, notebooks } = this.props;
     if (!note) {
       return null;
     }
@@ -92,6 +92,7 @@ class NoteShow extends React.Component {
     if (nextNote === note) {
       nextNote = this.props.notes[1];
     }
+
 
     const notebookOptions = this.props.notebooks.map((el) =>
       <div key={el.id}

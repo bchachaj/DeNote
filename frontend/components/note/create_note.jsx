@@ -9,11 +9,36 @@ class CreateNote extends React.Component {
     this.state = {
       title: "",
       body: "",
+      book_id: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.switchLinks = this.switchLinks.bind(this);
+    this.setNotebook = this.setNotebook.bind(this);
+    this.displayDropdown = this.displayDropdown.bind(this);
+  }
+
+  displayDropdown(e){
+    e.stopPropagation();
+    const css = (this.state.showHideDropdown === 'hidden') ? 'show' : 'hidden';
+    this.setState({showHideDropdown: css});
+  }
+
+  componentDidMount(){
+    this.props.requestAllNotebooks();
+  }
+
+  componentWillReceiveProps(nextProps){
+
+    if(this.props.notebookId){
+      this.setState({book_id: this.props.notebookId});
+    } else {
+      this.nextProps.requestAllNotebooks();
+      this.setState({
+        book_id: this.props.notebooks[0].id
+      });
+    }
   }
 
   switchLinks(){
@@ -30,10 +55,22 @@ class CreateNote extends React.Component {
     }
   }
 
+  setNotebook(e, data){
+    this.setState({
+      category: data.title,
+      book_id: data.id
+    });
+  }
+
+  displayDropdown(e){
+    e.stopPropagation();
+    const css = (this.state.showHideDropdown === 'hidden') ? 'show' : 'hidden';
+    this.setState({showHideDropdown: css});
+  }
 
   handleSubmit(e){
     e.preventDefault();
-    const nId = this.props.notebookId;
+    const nId = this.state.book_id;
     this.state.notebook_id = nId;
     this.state.archived = true;
     //if history has notebook id -> add to state and push to that url
@@ -52,8 +89,47 @@ class CreateNote extends React.Component {
 
 
   render(){
+
+    // const notebookOptions = this.props.notebooks.map((el) =>
+    //   <div key={el.id}
+    //        className="notebook-drop-item"
+    //        >
+    //     <span className="notebook-option"
+    //           data-element={el}
+    //           onClick={(e) => this.setNotebook(e, el)}
+    //            >{el.title}</span>
+    //   </div>
+    // );
+
+
     return(
       <div className="new-note-overlay">
+
+        <div className="note-controls">
+          <div className="note-menu">
+            <i className="fa fa-book"
+               onClick={this.displayDropdown}
+               aria-hidden="true"></i>
+            <i className="category-label"
+               onClick={this.displayDropdown}>{this.state.category} &#9660;</i>
+            <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
+              <div className="drop-container">
+
+                <div className="notebook-drop-item">
+                  <Link to="/notebooks/new">
+                    <span className="notebook-option">
+                      Create new notebook<strong>+</strong>
+                    </span>
+                  </Link>
+                </div>
+                {/* {notebookOptions} */}
+              </div>
+            </ul>
+
+            <i className="fa fa-tag" aria-hidden="true"></i>
+          </div>
+        </div>
+
         <form className="create-note note" onSubmit={this.handleSubmit}>
         <input
            type="text"
