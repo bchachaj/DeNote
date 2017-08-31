@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter,Link } from 'react-router-dom';
 // import {Editor, EditorState} from 'draft-js';
 
 class CreateNote extends React.Component {
@@ -13,6 +13,21 @@ class CreateNote extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.switchLinks = this.switchLinks.bind(this);
+  }
+
+  switchLinks(){
+    if(this.state.title === '' || this.state.body === ''){
+      return (
+        <Link to="/notes">
+          <input className="note-save cancel" type="submit" value="Cancel"/>
+        </Link>
+      );
+    } else {
+      return(
+        <input className="note-save" type="submit" value="Done"/>
+      );
+    }
   }
 
 
@@ -60,7 +75,7 @@ class CreateNote extends React.Component {
          />
 
 
-         <input className="note-save" type="submit" value="Done"/>
+         {this.switchLinks()}
        </form>
 
       </div>

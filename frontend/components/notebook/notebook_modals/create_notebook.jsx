@@ -5,16 +5,19 @@ import { requestAllNotebooks, createNotebook } from '../../../actions/notebook_a
 import { connect } from 'react-redux';
 
 
-class DeleteNotebook extends React.Component {
+class CreateNotebookModal extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      title: '',
+      description: ''
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleAction = this.handleAction.bind(this);
+    this.update = this.update.bind(this);
   }
 
   componentDidMount(){
@@ -24,6 +27,9 @@ class DeleteNotebook extends React.Component {
   openModal(){
     this.setState({modalIsOpen: true});
   }
+  update(property){
+    return e => this.setState({[property]: e.target.value });
+  }
 
   closeModal(){
     this.setState({modalIsOpen: false});
@@ -32,9 +38,11 @@ class DeleteNotebook extends React.Component {
   handleAction(e){
     const notebookId = parseInt(this.props.match.params.notebookId);
     let correctPath;
-    
+    debugger;
     e.preventDefault();
-    this.props.createNotebook(notebookId).then(() => {
+    this.props.createNotebook({
+       title: this.state.title,
+       description: 'This is a notebook'}).then(() => {
       this.props.history.push(`/notebooks`);
     });
   }
@@ -43,7 +51,6 @@ class DeleteNotebook extends React.Component {
   render(){
     return(
       <div>
-
         <ReactModal
           className="note-modal"
           isOpen={this.state.modalIsOpen}
@@ -56,20 +63,27 @@ class DeleteNotebook extends React.Component {
             <h3 className="modal-header">CREATE NOTEBOOK</h3>
           </div>
 
-          <h1 className="modal-text">Are you sure you want to delete this notebook?</h1>
+          <input type="text"
+                 className="modal-text create-notebook"
+                 placeholder="Title your notebook"
+                 autoFocus
+                onChange={this.update("title")}
+                 ></input>
 
           <div className="modal-button-group">
-          <button
-            className="modal-button cancel"
-            onClick={this.closeModal}>
-            Cancel</button>
+            <button
+              className="modal-button cancel"
+              onClick={this.closeModal}>
+              Cancel</button>
 
             <button
               className="modal-button"
               onClick={this.handleAction}>
-              Create notebook</button>
+              Create</button>
             </div>
+
         </ReactModal>
+
       </div>
     );
   }
@@ -87,4 +101,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(DeleteNotebook);
+)(CreateNotebookModal);

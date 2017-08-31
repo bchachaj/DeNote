@@ -30,7 +30,7 @@ class DeleteNote extends React.Component {
 
   handleAction(e){
     e.preventDefault();
-    const keep = this.props.nextProp.id;
+    const keep = this.props.nextProp.id || '';
     const path = this.props.location.pathname.split('/');
     this.props.delete(this.props.id).then(() => {
       if(path[1] === 'notebooks') {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { selectOneNote,
          selectAllNotes,
          selectAllNotebooks } from '../../reducers/selectors';
@@ -72,7 +72,6 @@ class NoteShow extends React.Component {
   }
 
   setNotebook(e, data){
-    console.log(data);
     this.setState({
       category: data.title,
       book_id: data.id
@@ -122,15 +121,20 @@ class NoteShow extends React.Component {
 
       <div className="note-controls">
         <div className="note-menu">
-          <i className="fa fa-book" onClick={this.displayDropdown} aria-hidden="true"></i>
-          <i className="category-label" onClick={this.displayDropdown}>{this.state.category} &#9660;</i>
+          <i className="fa fa-book"
+             onClick={this.displayDropdown}
+             aria-hidden="true"></i>
+          <i className="category-label"
+             onClick={this.displayDropdown}>{this.state.category} &#9660;</i>
           <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
             <div className="drop-container">
 
               <div className="notebook-drop-item">
-                <span className="notebook-option">
-                  Create new notebook, ok?
-                </span>
+                <Link to="/notebooks/new">
+                  <span className="notebook-option">
+                    Create new notebook<strong>+</strong>
+                  </span>
+                </Link>
               </div>
               {notebookOptions}
             </div>

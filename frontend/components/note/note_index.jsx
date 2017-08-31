@@ -23,7 +23,6 @@ class NoteIndex extends React.Component {
     return(
       <div className="no-note-zone">
         <div className="no-zone-inner">
-          <i className="fa fa-file-text-o text-1" id="text-1"></i>
           <i className="fa fa-file-text-o text-2" id="text-2"></i>
           <h2>Click the <strong>+</strong> to add a note</h2>
           <p>Collect inspiration in this notebook</p>
