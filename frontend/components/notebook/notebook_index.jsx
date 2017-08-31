@@ -12,9 +12,7 @@ class NotebookIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestAllNotebooks().then(() => {
-      this.props.requestAllNotes();
-    });
+    this.props.requestAllNotebooks();
   }
 
   componentWillReceiveProps(nextProps) {

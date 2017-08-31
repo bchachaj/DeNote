@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { selectOneNote, selectAllNotes } from '../../reducers/selectors';
+import { selectOneNote,
+         selectAllNotes,
+         selectAllNotebooks } from '../../reducers/selectors';
 import { requestSingleNote,
          requestUpdateNote,
          deleteNote
         } from '../../actions/note_actions';
-
-import { requestSingleNotebook } from '../../actions/notebook_actions';
+import { requestSingleNotebook, requestAllNotebooks,
+         createNotebook } from '../../actions/notebook_actions';
 import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
 
@@ -17,27 +19,58 @@ class NoteShow extends React.Component {
     super(props);
     this.state = {
       title: '',
-      body: ''
+      body: '',
+      showHideDropdown: 'hidden'
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setNotebook = this.setNotebook.bind(this);
+    this.displayDropdown = this.displayDropdown.bind(this);
+  }
 
+  getInitialState(){
+    return {
+      showHideDropdown:"hidden"
+    };
   }
 
   update(property) {
     return e => this.setState({ [property]: e.target.value });
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
     this.state.id = this.props.note.id;
-    this.props.requestUpdateNote(this.state);
+    this.props.requestUpdateNote({
+      title: this.state.title,
+      body: this.state.body,
+      id: this.state.id
+    });
   }
+
+  displayDropdown(e){
+    e.stopPropagation();
+    const css = (this.state.showHideDropdown === 'hidden') ? 'show' : 'hidden';
+    this.setState({showHideDropdown: css});
+
+  }
+
+  setNotebook(e){
+    console.log(e.target.value);
+  }
+
+  setTag(){
+    //tbd
+  }
+
+  // removeTag(){
+  //  on click of ze 'x'
+  // }
+
 
   componentDidMount(){
   this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
-    this.props.requestSingleNotebook(this.props.note.notebook_id);
+    this.props.requestAllNotebooks();
   });
 }
 
@@ -46,7 +79,7 @@ componentWillReceiveProps(nextProps) {
   if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
     this.props.requestSingleNote(nextProps.match.params.noteId);
   }
-
+  this.props.requestAllNotebooks();
   this.setState(nextProps.note);
 }
 
@@ -59,7 +92,17 @@ componentWillReceiveProps(nextProps) {
     let nextNote = this.props.notes[0];
     if (nextNote === note) {
       nextNote = this.props.notes[1];
-    }
+  }
+
+    const notebookOptions = this.props.notebooks.map((el) =>
+      <div key={el.id}
+           className="notebook-drop-item"
+           onClick={this.setNotebook}>
+        <span className="notebook-option" value={el.id}>{el.title}</span>
+      </div>
+    );
+
+
     return (
       <div className="note-show-main">
       <div className="note-show-header">
@@ -67,13 +110,28 @@ componentWillReceiveProps(nextProps) {
           <DeleteNote delete={this.props.deleteNote}
             id={note.id} nextProp={nextNote}
           />
-          <NoteInfo note={note} change={note.updated_at} created={note.created_at}/>
+          <NoteInfo note={note}
+                    change={note.updated_at}
+                    created={note.created_at}/>
         </div>
       </div>
 
       <div className="note-controls">
         <div className="note-menu">
-          <i className="fa fa-book" aria-hidden="true"></i>
+          <i className="fa fa-book" onClick={this.displayDropdown} aria-hidden="true"></i>
+          {/* {this.props.notebooks[0].title} */}
+          <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
+            <div className="drop-container">
+
+              <div className="notebook-drop-item">
+                <span className="notebook-option">
+                  Create new notebook, ok?
+                </span>
+              </div>
+              {notebookOptions}
+            </div>
+          </ul>
+
           <i className="fa fa-tag" aria-hidden="true"></i>
         </div>
       </div>
@@ -108,16 +166,18 @@ componentWillReceiveProps(nextProps) {
 
 const mapStateToProps = (state, ownProps) => {
   //YEP
+
   const noteId = state.ui.note_ui;
   const note = state.notes[noteId];
   const notes = selectAllNotes(state);
   const notebookIds = Object.keys(state.notebooks);
-  const notebooks = state.notebooks;
+  const notebooks = selectAllNotebooks(state);
   //
   return {
     notes,
     note,
-    notebookIds
+    notebookIds,
+    notebooks
   };
 };
 
@@ -126,8 +186,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     requestSingleNote: (noteId) => dispatch(requestSingleNote(noteId)),
     requestUpdateNote: (note) => dispatch(requestUpdateNote(note)),
-    requestSingleNotebook: (notebook) => dispatch(requestSingleNotebook(notebook)),
+    requestAllNotebooks: () => dispatch(requestAllNotebooks),
+    requestSingleNotebook: (notebook) => dispatch(
+      requestSingleNotebook(notebook)),
     deleteNote: (noteId) => dispatch(deleteNote(noteId)),
+    createNotebook: (notebook) => dispatch(createNotebook(notebook))
   };
 };
 
