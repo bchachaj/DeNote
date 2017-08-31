@@ -36,6 +36,7 @@ class NoteShow extends React.Component {
   componentDidMount(){
     this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
       this.props.requestAllNotebooks();
+
     });
   }
 
@@ -43,12 +44,18 @@ class NoteShow extends React.Component {
     const testParam = nextProps.match.params.noteId;
     if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
-      this.props.requestAllNotebooks()
+     //arg passed is action
+
+      //return value is action itself
+      this.props.requestAllNotebooks(),
+      this.setState({ category: nextProps.notebook.title })
     );
     }
-    debugger;
+
     this.setState({note: nextProps.note});
-    this.setState({ category: nextProps.notebook.title });
+    if(this.props.notebook) {
+      this.setState({ category: this.props.notebook.title });
+    }
   }
 
   displayDropdown(e){
