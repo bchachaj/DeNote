@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import CreateNote from './create_note';
 import { requestSingleNotebook, requestAllNotebooks,
          createNotebook } from '../../actions/notebook_actions';
-
+import { selectAllNotebooks } from '../../reducers/selectors';
 const mapStateToProps = (state, ownProps) => {
   let currentUser = state.session.currentUser;
   let notebookId = state.ui.notebook_ui;
 
-  const notebooks = state.notebooks;
+  const notebooks = selectAllNotebooks(state);
+
   return {
     notebookId,
     currentUser,

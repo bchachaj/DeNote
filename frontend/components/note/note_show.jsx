@@ -46,6 +46,7 @@ class NoteShow extends React.Component {
       this.props.requestAllNotebooks()
     );
     }
+    debugger;
     this.setState({note: nextProps.note});
     this.setState({ category: nextProps.notebook.title });
   }

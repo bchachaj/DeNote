@@ -9,7 +9,9 @@ class CreateNote extends React.Component {
     this.state = {
       title: "",
       body: "",
-      book_id: ""
+      book_id: "",
+      category: 'Select a notebook',
+      showHideDropdown: 'hidden',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -89,17 +91,20 @@ class CreateNote extends React.Component {
 
 
   render(){
+    let notebookOptions;
+    if (this.props.notebooks) {
+        notebookOptions = this.props.notebooks.map((el) =>
+        <div key={el.id}
+             className="notebook-drop-item"
+             >
+          <span className="notebook-option"
+                data-element={el}
+                onClick={(e) => this.setNotebook(e, el)}
+                 >{el.title}</span>
+        </div>
+      );
 
-    // const notebookOptions = this.props.notebooks.map((el) =>
-    //   <div key={el.id}
-    //        className="notebook-drop-item"
-    //        >
-    //     <span className="notebook-option"
-    //           data-element={el}
-    //           onClick={(e) => this.setNotebook(e, el)}
-    //            >{el.title}</span>
-    //   </div>
-    // );
+    }
 
 
     return(
@@ -112,9 +117,8 @@ class CreateNote extends React.Component {
                aria-hidden="true"></i>
             <i className="category-label"
                onClick={this.displayDropdown}>{this.state.category} &#9660;</i>
-            <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
+            <ul className={this.state.showHideDropdown + " notebook-dropdown create-dropdown"}>
               <div className="drop-container">
-
                 <div className="notebook-drop-item">
                   <Link to="/notebooks/new">
                     <span className="notebook-option">
@@ -122,7 +126,7 @@ class CreateNote extends React.Component {
                     </span>
                   </Link>
                 </div>
-                {/* {notebookOptions} */}
+                {notebookOptions}
               </div>
             </ul>
 
