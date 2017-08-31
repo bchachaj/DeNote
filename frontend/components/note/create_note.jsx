@@ -19,9 +19,8 @@ class CreateNote extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const nId = this.props.notebookId;
-    this.state.notebook_id = nId|| 1;
+    this.state.notebook_id = nId;
     this.state.archived = true;
-
     //if history has notebook id -> add to state and push to that url
     if(this.props.notebookId) {
       this.props.createNote(this.state)

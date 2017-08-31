@@ -57,37 +57,34 @@ class NoteShow extends React.Component {
   }
 
   update(property) {
-    return e => this.setState({ [property]: e.target.value });
+    return e => this.setState({ note: { [property]: e.target.value } });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.state.id = this.props.note.id;
+    this.state.note.id = this.props.note.id;
     this.props.requestUpdateNote({
       title: this.state.note.title,
       body: this.state.note.body,
-      id: this.state.note.id
+      id: this.state.note.id,
+      notebook_id: this.state.book_id
     });
   }
 
-  setNotebook(e){
-    console.log(e.target.value);
+  setNotebook(e, data){
+    console.log(data);
+    this.setState({
+      category: data.title,
+      book_id: data.id
+    });
   }
 
   setTag(){
     //tbd
   }
 
-  // removeTag(){
-  //  on click of ze 'x'
-  // }
-
-
-
-
   render(){
 
-    debugger;
     let { note } = this.props;
     if (!note) {
       return null;
@@ -100,8 +97,11 @@ class NoteShow extends React.Component {
     const notebookOptions = this.props.notebooks.map((el) =>
       <div key={el.id}
            className="notebook-drop-item"
-           onClick={this.setNotebook}>
-        <span className="notebook-option" value={el} ref={el.id}>{el.title}</span>
+           >
+        <span className="notebook-option"
+              data-element={el}
+              onClick={(e) => this.setNotebook(e, el)}
+               >{el.title}</span>
       </div>
     );
 
