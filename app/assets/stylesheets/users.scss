@@ -61,3 +61,15 @@ h1.modal-text {
   border: 10px solid red;
   background: purple;
 }
+
+
+i.category-label {
+  width: auto;
+  color: gray;
+  display: flex;
+  align-items: center;
+}
+
+.note-controls .fa-book {
+  border-right: none;
+}

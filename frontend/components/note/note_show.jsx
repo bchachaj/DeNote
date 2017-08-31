@@ -22,7 +22,10 @@ class NoteShow extends React.Component {
     this.state = {
       title: '',
       body: '',
-      showHideDropdown: 'hidden'
+      note: {},
+      showHideDropdown: 'hidden',
+      category: '',
+      book_id: 1
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,15 +46,14 @@ class NoteShow extends React.Component {
       this.props.requestAllNotebooks()
     );
     }
-    this.setState(nextProps.note);
+    this.setState({note: nextProps.note});
+    this.setState({ category: nextProps.notebook.title });
   }
-
 
   displayDropdown(e){
     e.stopPropagation();
     const css = (this.state.showHideDropdown === 'hidden') ? 'show' : 'hidden';
     this.setState({showHideDropdown: css});
-
   }
 
   update(property) {
@@ -62,9 +64,9 @@ class NoteShow extends React.Component {
     e.preventDefault();
     this.state.id = this.props.note.id;
     this.props.requestUpdateNote({
-      title: this.state.title,
-      body: this.state.body,
-      id: this.state.id
+      title: this.state.note.title,
+      body: this.state.note.body,
+      id: this.state.note.id
     });
   }
 
@@ -84,6 +86,8 @@ class NoteShow extends React.Component {
 
 
   render(){
+
+    debugger;
     let { note } = this.props;
     if (!note) {
       return null;
@@ -91,17 +95,17 @@ class NoteShow extends React.Component {
     let nextNote = this.props.notes[0];
     if (nextNote === note) {
       nextNote = this.props.notes[1];
-  }
+    }
 
     const notebookOptions = this.props.notebooks.map((el) =>
       <div key={el.id}
            className="notebook-drop-item"
            onClick={this.setNotebook}>
-        <span className="notebook-option" value={el.id}>{el.title}</span>
+        <span className="notebook-option" value={el} ref={el.id}>{el.title}</span>
       </div>
     );
 
-    debugger;
+
 
     return (
       <div className="note-show-main">
@@ -119,7 +123,7 @@ class NoteShow extends React.Component {
       <div className="note-controls">
         <div className="note-menu">
           <i className="fa fa-book" onClick={this.displayDropdown} aria-hidden="true"></i>
-          {/* {this.props.notebooks[0].title} */}
+          <i className="category-label" onClick={this.displayDropdown}>{this.state.category} &#9660;</i>
           <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
             <div className="drop-container">
 
@@ -141,7 +145,7 @@ class NoteShow extends React.Component {
             <input type="text"
                    className="note-title"
                    onChange={this.update('title')}
-                   value={this.state.title}/>
+                   value={this.state.note.title}/>
 
 
            <input
@@ -149,7 +153,7 @@ class NoteShow extends React.Component {
               rows="80"
               cols="100"
               className="note-body"
-              value={this.state.body}
+              value={this.state.note.body}
               onChange={this.update('body')}
             />
 
@@ -165,18 +169,21 @@ class NoteShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //YEP
 
   const noteId = state.ui.note_ui;
   const note = state.notes[noteId];
   const notes = selectAllNotes(state);
   const notebooks = selectAllNotebooks(state);
+  const notebookId = state.ui.notebook_ui;
+  const notebook = state.notebooks[notebookId];
+
   //
+
   return {
     notes,
     note,
-
-    notebooks
+    notebooks,
+    notebook
   };
 };
 

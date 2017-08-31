@@ -62,3 +62,15 @@ margin: 0 auto;
 a.active, a.focus {
   outline: none;
 }
+
+
+.category-label {
+  width: auto;
+  color: gray;
+  display: flex;
+  align-items: center;
+}
+
+.note-controls .fa-book {
+  border-right: none;
+}
