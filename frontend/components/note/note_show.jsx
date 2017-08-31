@@ -30,12 +30,6 @@ class NoteShow extends React.Component {
     this.displayDropdown = this.displayDropdown.bind(this);
   }
 
-  getInitialState(){
-    return {
-      showHideDropdown:"hidden"
-    };
-  }
-
   update(property) {
     return e => this.setState({ [property]: e.target.value });
   }
@@ -70,7 +64,7 @@ class NoteShow extends React.Component {
   // }
 
 
-  componentWillMount(){
+componentDidMount(){
   this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
     this.props.requestAllNotebooks();
   });
@@ -172,13 +166,13 @@ const mapStateToProps = (state, ownProps) => {
   const noteId = state.ui.note_ui;
   const note = state.notes[noteId];
   const notes = selectAllNotes(state);
-  const notebookIds = Object.keys(state.notebooks);
+  // const notebookIds = Object.keys(state.notebooks);
   const notebooks = selectAllNotebooks(state);
   //
   return {
     notes,
     note,
-    notebookIds,
+    // notebookIds,
     notebooks
   };
 };
@@ -189,8 +183,8 @@ const mapDispatchToProps = (dispatch) => {
     requestSingleNote: (noteId) => dispatch(requestSingleNote(noteId)),
     requestUpdateNote: (note) => dispatch(requestUpdateNote(note)),
     requestAllNotebooks: () => dispatch(requestAllNotebooks),
-    requestSingleNotebook: (notebook) => dispatch(
-      requestSingleNotebook(notebook)),
+    // requestSingleNotebook: (notebook) => dispatch(
+    //   requestSingleNotebook(notebook)),
     deleteNote: (noteId) => dispatch(deleteNote(noteId)),
     createNotebook: (notebook) => dispatch(createNotebook(notebook))
   };

@@ -13,8 +13,8 @@ const notebookReducer = (state = {}, action) => {
   switch (action.type) {
 
     case RECEIVE_ALL_NOTEBOOKS:
-      return merge({}, action.notebooks);
-      
+      return action.notebooks;
+
     case RECEIVE_ONE_NOTEBOOK:
       newState = merge(
                     {},
