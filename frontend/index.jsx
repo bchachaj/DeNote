@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
+
 import * as APIUtil from './util/session_api_util';
 import * as NoteAPI from './util/note_util';
 import * as NotebookAPI from './util/notebook_util';
+import * as TagAPI from './util/tag_util';
+
 import configureStore from './store/store';
 import { login, logout, signup } from './actions/session_actions';
 import { fetchAllNotes,
@@ -34,6 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.fetchAllNotes = NoteAPI.fetchAllNotes;
   window.fetchSingleNote = NoteAPI.fetchSingleNote;
+
+  window.fetchAllTags = TagAPI.fetchAllTags;
+  window.fetchSingleNote = TagAPI.fetchSingleTag;
+
+
   window.requestAllNotes = requestAllNotes;
   window.requestAllNotebooks = requestAllNotebooks;
   window.requestSingleNote = requestSingleNote;
