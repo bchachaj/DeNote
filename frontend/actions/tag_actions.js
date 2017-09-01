@@ -36,6 +36,9 @@ export const deleteTag = tag => ({
 });
 
 export const createTag = tag => dispatch => {
-  TagAPI.createTag(tag)
-    .then(tag => dispatch(receiveSingleTag(tag)));
-}
+  return TagAPI.createTag(tag)
+    .then(t => {dispatch(receiveSingleTag(t));
+    return t;
+    }
+  );
+};

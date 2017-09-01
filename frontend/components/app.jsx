@@ -6,6 +6,7 @@ import SessionFormContainer from './session/session_form_container';
 import Note from './note/note';
 import NoteShow from './note/note_show';
 import Notebook from './notebook/notebook';
+import Tag from './tag/tag';
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <ProtectedRoute path="/notes" component={Note}/>
         <ProtectedRoute path="/notebooks" component={Notebook}/>
+        <ProtectedRoute path="/tags" component={Tag}/>
+
         <Redirect from="/" to="/notes" push />
       </Switch>
 
