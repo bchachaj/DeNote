@@ -20,7 +20,6 @@ class CreateTagModal extends React.Component {
   }
 
   componentDidMount(){
-    console.log('ok');
     this.setState({modalIsOpen: true});
   }
 
@@ -36,7 +35,6 @@ class CreateTagModal extends React.Component {
   }
 
   handleAction(e){
-    debugger;
     e.preventDefault();
     this.props.createTag({
        name: this.state.name
@@ -50,7 +48,7 @@ class CreateTagModal extends React.Component {
     return(
       <div>
         <ReactModal
-          className="note-modal"
+          className="note-modal tag-modal"
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="Create Tag"

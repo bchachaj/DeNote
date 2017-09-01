@@ -26,7 +26,7 @@ class TagIndex extends React.Component {
     );
     return(
       <div>
-        <ul className="note-ul">
+        <ul className="note-ul tag-ul">
           {allTags}
         </ul>
       </div>

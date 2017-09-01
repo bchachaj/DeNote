@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter,Link } from 'react-router-dom';
 // import {Editor, EditorState} from 'draft-js';
-
+import ReactQuill from 'react-quill';
 class CreateNote extends React.Component {
 
   constructor(props){
@@ -19,6 +19,8 @@ class CreateNote extends React.Component {
     this.switchLinks = this.switchLinks.bind(this);
     this.setNotebook = this.setNotebook.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
+
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   displayDropdown(e){
@@ -44,7 +46,7 @@ class CreateNote extends React.Component {
   }
 
   switchLinks(){
-    if(this.state.title === '' || this.state.body === ''){
+    if(this.state.title === '' || this.state.body === '' || this.state.category === 'Select a notebook'){
       return (
         <Link to="/notes">
           <input className="note-save cancel" type="submit" value="Cancel"/>
@@ -87,6 +89,15 @@ class CreateNote extends React.Component {
 
   update(property){
     return e => this.setState({[property]: e.target.value});
+  }
+
+  handleUpdate(value) {
+    console.log(value);
+    this.setState({
+      body: value
+      }
+    );
+
   }
 
 
@@ -157,6 +168,13 @@ class CreateNote extends React.Component {
 
          {this.switchLinks()}
        </form>
+
+       <ReactQuill
+         theme="snow"
+         className="create-note-editor"
+         value={this.state.body}
+         onChange={this.handleUpdate} />
+
 
       </div>
 

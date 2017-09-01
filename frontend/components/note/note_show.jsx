@@ -12,25 +12,28 @@ import { requestSingleNotebook, requestAllNotebooks,
          createNotebook } from '../../actions/notebook_actions';
 import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
+import ReactQuill from 'react-quill';
 
-import { Editor, EditorState } from 'draft-js';
 
 class NoteShow extends React.Component {
+
 
   constructor(props){
     super(props);
     this.state = {
       title: '',
       body: '',
-      note: {},
+      note: { body: null, title: null },
       showHideDropdown: 'hidden',
-      category: '',
+      category: 'Notebook',
       book_id: 1
     };
+    this.onChange = editorState => this.setState({ editorState });
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setNotebook = this.setNotebook.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   componentDidMount(){
@@ -47,8 +50,8 @@ class NoteShow extends React.Component {
      //arg passed is action
 
       //return value is action itself
-      this.props.requestAllNotebooks(),
-      this.setState({ category: nextProps.notebook.title })
+      this.props.requestAllNotebooks()
+      // this.setState({ category: nextProps.notebook.title })
     );
     }
 
@@ -65,7 +68,16 @@ class NoteShow extends React.Component {
   }
 
   update(property) {
+
     return e => this.setState({ note: { [property]: e.target.value } });
+  }
+
+  handleUpdate(value) {
+    console.log(value);
+    this.setState({ note: {
+      body: value
+    }});
+
   }
 
   handleSubmit(e) {
@@ -76,6 +88,7 @@ class NoteShow extends React.Component {
       body: this.state.note.body,
       id: this.state.note.id,
       notebook_id: this.state.book_id
+
     });
   }
 
@@ -90,96 +103,105 @@ class NoteShow extends React.Component {
     //tbd
   }
 
-  render(){
 
-    let { note, notebooks } = this.props;
-    if (!note) {
-      return null;
-    }
-    let nextNote = this.props.notes[0];
-    if (nextNote === note) {
-      nextNote = this.props.notes[1];
-    }
+    render(){
 
-
-    const notebookOptions = this.props.notebooks.map((el) =>
-      <div key={el.id}
-           className="notebook-drop-item"
-           >
-        <span className="notebook-option"
-              data-element={el}
-              onClick={(e) => this.setNotebook(e, el)}
-               >{el.title}</span>
-      </div>
-    );
+      let { note, notebooks } = this.props;
+      if (!note) {
+        return null;
+      }
+      let nextNote = this.props.notes[0];
+      if (nextNote === note) {
+        nextNote = this.props.notes[1];
+      }
 
 
-
-    return (
-      <div className="note-show-main">
-      <div className="note-show-header">
-        <div className="top-controls">
-          <DeleteNote delete={this.props.deleteNote}
-            id={note.id} nextProp={nextNote}
-          />
-          <NoteInfo note={note}
-                    change={note.updated_at}
-                    created={note.created_at}/>
+      const notebookOptions = this.props.notebooks.map((el) =>
+        <div key={el.id}
+             className="notebook-drop-item"
+             >
+          <span className="notebook-option"
+                data-element={el}
+                onClick={(e) => this.setNotebook(e, el)}
+                 >{el.title}</span>
         </div>
-      </div>
-
-      <div className="note-controls">
-        <div className="note-menu">
-          <i className="fa fa-book"
-             onClick={this.displayDropdown}
-             aria-hidden="true"></i>
-          <i className="category-label"
-             onClick={this.displayDropdown}>{this.state.category} &#9660;</i>
-          <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
-            <div className="drop-container">
-
-              <div className="notebook-drop-item">
-                <Link to="/notebooks/new">
-                  <span className="notebook-option">
-                    Create new notebook<strong>+</strong>
-                  </span>
-                </Link>
-              </div>
-              {notebookOptions}
-            </div>
-          </ul>
-
-          <i className="fa fa-tag" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <div className="note-show note">
-        <form onSubmit={this.handleSubmit}>
-            <input type="text"
-                   className="note-title"
-                   onChange={this.update('title')}
-                   value={this.state.note.title}/>
+      );
 
 
-           <input
-              type="textarea"
-              rows="80"
-              cols="100"
-              className="note-body"
-              value={this.state.note.body}
-              onChange={this.update('body')}
+
+      return (
+        <div className="note-show-main">
+        <div className="note-show-header">
+          <div className="top-controls">
+            <DeleteNote delete={this.props.deleteNote}
+              id={note.id} nextProp={nextNote}
             />
+            <NoteInfo note={note}
+                      change={note.updated_at}
+                      created={note.created_at}/>
+          </div>
+        </div>
 
-            <input className="temp-note-save" type="submit"
-                   value="Save"
-                   />
+        <div className="note-controls">
+          <div className="note-menu">
+            <i className="fa fa-book"
+               onClick={this.displayDropdown}
+               aria-hidden="true"></i>
+            <i className="category-label"
+               onClick={this.displayDropdown}>{this.state.category} &#9660;</i>
+            <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
+              <div className="drop-container">
 
-        </form>
+                <div className="notebook-drop-item">
+                  <Link to="/notebooks/new">
+                    <span className="notebook-option">
+                      Create new notebook<strong>+</strong>
+                    </span>
+                  </Link>
+                </div>
+                {notebookOptions}
+              </div>
+            </ul>
+
+            <i className="fa fa-tag" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div className="note-show note">
+          <form onSubmit={this.handleSubmit}>
+              <input type="text"
+                     className="note-title"
+                     onChange={this.update('title')}
+                     value={this.state.note.title}/>
+
+
+             <input
+                type="textarea"
+                rows="80"
+                cols="100"
+                className="note-body"
+                value={this.state.note.body}
+                onChange={this.update('body')}
+              />
+
+              <input className="temp-note-save" type="submit"
+                     value="Save"
+                     />
+
+          </form>
+
+
+
+          <ReactQuill
+            theme="snow"
+            value={this.state.note.body}
+            onChange={this.handleUpdate} />
+        </div>
       </div>
-    </div>
-    );
+      );
+    }
   }
-}
+
 
 const mapStateToProps = (state, ownProps) => {
 

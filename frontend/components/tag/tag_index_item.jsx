@@ -12,7 +12,7 @@ class TagIndexItem extends React.Component {
 //?÷?
 
   handleAction(e){
-
+    e.stopPropagation();
     e.preventDefault();
     this.props.deleteTag(this.props.tag.id).then(() => {
       this.props.history.push(`/tags`);
@@ -27,7 +27,7 @@ class TagIndexItem extends React.Component {
         <li className="tag-list-item">
           <p className="tag">{this.props.tag.name}</p>
 
-          <i className="fa fa-trash-o" onClick={this.handleAction}></i>
+          {/* <i className="fa fa-trash-o" onClick={this.handleAction}></i> */}
         </li>
       </div>
     );
