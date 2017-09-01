@@ -1,3 +1,24 @@
 // Place all the styles related to the Tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.tag-list-item {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  background: #cecece;
+  border-radius: 5px;
+  width: 100px;
+  height: 90%;
+  color: white;
+}
+
+.tag-list-item:hover {
+  background: white;
+  color: gray;
+}
+
+.tag-list-item i {
+  color: #cecece;
+}

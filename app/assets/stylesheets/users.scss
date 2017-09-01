@@ -91,3 +91,24 @@ i.category-label {
   top: 61px;
   z-index: 999;
 }
+
+
+.tag-list-item {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  background: #cecece;
+  border-radius: 5px;
+  width: 100px;
+  height: 90%;
+  color: white;
+}
+
+.tag-list-item:hover {
+  background: white;
+  color: gray;
+}
+
+.tag-list-item i {
+  color: #cecece;
+}

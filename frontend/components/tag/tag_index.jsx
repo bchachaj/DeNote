@@ -15,11 +15,21 @@ class TagIndex extends React.Component {
 
   render() {
     const { tags } = this.props;
-    if(!tags) {
+
+    if(this.props.tag) {
       return null;
     }
+
+    const allTags = tags.map((tag, idx) =>
+      <TagIndexItem className="tag-item" tag={tag} key={tag.id}
+        delete={this.props.deleteTag}/>
+    );
     return(
-      <h1>THis is a tag index</h1>
+      <div>
+        <ul className="note-ul">
+          {allTags}
+        </ul>
+      </div>
     );
   }
 }
