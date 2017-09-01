@@ -34,6 +34,7 @@ class NoteIndexItem extends React.Component {
   }
 
   render(){
+
     const date = this.props.note.updated_at;
     return(
       <div>
@@ -41,7 +42,7 @@ class NoteIndexItem extends React.Component {
         <li className="note-index-item">
           <h3 className="index-title">{this.props.note.title}</h3>
           <div className="note-index-date">{/*this.formatDate(date)*/}</div>
-          <p className="note-index-body">{this.props.note.body}</p>
+          <p className="note-index-body">{this.props.note.body.dangerouslyPasteHTML}</p>
         </li>
 
    </div>

@@ -92,12 +92,10 @@ class CreateNote extends React.Component {
   }
 
   handleUpdate(value) {
-    console.log(value);
+    const e = document.querySelector(".ql-editor").innerHTML;
     this.setState({
-      body: value
-      }
-    );
-
+      body: e
+    });
   }
 
 
@@ -155,16 +153,6 @@ class CreateNote extends React.Component {
            onChange={this.update('title')}
          />
 
-        <input
-           type="textarea"
-           rows="80"
-           cols="100"
-           className="note-body"
-           value={this.state.body}
-           placeholder="Just start typing..."
-           onChange={this.update('body')}
-         />
-
 
          {this.switchLinks()}
        </form>
@@ -173,6 +161,7 @@ class CreateNote extends React.Component {
          theme="snow"
          className="create-note-editor"
          value={this.state.body}
+         placeholder="Just start typing..."
          onChange={this.handleUpdate} />
 
 

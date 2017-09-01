@@ -73,10 +73,12 @@ class NoteShow extends React.Component {
   }
 
   handleUpdate(value) {
-    console.log(value);
+    const e = document.querySelector(".ql-editor").innerHTML;
+    console.log(e);
     this.setState({ note: {
-      body: value
+      body: e
     }});
+
 
   }
 
@@ -175,14 +177,7 @@ class NoteShow extends React.Component {
                      value={this.state.note.title}/>
 
 
-             <input
-                type="textarea"
-                rows="80"
-                cols="100"
-                className="note-body"
-                value={this.state.note.body}
-                onChange={this.update('body')}
-              />
+
 
               <input className="temp-note-save" type="submit"
                      value="Save"
@@ -195,7 +190,9 @@ class NoteShow extends React.Component {
           <ReactQuill
             theme="snow"
             value={this.state.note.body}
-            onChange={this.handleUpdate} />
+            onChange={this.handleUpdate}
+            placeholder="Just start typing..."
+           />
         </div>
       </div>
       );

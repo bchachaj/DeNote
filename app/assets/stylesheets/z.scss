@@ -977,11 +977,54 @@ border: 0;
 
 }
 
-.quill > *:hover {
+.ql-toolbar {
   color: gray;
 }
 
 .quill > * {
   color: #353638;
   border: 0px solid transparent;
+}
+.temp-note-save {
+  position: fixed;
+  top: 25px;
+  left: 800px;
+}
+
+
+
+.new-note-overlay .ql-toolbar {
+  position: absolute;
+  top: 14px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.new-note-overlay .ql-container {
+  position:absolute;
+  left: 235px;
+  top: 185px;
+  width: 70%;
+  z-index: 0;
+}
+
+.note-controls i {
+  z-index: 999;
+  cursor: pointer;
+}
+
+.note-controls span {
+  z-index: 999;
+}
+.note-save {
+  z-index: 9999;
+}
+
+.ql-editor {
+  padding-left: 3;
+  max-width: 600px;
 }
