@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resources :notes, except: [:new, :edit]
     resources :notebooks
+    resources :tags, only: [:index, :create, :show, :destroy]
+    resources :taggings, only: [:create, :destroy]
     resource :session, only: [:new, :create, :destroy]
   end
 end
