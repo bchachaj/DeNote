@@ -22,8 +22,8 @@ return(
             <i className="fa fa-plus" aria-hidden="true"></i>
           </Link>
 
-          <i className="fa fa-calendar-check-o" aria-hidden="true"></i>
-          <i className="fa fa-search" aria-hidden="true"></i>
+          {/* <i className="fa fa-calendar-check-o" aria-hidden="true"></i>
+          <i className="fa fa-search" aria-hidden="true"></i> */}
       </div>
 
       <div className="side-section section-b">

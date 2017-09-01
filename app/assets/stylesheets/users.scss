@@ -97,7 +97,8 @@ i.category-label {
   display: flex;
   flex-direction: row;
   padding: 5px;
-  background: #cecece;
+  background: #f4f4f4;
+  border: 1px solid #cecece;
   border-radius: 5px;
   max-width: 100px;
   white-space: nowrap;
@@ -151,8 +152,12 @@ i.category-label {
 }
 
 .tag-list-item:hover {
-  background: white;
-  color: gray;
+  background: #2dbe60;
+  color: white;
+}
+
+.tag-list-item p:hover {
+  color: white;
 }
 
 .tag-list-item i {

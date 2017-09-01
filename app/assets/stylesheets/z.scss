@@ -1028,3 +1028,12 @@ border: 0;
   padding-left: 3;
   max-width: 600px;
 }
+
+.ReactModal__Overlay {
+  background: white;
+  opacity: 1;
+}
+
+.note-modal .modal-text {
+  background: none;
+}
