@@ -23,7 +23,7 @@ class NoteInfo extends React.Component {
   }
 
   afterOpenModal(){
-    console.log(this.state);
+    // console.log(this.state);
   }
 
 

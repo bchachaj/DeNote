@@ -74,7 +74,6 @@ class NoteShow extends React.Component {
 
   handleUpdate(value) {
     const e = document.querySelector(".ql-editor").innerHTML;
-    console.log(e);
     this.setState({ note: {
       body: e
     }});
