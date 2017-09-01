@@ -8,4 +8,6 @@ export const selectOneNote = ({notes}, id) => {
   return note;
 };
 
+export const selectAllTags = (state) => values(state.tags);
+
 export const selectAllNotebooks = (state) => values(state.notebooks);

@@ -17,7 +17,11 @@ import { fetchAllNotes,
 import {
         requestAllNotebooks
 } from './actions/notebook_actions';
-import { selectAllNotes, selectAllNotebooks } from './reducers/selectors.js';
+import { selectAllNotes, selectAllNotebooks, selectAllTags } from './reducers/selectors.js';
+
+import {
+  requestSingleTag, requestAllTags
+} from './actions/tag_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -39,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchSingleNote = NoteAPI.fetchSingleNote;
 
   window.fetchAllTags = TagAPI.fetchAllTags;
+  window.requestAllTags = requestAllTags;
+  window.requestSingleTag = requestSingleTag;
   window.fetchSingleNote = TagAPI.fetchSingleTag;
 
 
