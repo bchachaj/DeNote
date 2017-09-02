@@ -56,9 +56,9 @@ class TagModal extends React.Component {
            </Link>
          </div>
 
-        <div className="wrapper-function" onClick={this.closeModal}>
+
           <TagIndex/>
-        </div>
+
 
        </ReactModal>
       </div>

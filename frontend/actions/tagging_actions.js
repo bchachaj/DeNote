@@ -1,4 +1,4 @@
-import * as TaggingAPI from './util/taggings_util';
+import * as TaggingAPI from '../util/taggings_util';
 
 import { fetchSingleNote } from './note_actions';
 
