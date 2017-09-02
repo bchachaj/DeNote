@@ -2,23 +2,26 @@ import React from 'react';
 
 import TagIndex from './tag_index';
 
-import { requestAllTags, deleteTag } from '../../actions/tag_actions';
+import { requestAllTags, deleteTag, createTag } from '../../actions/tag_actions';
 
 import { selectAllTags } from '../../reducers/selectors';
-
+import { createTaggings } from './../actions/taggings_actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
+  const tags = selectAllTags(state);
   return {
-    tags: selectAllTags(state),
-
+    tags,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     requestAllTags: () => dispatch(requestAllTags()),
-    deleteTag: (id) => dispatch(deleteTag(id))
+    deleteTag: (id) => dispatch(deleteTag(id)),
+    createTag: (tag) => dispatch(createTag(tag)),
+    createTaggings: (taggings) => dispatch(createTaggings(taggings))
+    //deleteTaggings
   };
 };
 
