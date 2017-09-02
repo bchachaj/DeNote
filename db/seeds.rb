@@ -8,8 +8,10 @@
 
 User.destroy_all
 
-User.create(username: 'Ben', password:'password')
-User.create(username: 'Demo', password: 'password')
+User.create!(username: 'Ben', password:'password')
+User.create!(username: 'Demo', password: 'password')
+
+
 Note.destroy_all
 
 
