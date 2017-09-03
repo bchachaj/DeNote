@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, withRouter,Switch } from 'react-router-dom';
-import NoteShow from './note_show';
+import NoteShow from './note_show_container';
 import NoteIndex from './note_index_container';
 import {connect} from 'react-redux';
 import CreateNote from './create_note_container';

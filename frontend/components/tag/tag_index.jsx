@@ -55,7 +55,6 @@ class TagIndex extends React.Component {
     //will only
     const noteId = this.props.match.params.noteId;
 
-    debugger;
   }
 
 
