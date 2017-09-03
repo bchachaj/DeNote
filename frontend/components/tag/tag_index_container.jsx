@@ -7,12 +7,14 @@ import { requestAllTags, deleteTag, createTag } from '../../actions/tag_actions'
 import { selectAllTags } from '../../reducers/selectors';
 import { createTaggings } from '../../actions/tagging_actions';
 import { connect } from 'react-redux';
-import { requestAllNotes } from '../../actions/note_actions';
+import { selectAllNotes } from '../../reducers/selectors';
 
 const mapStateToProps = state => {
   const tags = selectAllTags(state);
+  const notes = selectAllNotes(state);
   return {
     tags,
+    notes
   };
 };
 

@@ -6,7 +6,7 @@ class Api::TagsController < ApplicationController
   def create
     @tag = Tag.new(t_params)
     @tag.author_id = current_user.id
-
+    debugger;
     if @tag.save
       render :show
     else
@@ -34,5 +34,5 @@ class Api::TagsController < ApplicationController
     params.require(:tag).permit(:name, :author_id)
   end
 
-  
+
 end

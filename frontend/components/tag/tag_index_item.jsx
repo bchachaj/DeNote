@@ -8,6 +8,9 @@ class TagIndexItem extends React.Component {
   constructor(props){
     super(props);
     this.handleAction = this.handleAction.bind(this);
+    this.state = {
+      name: ''
+    };
   }
 //?÷?
 

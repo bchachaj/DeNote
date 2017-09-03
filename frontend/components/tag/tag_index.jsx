@@ -8,27 +8,46 @@ class TagIndex extends React.Component {
   constructor(props){
     super(props);
     this.handleAction = this.handleAction.bind(this);
+    this.updateState = this.updateState.bind(this);
+
+    this.state = {
+      name: ''
+    };
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.requestAllTags();
   }
 
-  createTag(tag){
-    //check if exists, create, clear input
-    // first create tag, on success create taggings
-    debugger;
-    const { tags } = this.props.tags;
-    const _existingTag = tags.find((tagItem) => {
-      return tagItem.name === tag.name;
-    });
+  componentWillReceiveProps(nextProps){
+    if(!this.props.tags){
+      this.nextProps.requestAllTags();
+    }
+  }
 
+  updateState(property){
+    return e => this.setState({[property]: e.target.value});
   }
 
   handleAction(e){
-    e.stopPropagation();
     e.preventDefault();
-    const tag = e.target.value;
+    const tagName = this.state.name;
+    const { tags } = this.props;
+    const _existingTag = tags.find((tagItem) => {
+      return tagItem.name === tagName;
+    });
+    debugger;
+    if(_existingTag) {
+      this.setState({name: ''});
+    } else {
+      this.props.createTag({
+        name: tagName
+      }).then((newTag) => {
+        // this.props.createTaggings(newTag);
+        console.log(newTag);
+      });
+      this.setState({name: ''});
+    }
 
   }
 
@@ -37,7 +56,7 @@ class TagIndex extends React.Component {
   render() {
     const { tags } = this.props;
 
-    if(this.props.tag) {
+    if(!this.props.tags) {
       return null;
     }
 
@@ -50,7 +69,10 @@ class TagIndex extends React.Component {
       <div>
         <form className="create-tag-form" onSubmit={this.handleAction}>
           {/* display none on modal */}
-          <input type="text"></input>
+          <input type="text" className="tag-item" placeholder="+"
+          value={this.state.name}
+          onChange={this.updateState('name')}
+            ></input>
         </form>
         <ul className="note-ul tag-ul">
           {allTags}
