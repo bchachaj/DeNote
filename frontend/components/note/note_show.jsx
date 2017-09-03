@@ -3,6 +3,7 @@ import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from 'react-router-dom';
+import TagIndex from '../tag/tag_index_container';
 
 class NoteShow extends React.Component {
 
@@ -153,7 +154,11 @@ class NoteShow extends React.Component {
               </div>
             </ul>
 
-            <i className="fa fa-tag" aria-hidden="true"></i>
+
+            <div className="note-show-tags">
+              <i className="fa fa-tag" aria-hidden="true"></i>
+              <TagIndex/>
+            </div>
           </div>
         </div>
 
@@ -164,16 +169,11 @@ class NoteShow extends React.Component {
                      onChange={this.update('title')}
                      value={this.state.note.title}/>
 
-
-
-
               <input className="temp-note-save" type="submit"
                      value="Save"
                      />
 
           </form>
-
-
 
           <ReactQuill
             theme="snow"

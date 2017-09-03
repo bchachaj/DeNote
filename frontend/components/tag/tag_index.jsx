@@ -72,7 +72,7 @@ class TagIndex extends React.Component {
     );
 
     return(
-      <div>
+      <div className="tag-index-wrapper">
         <form className="create-tag-form" onSubmit={this.handleAction}>
           {/* display none on modal */}
           <input type="text" className="tag-item" placeholder="+"

@@ -217,3 +217,60 @@ i.category-label {
   background: white;
   opacity: 1;
 }
+
+
+.note-show-tags .tag-ul {
+  flex-direction: row;
+  height: 50px;
+  width: 300px;
+  padding: 0px;
+  margin: 0px;
+  overflow-x: scroll;
+}
+
+.note-show-tags {
+  display: flex;
+}
+
+.note-show-tags .tag-ul .tag-item {
+  margin: 2px;
+  overflow: visible;
+}
+
+.note-show-tags .tag-ul .tag-list-item{
+  padding: 0;
+  margin: 0;
+  height: 20px;
+  font-size: 12px;
+
+}
+
+.tag-index-wrapper {
+  display: flex;
+  align-items: center;
+  padding-bottom: 3px;
+}
+
+.tag-index-wrapper ul {
+  height: 25px !important;
+  overflow: visible;
+}
+
+.tag-contain {
+  width: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  min-width: 20px;
+}
+
+.tag-index-wrapper form input {
+  outline: none;
+  border: 1px solid #d9d9d9;
+  color: gray;
+padding: 2px;
+height: 15px;
+  border-radius: 7px;
+  background: #f2f2f2;
+  padding-left: 4px;
+}
