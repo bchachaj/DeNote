@@ -140,6 +140,10 @@ i.category-label {
   justify-content: center;
 }
 
+.tag-list-item:hover p {
+  color: white;
+}
+
 .tag-ul li {
   line-height: 2;
   padding: 3px;
@@ -163,6 +167,28 @@ i.category-label {
 .tag-list-item i {
   color: #cecece;
 }
+.tag-list-item{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.tag-contain {
+  display: flex;
+  align-items: center;
+
+}
+
+.remove-tag-button {
+  color: gray;
+  font-family: sans-serif;
+  margin-left: 4px;
+}
+
+.remove-tag-button:hover {
+  color: black;
+}
+
 
 .tag-ul input {
   display: none;

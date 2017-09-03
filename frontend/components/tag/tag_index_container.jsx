@@ -3,7 +3,7 @@ import React from 'react';
 import TagIndex from './tag_index';
 
 import { requestAllTags, deleteTag, createTag } from '../../actions/tag_actions';
-
+import { requestAllNotes } from '../../actions/note_actions';
 import { selectAllTags } from '../../reducers/selectors';
 import { createTaggings } from '../../actions/tagging_actions';
 import { connect } from 'react-redux';

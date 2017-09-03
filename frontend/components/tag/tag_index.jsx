@@ -9,7 +9,7 @@ class TagIndex extends React.Component {
     super(props);
     this.handleAction = this.handleAction.bind(this);
     this.updateState = this.updateState.bind(this);
-
+    this.handleTaggings = this.handleTaggings.bind(this);
     this.state = {
       name: ''
     };
@@ -36,19 +36,26 @@ class TagIndex extends React.Component {
     const _existingTag = tags.find((tagItem) => {
       return tagItem.name === tagName;
     });
-    debugger;
     if(_existingTag) {
       this.setState({name: ''});
     } else {
       this.props.createTag({
         name: tagName
       }).then((newTag) => {
-        // this.props.createTaggings(newTag);
-        console.log(newTag);
+        this.handleTaggings(newTag);
+
       });
       this.setState({name: ''});
     }
 
+  }
+
+  handleTaggings(tag){
+    //checking this.props.match.(path/params) involves note id
+    //will only
+    const noteId = this.props.match.params.noteId;
+
+    debugger;
   }
 
 
@@ -82,4 +89,4 @@ class TagIndex extends React.Component {
   }
 }
 
-export default TagIndex;
+export default withRouter(TagIndex);

@@ -7,31 +7,32 @@ class TagIndexItem extends React.Component {
 
   constructor(props){
     super(props);
-    this.handleAction = this.handleAction.bind(this);
-    this.state = {
-      name: ''
-    };
+    this.handleDelete = this.handleDelete.bind(this);
   }
-//?÷?
 
-  handleAction(e){
+  handleDelete(e){
     e.stopPropagation();
-    e.preventDefault();
-    this.props.deleteTag(this.props.tag.id).then(() => {
-      this.props.history.push(`/tags`);
-    });
+    this.props.delete(this.props.tag.id);
   }
 
   render() {
-    // const { tags }
+    const { tag } = this.props;
+
 
     return(
-      <div className="tag-item">
-        <li className="tag-list-item">
-          <p className="tag">{this.props.tag.name}</p>
 
-          {/* <i className="fa fa-trash-o" onClick={this.handleAction}></i> */}
-        </li>
+      <div className="tag-item">
+          <li className="tag-list-item">
+              <div className="tag-contain">
+              <Link to={`tags/${tag.id}/notes`}>
+                <p className="tag">{tag.name}</p>
+              </Link>
+                <span
+                  className="remove-tag-button"
+                  onClick={this.handleDelete}
+                  >x</span>
+              </div>
+          </li>
       </div>
     );
   }
