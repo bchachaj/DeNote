@@ -27,10 +27,10 @@ export const receiveSingleTag = (tag) => ({
 
 export const requestDeleteTag = id => dispatch => {
   TagAPI.deleteTag(id)
-    .then(tag => dispatch(deleteTag(tag)));
+    .then(tag => dispatch(removeTag(tag)));
 };
 
-export const deleteTag = tag => ({
+export const removeTag = tag => ({
   type: DELETE_TAG,
   tag
 });

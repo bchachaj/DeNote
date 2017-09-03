@@ -20,7 +20,7 @@ import {
 import { selectAllNotes, selectAllNotebooks, selectAllTags } from './reducers/selectors.js';
 
 import {
-  requestSingleTag, requestAllTags
+  requestSingleTag, requestAllTags, requestDeleteTag
 } from './actions/tag_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchAllTags = TagAPI.fetchAllTags;
   window.requestAllTags = requestAllTags;
   window.requestSingleTag = requestSingleTag;
-  window.fetchSingleNote = TagAPI.fetchSingleTag;
-
+  window.fetchSingleTag = TagAPI.fetchSingleTag;
+  window.requestDeleteTag = requestDeleteTag;
 
   window.requestAllNotes = requestAllNotes;
   window.requestAllNotebooks = requestAllNotebooks;

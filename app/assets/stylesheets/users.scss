@@ -149,7 +149,9 @@ i.category-label {
   padding: 3px;
   margin: 20px;
   width: auto;
-  max-width: 120px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
   display: flex;
   font-size: 14px;
 
@@ -183,10 +185,17 @@ i.category-label {
   color: gray;
   font-family: sans-serif;
   margin-left: 4px;
+  cursor: pointer;
+
+}
+
+.remove-tag-button:active{
+  color: white;
 }
 
 .remove-tag-button:hover {
   color: black;
+
 }
 
 

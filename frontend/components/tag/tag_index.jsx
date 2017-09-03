@@ -69,7 +69,7 @@ class TagIndex extends React.Component {
 
     const allTags = tags.map((tag, idx) =>
       <TagIndexItem className="tag-item" tag={tag} key={tag.id}
-        delete={this.props.deleteTag}/>
+        delete={this.props.removeTag}/>
     );
 
     return(

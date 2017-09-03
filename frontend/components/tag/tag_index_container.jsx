@@ -2,7 +2,7 @@ import React from 'react';
 
 import TagIndex from './tag_index';
 
-import { requestAllTags, deleteTag, createTag } from '../../actions/tag_actions';
+import { requestAllTags, requestDeleteTag, createTag } from '../../actions/tag_actions';
 import { requestAllNotes } from '../../actions/note_actions';
 import { selectAllTags } from '../../reducers/selectors';
 import { createTaggings } from '../../actions/tagging_actions';
@@ -19,9 +19,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+  debugger;
   return {
     requestAllTags: () => dispatch(requestAllTags()),
-    deleteTag: (id) => dispatch(deleteTag(id)),
+    removeTag: (id) => dispatch(requestDeleteTag(id)),
     createTag: (tag) => dispatch(createTag(tag)),
     createTaggings: (taggings) => dispatch(createTaggings(taggings))
     //deleteTaggings
