@@ -75,7 +75,7 @@ class TagIndex extends React.Component {
       <div className="tag-index-wrapper">
         <form className="create-tag-form" onSubmit={this.handleAction}>
           {/* display none on modal */}
-          <input type="text" className="tag-item" placeholder="+"
+          <input type="text" className="tag-item" placeholder="New Tag..."
           value={this.state.name}
           onChange={this.updateState('name')}
             ></input>

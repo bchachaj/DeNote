@@ -218,11 +218,14 @@ i.category-label {
   opacity: 1;
 }
 
+.notebook-modal .create-tag-form {
+  display: none;
+}
 
 .note-show-tags .tag-ul {
   flex-direction: row;
   height: 50px;
-  width: 300px;
+  width: 600px;
   padding: 0px;
   margin: 0px;
   overflow-x: scroll;
@@ -230,6 +233,13 @@ i.category-label {
 
 .note-show-tags {
   display: flex;
+  position: absolute;
+  top: 32px;
+}
+
+
+.category-label {
+  border-right: 0px;
 }
 
 .note-show-tags .tag-ul .tag-item {
@@ -258,19 +268,83 @@ i.category-label {
 
 .tag-contain {
   width: auto;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: clip;
   min-width: 20px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.create-tag-form {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto !important;
 }
 
 .tag-index-wrapper form input {
   outline: none;
-  border: 1px solid #d9d9d9;
   color: gray;
-padding: 2px;
-height: 15px;
-  border-radius: 7px;
-  background: #f2f2f2;
+  line-height: 2;
+  font-size: 12px;
+  border-radius: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 75px;
+  max-width: 200px;
   padding-left: 4px;
+  display: flex;
+  flex-direction: row;
+  background: #f4f4f4;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 18px !important;
+  margin-top: 1px;
+  margin-right:2px;
+  min-width: 20px;
+  max-width: 100px;
+  box-shadow: 1px 1px 2px #d9d9d9;
+  padding-left:10px;
+
+}
+
+
+
+.note-index-body {
+  margin-top: 10px;
+  user-select: none;
+  height: 57px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 2;
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
+  text-align: left;
+
+}
+.note-index-body .ql-toolbar {
+  display: none;
+    padding-top: 5px;
+    margin-top: 3px;
+}
+
+.note-index-item h3 {
+  margin-bottom: 0px;
+}
+
+.note-index-body .ql-editor {
+  padding: 0px;
+  overflow: hidden;
+  width: 90%;
+  padding-left: 3px;
+  color: #878787;
+}
+
+.note-index-date {
+  padding-left: 3px;
+  margin-top: -2px;
+  font-weight: 200;
 }

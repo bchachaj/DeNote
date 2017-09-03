@@ -2,13 +2,17 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import * as NoteAPI from '../../util/note_util';
 import NoteShow from './note_show';
+import ReactQuill from 'react-quill';
+
 
 class NoteIndexItem extends React.Component {
   constructor(props){
     super(props);
     this.formatDate = this.formatDate.bind(this);
     this.helper = this.helper.bind(this);
-
+    // this.state = {
+    //   body: '',
+    // };
   }
 
 
@@ -41,8 +45,13 @@ class NoteIndexItem extends React.Component {
 
         <li className="note-index-item">
           <h3 className="index-title">{this.props.note.title}</h3>
-          <div className="note-index-date">{/*this.formatDate(date)*/}</div>
-          <p className="note-index-body">{this.props.note.body.dangerouslyPasteHTML}</p>
+          <div className="note-index-date">{this.formatDate(date)}</div>
+          {/* <p className="note-index-body">{this.props.note.body}</p> */}
+          <ReactQuill
+            className="note-index-body"
+            theme="snow"
+            value={this.props.note.body}
+           />
         </li>
 
    </div>
