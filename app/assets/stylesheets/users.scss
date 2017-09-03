@@ -332,7 +332,8 @@ i.category-label {
 }
 
 .note-index-item h3 {
-  margin-bottom: 0px;
+  line-height: 22px;
+  margin-bottom: 5px;
 }
 
 .note-index-body .ql-editor {
@@ -347,4 +348,18 @@ i.category-label {
   padding-left: 3px;
   margin-top: -2px;
   font-weight: 200;
+}
+
+.note-index-item:hover .ql-editor {
+  color: white;
+}
+.note-index-item {
+  box-sizing: border-box;
+}
+
+.activeItem {
+  border: 3px solid
+   #cecece;
+   padding: 2px;
+
 }

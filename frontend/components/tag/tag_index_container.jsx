@@ -19,7 +19,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  debugger;
   return {
     requestAllTags: () => dispatch(requestAllTags()),
     removeTag: (id) => dispatch(requestDeleteTag(id)),

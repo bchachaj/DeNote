@@ -5,9 +5,10 @@ import { requestAllNotes, deleteNote } from '../../actions/note_actions';
 
 
 const mapStateToProps = (state) => {
-
+  const currentNote = state.ui.note_ui;
   return {
     notes: selectAllNotes(state),
+    currentNote: currentNote,
     notebooks: selectAllNotebooks(state)
   };
 };

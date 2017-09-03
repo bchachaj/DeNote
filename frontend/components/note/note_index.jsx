@@ -7,17 +7,19 @@ class NoteIndex extends React.Component {
 
 
   componentDidMount(){
-    this.props.requestAllNotes();
+    this.props.requestAllNotes().then(() => {
+      this.props.history.push(`/notes/${this.props.notes[0].id}`);
+    });
   }
 
-  componentWillReceiveProps(nextProps){
-    const test = nextProps.location;
-    const pathId = nextProps.notes[0];
-    if ((this.props.notes.length === 0) && pathId.id && (this.props.match.params.noteId !== pathId.id.toString())) {
-      //^ checking if not already on same path..^
-      this.props.requestAllNotes().then(this.props.history.push(`/notes/${pathId.id}`));
-    }
-  }
+  // componentWillReceiveProps(nextProps){
+  //   const test = nextProps.location;
+  //   const pathId = nextProps.notes[0];
+  //   if ((this.props.notes.length === 0) && pathId.id && (this.props.match.params.noteId !== pathId.id.toString())) {
+  //     //^ checking if not already on same path..^
+  //     this.props.requestAllNotes().then(this.props.history.push(`/notes/${pathId.id}`));
+  //   }
+  // }
 
   noNotes(){
     return(
@@ -36,8 +38,10 @@ class NoteIndex extends React.Component {
     const { notes } = this.props;
     const allNotes = notes.map((note,idx) =>
     <Link key={note.id} className="index-link" to={`/notes/${note.id}`}>
-      <NoteIndexItem note={note}
+      <NoteIndexItem note={note} current={this.props.currentNote}
                     delete={this.props.deleteNote}
+                    link={`/notes/${note.id}`}
+                    path={this.props.location.pathname}
                   />
      </Link>
    );
