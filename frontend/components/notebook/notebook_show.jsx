@@ -62,7 +62,10 @@ class NotebookShow extends React.Component {
             className="index-link"
             to={`/notebooks/${notebook.id}/notes/${note.id}`}>
 
-           <NoteIndexItem note={note} delete={this.props.deleteNote} />
+           <NoteIndexItem note={note}
+              link={`/notes/${note.id}`}
+              path={this.props.location.pathname}
+              delete={this.props.deleteNote} />
 
       </Link>
      );

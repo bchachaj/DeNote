@@ -31,9 +31,12 @@ class NoteShow extends React.Component {
       this.props.requestAllNotebooks();
 
     });
+    
   }
 
   componentWillReceiveProps(nextProps) {
+
+
     const testParam = nextProps.match.params.noteId;
     if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
@@ -47,7 +50,7 @@ class NoteShow extends React.Component {
 
     this.setState({note: nextProps.note});
     if(this.props.notebook) {
-      this.setState({ category: this.props.notebook.title });
+      this.setState({ category: 'test' });
     }
   }
 
@@ -105,7 +108,6 @@ class NoteShow extends React.Component {
       if (nextNote === note) {
         nextNote = this.props.notes[1];
       }
-
 
       const notebookOptions = this.props.notebooks.map((el) =>
         <div key={el.id}

@@ -10,10 +10,11 @@ const mapStateToProps = (state, ownProps) => {
   let notebookId = state.ui.notebook_ui;
 
   const notebooks = selectAllNotebooks(state);
-
+  const currentNote = state.ui.note_ui;
   return {
     notebookId,
     currentUser,
+    currentNote,
     notebooks
   };
 };

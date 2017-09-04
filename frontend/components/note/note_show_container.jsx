@@ -23,7 +23,6 @@ const mapStateToProps = (state, ownProps) => {
  const notebook = state.notebooks[notebookId];
 
  //
-
  return {
    notes,
    note,

@@ -48,7 +48,7 @@ class CreateNote extends React.Component {
   switchLinks(){
     if(this.state.title === '' || this.state.body === '' || this.state.category === 'Select a notebook'){
       return (
-        <Link to="/notes">
+        <Link to={`/notes/${this.props.currentNote}`}>
           <input className="note-save cancel" type="submit" value="Cancel"/>
         </Link>
       );

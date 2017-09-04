@@ -54,8 +54,11 @@ class TagIndex extends React.Component {
     //checking this.props.match.(path/params) involves note id
     //will only
     const noteId = this.props.match.params.noteId;
+    const taggingsObject = {tag_id: tag.id, note_id: parseInt(noteId)};
 
+    this.props.createTaggings(taggingsObject).then((data) => console.log(data));
   }
+
 
 
 
@@ -68,7 +71,9 @@ class TagIndex extends React.Component {
 
     const allTags = tags.map((tag, idx) =>
       <TagIndexItem className="tag-item" tag={tag} key={tag.id}
-        delete={this.props.removeTag}/>
+        delete={this.props.removeTag}
+        createTaggings={this.props.createTaggings}
+      />
     );
 
     return(
