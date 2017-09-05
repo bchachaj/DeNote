@@ -34,6 +34,7 @@ class NoteIndexItem extends React.Component {
           <ReactQuill
             className="note-index-body"
             theme="snow"
+            readOnly
             value={this.props.note.body}
            />
         </li>

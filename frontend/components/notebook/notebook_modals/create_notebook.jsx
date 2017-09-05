@@ -18,6 +18,7 @@ class CreateNotebookModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.handleAction = this.handleAction.bind(this);
     this.update = this.update.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount(){
@@ -33,6 +34,11 @@ class CreateNotebookModal extends React.Component {
 
   closeModal(){
     this.setState({modalIsOpen: false});
+  }
+
+  handleClose(){
+    this.setState({modalIsOpen: false});
+    this.props.history.push('/notebooks');
   }
 
   handleAction(e){
@@ -72,7 +78,7 @@ class CreateNotebookModal extends React.Component {
           <div className="modal-button-group">
             <button
               className="modal-button cancel"
-              onClick={this.closeModal}>
+              onClick={this.handleClose}>
               Cancel</button>
 
             <button
@@ -97,7 +103,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(CreateNotebookModal);
+)(CreateNotebookModal));

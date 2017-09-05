@@ -24,6 +24,7 @@ class NoteShow extends React.Component {
     this.setNotebook = this.setNotebook.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+
   }
 
   componentDidMount(){
@@ -31,11 +32,12 @@ class NoteShow extends React.Component {
       this.props.requestAllNotebooks();
 
     });
-    
+
   }
 
-  componentWillReceiveProps(nextProps) {
 
+
+  componentWillReceiveProps(nextProps) {
 
     const testParam = nextProps.match.params.noteId;
     if(this.props.match.params.noteId !== nextProps.match.params.noteId) {

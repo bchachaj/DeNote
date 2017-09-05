@@ -342,6 +342,11 @@ i.category-label {
   width: 90%;
   padding-left: 3px;
   color: #878787;
+
+}
+
+.note-index-body .ql-editor p:hover {
+  cursor: pointer;
 }
 
 .note-index-date {
@@ -370,4 +375,12 @@ i.category-label {
 
 .note-show .ql-toolbar {
   filter: opacity(64%);
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
 }
