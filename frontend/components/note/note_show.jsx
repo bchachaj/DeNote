@@ -5,8 +5,9 @@ import ReactQuill from 'react-quill';
 import { withRouter, Link } from 'react-router-dom';
 import TagIndex from '../tag/tag_index_container';
 
-class NoteShow extends React.Component {
 
+
+class NoteShow extends React.Component {
 
   constructor(props){
     super(props);
@@ -16,7 +17,7 @@ class NoteShow extends React.Component {
       note: { body: null, title: null },
       showHideDropdown: 'hidden',
       category: 'Notebook',
-      book_id: 1
+      book_id: null
     };
     this.onChange = editorState => this.setState({ editorState });
     this.update = this.update.bind(this);
@@ -24,7 +25,7 @@ class NoteShow extends React.Component {
     this.setNotebook = this.setNotebook.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
-
+    this.autoSave = this.autoSave.bind(this);
   }
 
   componentDidMount(){
@@ -32,6 +33,30 @@ class NoteShow extends React.Component {
       this.props.requestAllNotebooks();
 
     });
+
+    setInterval(() => {
+      this.autoSave();
+    }, 5000);
+
+  }
+
+
+  componentWillUnmount(){
+    this.autoSave();
+  }
+
+  autoSave(){
+    const currentNote = this.props.note;
+    this.state.note.id = this.props.note.id;
+
+    const e = document.querySelector(".ql-editor").innerHTML;
+    if(this.state.title === '') {
+      this.state.title = currentNote.title;
+    }
+    if(this.state.note.title !== currentNote.title || this.state.note.title !== this.state.title){
+      this.state.note.title = this.state.title;
+        this.props.requestUpdateNote(this.state.note);
+      }
 
   }
 
@@ -51,6 +76,8 @@ class NoteShow extends React.Component {
     }
 
     this.setState({note: nextProps.note});
+     this.setState({title: nextProps.note.title});
+
     if(this.props.notebook) {
       this.setState({ category: 'test' });
     }
@@ -62,9 +89,8 @@ class NoteShow extends React.Component {
     this.setState({showHideDropdown: css});
   }
 
-  update(property) {
-
-    return e => this.setState({ note: { [property]: e.target.value } });
+  update() {
+    return e => this.setState({ title: e.target.value } );
   }
 
   handleUpdate(value) {
@@ -171,7 +197,7 @@ class NoteShow extends React.Component {
               <input type="text"
                      className="note-title"
                      onChange={this.update('title')}
-                     value={this.state.note.title}/>
+                     value={this.state.title}/>
 
               <input className="temp-note-save" type="submit"
                      value="Save"

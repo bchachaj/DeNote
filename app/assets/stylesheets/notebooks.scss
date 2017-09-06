@@ -137,7 +137,7 @@ text-align: left;
 
 .ReactModalPortal .ReactModal__Overlay {
   transition: opacity 1600ms ease-in-out;
-  background: rgba(0, 0, 0, 0.85);
+  background: white;
   &--after-open {
     opacity: 1;
   }
@@ -145,8 +145,25 @@ text-align: left;
       opacity: 0;
   }
 }
+
+.ReactModalPortal {
+  background: white;
+  opacity: 1;
+}
 .ReactModal__Overlay {
   margin-left: 73px;
+  background: white;
+  opacity: 1;
+}
+
+.ReactModal__Overlay--after-open {
+  background: white;
+  opacity: 1;
+}
+
+.ReactModal {
+  background: white;
+  opacity: 1;
 }
 
 .book-delete {

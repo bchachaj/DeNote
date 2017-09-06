@@ -1034,6 +1034,16 @@ border: 0;
   opacity: 1;
 }
 
+
+
 .note-modal .modal-text {
   background: none;
+}
+
+.vac-initialized {
+  background: white;
+}
+
+.ReactModal__Overlay .ReactModal__Overlay--after-open {
+  background-color: white !important;
 }

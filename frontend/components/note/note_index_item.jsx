@@ -3,6 +3,7 @@ import { Link, Route, withRouter } from 'react-router-dom';
 import * as NoteAPI from '../../util/note_util';
 import NoteShow from './note_show';
 import ReactQuill from 'react-quill';
+import * as DateUtil from '../../util/date_util';
 
 
 class NoteIndexItem extends React.Component {
@@ -29,7 +30,7 @@ class NoteIndexItem extends React.Component {
       <div>
         <li className={this.handleActive()}>
           <h3 className="index-title">{this.props.note.title}</h3>
-          <div className="note-index-date">{date}</div>
+          <div className="note-index-date">{DateUtil.formatDate(date)}</div>
 
           <ReactQuill
             className="note-index-body"
