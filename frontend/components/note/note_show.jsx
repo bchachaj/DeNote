@@ -199,10 +199,6 @@ class NoteShow extends React.Component {
                      onChange={this.update('title')}
                      value={this.state.title}/>
 
-              <input className="temp-note-save" type="submit"
-                     value="Save"
-                     />
-
           </form>
 
           <ReactQuill
