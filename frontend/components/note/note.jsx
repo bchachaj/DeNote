@@ -15,11 +15,11 @@ class Note extends React.Component {
       return (
         <div>
           <div className="note-container">
-          <Route path="/notes/:noteId" component={NoteShow}/>
           <Switch>
             <Route exact path={'/notes/new'} component={CreateNote}/>
-            <Route path={`/notes`} component={NoteIndex}/>
+            <Route path="/notes/:noteId" component={NoteShow}/>
           </Switch>
+          <Route path={`/notes`} component={NoteIndex}/>
         </div>
         </div>
       );

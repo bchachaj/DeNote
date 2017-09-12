@@ -16,11 +16,11 @@ class Notebook extends React.Component {
           <div className="notebook-container">
           </div>
           <Switch>
+          <Route exact path={'/notebooks/new'} component={CreateNotebookModal}/>
           <Route exact path="/notebooks" component={NotebookModal}/>
           <Route path="/notebooks/:notebookId/delete" component={DeleteNotebook}/>
-          <Route path="/notebooks/:notebookId" component={NotebookShow}/>
-          <Route exact path={'/notebooks/new'} component={CreateNotebookModal}/>
         </Switch>
+        <Route path="/notebooks/:notebookId" component={NotebookShow}/>
         <Route path="/notebooks/:notebookId/notes/:noteId" component={NoteShow}/>
         </div>
       );

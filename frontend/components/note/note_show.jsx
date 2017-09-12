@@ -16,7 +16,7 @@ class NoteShow extends React.Component {
       body: '',
       note: { body: null, title: null },
       showHideDropdown: 'hidden',
-      category: 'Notebook',
+      category: '',
       book_id: null
     };
     this.onChange = editorState => this.setState({ editorState });
@@ -52,7 +52,7 @@ class NoteShow extends React.Component {
     this.state.note.id = this.props.note.id;
 
     const e = document.querySelector(".ql-editor").innerHTML;
-    if(this.state.title === '') {
+    if(this.state.note.title === '') {
       this.state.title = currentNote.title;
     }
     //Listen for changes before requesting update
@@ -67,6 +67,9 @@ class NoteShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const testParam = nextProps.match.params.noteId;
+
+
+
     if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
      //arg passed is action
@@ -78,12 +81,13 @@ class NoteShow extends React.Component {
     }
 
 
+    if(nextProps.note){
+      this.setState({note: nextProps.note});
+      this.setState({title: nextProps.note.title});
+    }
 
-    this.setState({note: nextProps.note});
-     this.setState({title: nextProps.note.title});
-
-    if(this.props.notebook) {
-      this.setState({ category: 'test' });
+    if(nextProps.notebook) {
+      this.setState({ category: nextProps.notebook.title });
     }
   }
 
@@ -98,9 +102,12 @@ class NoteShow extends React.Component {
   }
 
   handleUpdate(value) {
-    const e = document.querySelector(".ql-editor").innerHTML;
+    let noteshow = document.querySelector('.note-show-main');
+    const e = noteshow.querySelector(".ql-editor");
+    let x = e.innerHTML;
+
     this.setState({ note: {
-      body: e
+      body: x
     }});
 
 
