@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { requestSingleNotebook, requestAllNotebooks } from '../../actions/notebook_actions';
-import { requestAllNotes } from '../../actions/note_actions';
+import { requestAllNotes, requestSingleNote } from '../../actions/note_actions';
 import NoteIndexItem from '../note/note_index_item';
 import { selectAllNotes } from '../../reducers/selectors';
 import { deleteNote } from '../../actions/note_actions';
@@ -26,18 +26,21 @@ class NotebookShow extends React.Component {
         this.props.requestAllNotes()
       );
     }
+
   }
 
 
   componentWillReceiveProps(nextProps) {
     let e = this.props.notes[0];
+
     if (e && (this.props.match.params.notebookId !==
       nextProps.match.params.notebookId))
     {
       this.props.requestSingleNotebook(nextProps.match.params.notebookId);
     }
 
-  }
+
+    }
 
   noNotes(){
     return(
@@ -106,12 +109,16 @@ const mapStateToProps = (state, ownProps) => {
   const notesState = selectAllNotes(state);
 
   //Grab notes belonging to this notebook
+  const note = state.notes[state.ui.note_id];
   const notes = notesState.filter((el) =>
     el.notebook_id === notebookPath
   );
   const notebook = state.notebooks[notebookPath];
   const notebooks = state.notebooks;
+
+// const note = state.notes[state.ui.note_ui];
   return {
+    note,
     notes,
     notebook,
     notebooks
@@ -122,7 +129,8 @@ const mapDispatchToProps = dispatch => {
   return {
     requestSingleNotebook: id => dispatch(requestSingleNotebook(id)),
     requestAllNotebooks: () => dispatch(requestAllNotebooks()),
-    requestAllNotes: () => dispatch(requestAllNotes())
+    requestAllNotes: () => dispatch(requestAllNotes()),
+    requestSingleNote: () => dispatch(requestSingleNote())
   };
 };
 
