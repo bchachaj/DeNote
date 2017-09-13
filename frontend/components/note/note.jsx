@@ -18,8 +18,8 @@ class Note extends React.Component {
 
           <Switch>
             <Route exact path={'/notes/new'} component={CreateNote}/>
-            <Route path={`/notes`} component={NoteIndex}/>
             <Route path="/notes/:noteId" component={NoteShow}/>
+            <Route path={`/notes`} component={NoteIndex}/>
           </Switch>
         </div>
         </div>
