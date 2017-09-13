@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter,Link } from 'react-router-dom';
-// import {Editor, EditorState} from 'draft-js';
 import ReactQuill from 'react-quill';
 class CreateNote extends React.Component {
 
@@ -19,7 +18,6 @@ class CreateNote extends React.Component {
     this.switchLinks = this.switchLinks.bind(this);
     this.setNotebook = this.setNotebook.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
-
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
@@ -54,7 +52,7 @@ class CreateNote extends React.Component {
       );
     } else {
       return(
-        <input className="note-save" type="submit" value="Done"/>
+        <input onSubmit={this.handleSubmit} className="note-save" type="submit" value="Done"/>
       );
     }
   }
@@ -92,9 +90,10 @@ class CreateNote extends React.Component {
   }
 
   handleUpdate(value) {
-    const e = document.querySelector(".ql-editor").innerHTML;
+    const e = document.querySelector(".new-note-overlay");
+    const x = e.querySelector(".ql-editor").innerHTML;
     this.setState({
-      body: e
+      body: x
     });
   }
 
@@ -160,6 +159,7 @@ class CreateNote extends React.Component {
        <ReactQuill
          theme="snow"
          className="create-note-editor"
+        //  value={this.state.body}
          placeholder="Just start typing..."
          onChange={this.handleUpdate} />
 

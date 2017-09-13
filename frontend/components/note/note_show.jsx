@@ -141,11 +141,6 @@ class NoteShow extends React.Component {
     });
   }
 
-  setTag(){
-    //tbd
-  }
-
-
     render(){
 
       let { note, notebooks } = this.props;
@@ -234,4 +229,4 @@ class NoteShow extends React.Component {
   }
 
 
-export default withRouter(NoteShow);
+export default NoteShow;
