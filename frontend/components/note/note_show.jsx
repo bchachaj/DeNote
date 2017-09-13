@@ -29,7 +29,7 @@ class NoteShow extends React.Component {
   }
 
   componentDidMount(){
-    if(this.props.match.params.noteId ==="new") {
+    if(this.props.match.url === '/notes/new'){
       return null;
     }
     if(this.props.notebook ){
@@ -41,12 +41,11 @@ class NoteShow extends React.Component {
     setInterval(() => {
       this.autoSave();
     }, 5000);
-
   }
 
 
   componentWillUnmount(){
-    this.autoSave();
+    if(this.props.match.url !== '/notes/new') { this.autoSave(); }
   }
 
   autoSave(){
@@ -76,7 +75,7 @@ class NoteShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const testParam = nextProps.match.params.noteId;
-    if(this.props.match.params === 'new') {
+    if(nextProps.match.url === "/notes/new") {
       return null;
     }
     if(this.props.match.params.noteId !== nextProps.match.params.noteId && nextProps.match.params.noteId !== 'new') {
@@ -143,8 +142,9 @@ class NoteShow extends React.Component {
 
     render(){
 
+
       let { note, notebooks } = this.props;
-      if (!note) {
+      if (!note || this.props.match.url === "/notes/new") {
         return null;
       }
       let nextNote = this.props.notes[0];
@@ -229,4 +229,4 @@ class NoteShow extends React.Component {
   }
 
 
-export default NoteShow;
+export default withRouter(NoteShow);
