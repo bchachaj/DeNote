@@ -7,7 +7,6 @@ class NoteIndex extends React.Component {
 
 
   componentDidMount(){
-    debugger;
     this.props.requestAllNotes().then(() =>
       this.props.history.push(`/notes/${this.props.notes[0].id}`)
     );
@@ -16,7 +15,6 @@ class NoteIndex extends React.Component {
   componentWillReceiveProps(nextProps){
     const test = nextProps.location;
     const pathId = nextProps.notes[0];
-    debugger;
     if ((this.props.notes.length === 0) && pathId.id && (this.props.match.params.noteId !== pathId.id.toString())) {
       //^ checking if not already on same path..^
       this.props.requestAllNotes().then(this.props.history.push(`/notes/${pathId.id}`));

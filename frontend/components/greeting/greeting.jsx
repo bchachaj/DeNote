@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Redirect, Link, Route } from 'react-router-dom';
 import NotebookModal from '../notebook/notebook_modals/notebook_modal';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 
 
