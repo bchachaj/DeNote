@@ -69,7 +69,7 @@ class NoteShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const testParam = nextProps.match.params.noteId;
-    if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
+    if(this.props.match.params.noteId !== nextProps.match.params.noteId && nextProps.match.params.noteId !== 'new') {
       this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
      //arg passed is action
       //return value is action itself

@@ -160,7 +160,6 @@ class CreateNote extends React.Component {
        <ReactQuill
          theme="snow"
          className="create-note-editor"
-         value={this.state.body}
          placeholder="Just start typing..."
          onChange={this.handleUpdate} />
 

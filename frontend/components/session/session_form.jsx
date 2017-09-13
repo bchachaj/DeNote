@@ -30,7 +30,9 @@ class SessionForm extends React.Component {
 
     e.preventDefault();
     const user = this.state;
-    this.props.processForm(user);
+    this.props.processForm(user).then((data) =>
+    this.props.history.push('/notes')
+    );
   }
 
   handleDemo(e) {
