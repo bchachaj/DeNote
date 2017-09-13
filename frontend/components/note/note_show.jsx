@@ -51,7 +51,7 @@ class NoteShow extends React.Component {
     this.state.note.id = this.props.note.id;
 
     const e = document.querySelector(".ql-editor").innerHTML;
-    if(this.state.note.title === '') {
+    if(this.state.note && this.state.note.title === '') {
       this.state.title = currentNote.title;
     }
     //Listen for changes before requesting update
@@ -81,6 +81,7 @@ class NoteShow extends React.Component {
 
     if(nextProps.note){
       this.setState({note: nextProps.note});
+      this.setState({book_id: nextProps.note.notebook_id});
       this.setState({title: nextProps.note.title});
     }
     if(nextProps.notebook) {
