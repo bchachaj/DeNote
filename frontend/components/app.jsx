@@ -19,11 +19,11 @@ const App = () => {
       <Switch>
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />
-        <ProtectedRoute path="/notes" component={Note}/>
         <ProtectedRoute path="/notebooks" component={Notebook}/>
+        <ProtectedRoute path="/notes" component={Note}/>
         <ProtectedRoute path="/tags" component={Tag}/>
 
-        <Redirect from="/" to="/notes" push />
+        {/* <Redirect from="/" to="/notes" push /> */}
       </Switch>
 
     </div>

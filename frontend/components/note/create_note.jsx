@@ -33,6 +33,12 @@ class CreateNote extends React.Component {
     this.props.requestAllNotebooks();
   }
 
+
+  componentWillUnmount(){
+    debugger;
+    console.log(this.props);
+  }
+
   componentWillReceiveProps(nextProps){
 
     if(this.props.notebookId){

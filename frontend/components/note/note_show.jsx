@@ -29,6 +29,9 @@ class NoteShow extends React.Component {
   }
 
   componentDidMount(){
+    if(this.props.match.params.noteId ==="new") {
+      return null;
+    }
     if(this.props.notebook ){
       this.setState({ category: this.props.notebook.title });
     }
@@ -50,7 +53,11 @@ class NoteShow extends React.Component {
     const currentNote = this.props.note;
     this.state.note.id = this.props.note.id;
 
-    const e = document.querySelector(".ql-editor").innerHTML;
+    // let noteshow = document.querySelector('.note-show-main');
+    // const e = noteshow.querySelector(".ql-editor");
+    // let x = e.innerHTML;
+
+
     if(this.state.note && this.state.note.title === '') {
       this.state.title = currentNote.title;
     }
@@ -69,6 +76,9 @@ class NoteShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const testParam = nextProps.match.params.noteId;
+    if(this.props.match.params === 'new') {
+      return null;
+    }
     if(this.props.match.params.noteId !== nextProps.match.params.noteId && nextProps.match.params.noteId !== 'new') {
       this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
      //arg passed is action
