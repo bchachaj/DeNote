@@ -23,7 +23,7 @@ const App = () => {
         <ProtectedRoute path="/notebooks" component={Notebook}/>
         <ProtectedRoute path="/tags" component={Tag}/>
 
-        {/* <Redirect from="/" to="/notes" push /> */}
+        <Redirect from="/" to="/notes" push />
       </Switch>
 
     </div>
