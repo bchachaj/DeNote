@@ -31,7 +31,8 @@ class NoteShow extends React.Component {
   componentDidMount(){
 
     this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
-      this.props.requestAllNotebooks();
+      this.props.requestAllNotebooks().then(() => this.setState({ category: this.props.notebook.title })
+    );
     });
     setInterval(() => {
       this.autoSave();
@@ -57,7 +58,6 @@ class NoteShow extends React.Component {
        || this.state.note.title !== this.state.title
      ){
       this.state.note.title = this.state.title;
-      debugger;
       this.state.note.notebook_id = this.state.book_id;
         this.props.requestUpdateNote(this.state.note);
       }
@@ -72,9 +72,11 @@ class NoteShow extends React.Component {
       this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
      //arg passed is action
       //return value is action itself
-      this.props.requestAllNotebooks()
-
+      this.props.requestAllNotebooks().then(() =>
+      this.setState({ category: nextProps.notebook.title })
+      )
     );
+
     }
 
 
@@ -82,7 +84,7 @@ class NoteShow extends React.Component {
       this.setState({note: nextProps.note});
       this.setState({title: nextProps.note.title});
     }
-    if(nextProps.notebook || this.state.category === 'Change Notebook') {
+    if(nextProps.notebook && this.state.category !== 'Change Notebook') {
       this.setState({ category: nextProps.notebook.title });
     }
   }
