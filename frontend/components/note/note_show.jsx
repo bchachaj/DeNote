@@ -14,9 +14,9 @@ class NoteShow extends React.Component {
     this.state = {
       title: '',
       body: '',
-      note: { body: null, title: null },
+      note: { body: null, title: null, notebook_id: null },
       showHideDropdown: 'hidden',
-      category: '',
+      category: 'Change Notebook',
       book_id: null
     };
     this.onChange = editorState => this.setState({ editorState });
@@ -29,12 +29,9 @@ class NoteShow extends React.Component {
   }
 
   componentDidMount(){
-    if(!this.props.requestSingleNote) {
-      return null;
-    }
+
     this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
       this.props.requestAllNotebooks();
-
     });
     setInterval(() => {
       this.autoSave();
@@ -56,8 +53,12 @@ class NoteShow extends React.Component {
       this.state.title = currentNote.title;
     }
     //Listen for changes before requesting update
-    if(this.state.note.title !== currentNote.title || this.state.note.title !== this.state.title){
+    if(this.state.note.title !== currentNote.title
+       || this.state.note.title !== this.state.title
+     ){
       this.state.note.title = this.state.title;
+      debugger;
+      this.state.note.notebook_id = this.state.book_id;
         this.props.requestUpdateNote(this.state.note);
       }
 
@@ -67,17 +68,13 @@ class NoteShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const testParam = nextProps.match.params.noteId;
-
-
-
     if(this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
      //arg passed is action
       //return value is action itself
       this.props.requestAllNotebooks()
-      // this.setState({ category: nextProps.notebook.title })
-    );
 
+    );
     }
 
 
@@ -85,8 +82,7 @@ class NoteShow extends React.Component {
       this.setState({note: nextProps.note});
       this.setState({title: nextProps.note.title});
     }
-
-    if(nextProps.notebook) {
+    if(nextProps.notebook || this.state.category === 'Change Notebook') {
       this.setState({ category: nextProps.notebook.title });
     }
   }
@@ -126,6 +122,7 @@ class NoteShow extends React.Component {
   }
 
   setNotebook(e, data){
+    e.preventDefault();
     this.setState({
       category: data.title,
       book_id: data.id
