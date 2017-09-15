@@ -1,6 +1,8 @@
 class Api::NotebooksController < ApplicationController
   def index
-  @notebooks = Notebook.all.select { |notebook| notebook.author_id == current_user.id }
+    @notebooks = Notebook.all.select { |notebook| notebook.author_id == current_user.id }
+    @notebooks = @notebooks.sort_by(&:updated_at)
+    @notebooks.reverse
   end
 
   def show

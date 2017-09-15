@@ -27,8 +27,6 @@ const noteReducer = (state ={}, action) => {
     case RECEIVE_TAGGING:
       const { note_id, tag_id } = action.data;
       return state;
-    // case RECEIVE_ONE_NOTEBOOK:
-    //   return state;
     default:
       return state;
   }
