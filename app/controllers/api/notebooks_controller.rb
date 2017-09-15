@@ -1,6 +1,6 @@
 class Api::NotebooksController < ApplicationController
   def index
-    @notebooks = Notebook.all
+  @notebooks = Notebook.all.select { |notebook| notebook.author_id == current_user.id }
   end
 
   def show
@@ -25,7 +25,7 @@ class Api::NotebooksController < ApplicationController
     else
       render json: @notebook.errors.full_messages, status: 422
     end
-    
+
   end
 
   private

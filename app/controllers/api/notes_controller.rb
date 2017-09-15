@@ -1,7 +1,8 @@
 class Api::NotesController < ApplicationController
 
   def index
-    @notes = Note.all
+    @notes = Note.all.select { |note| note.author_id == current_user.id }
+    @notes = @notes.sort_by(&:created_at)
   end
 
   def show

@@ -20,7 +20,6 @@ class SessionForm extends React.Component {
     if (nextProps.loggedIn) {
       this.props.history.push('/notes');
     }
-    debugger;
   }
 
   update(field) {
@@ -31,7 +30,6 @@ class SessionForm extends React.Component {
 
     e.preventDefault();
     const user = this.state;
-    debugger;
     this.props.processForm(user).then((data) =>
     this.props.history.push('/notes')
     );

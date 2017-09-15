@@ -1,6 +1,6 @@
 class Api::TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    @tags = Tag.all.select{ |tag| tag.author_id == current_user.id } 
   end
 
   def create

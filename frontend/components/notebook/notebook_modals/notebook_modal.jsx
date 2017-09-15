@@ -9,14 +9,30 @@ class NotebookModal extends React.Component {
     this.state = {modalIsOpen: false};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-
   }
 
   componentDidMount(){
     if(this.props.location.pathname === '/notebooks'){
-      this.setState({modalIsOpen: true});
+      this.setState({modalIsOpen: true});//, () => {
+
+        // if(document.querySelector('.notebook-modal').classList.contains('.collapsed')){
+        //   console.log('has collapse');
+        //   debugger;
+        //   document.querySelector('.notebook-modal').classList.remove('.collapsed');
+        // }
     }
+    if(this.state.modalIsOpen){
+      let e = document.querySelector('.notebook-modal');
+      console.log(e.classList);
+    }
+
   }
+
+  componentWillUnmount(){
+    let modal = document.querySelector('.notebook-modal');
+    modal.classList.remove('modal-animation');
+  }
+
 
   componentWillUpdate(nextProps, nextState){
     if (this.state.modalIsOpen && !nextState.modalIsOpen) {
@@ -29,6 +45,9 @@ class NotebookModal extends React.Component {
   }
 
   closeModal(){
+    let e = document.querySelector('.notebook-modal');
+    console.log(e.classList);
+    e.classList.add('collapsed');
     this.setState({modalIsOpen: false});
   }
 
