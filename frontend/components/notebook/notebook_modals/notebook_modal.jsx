@@ -13,17 +13,10 @@ class NotebookModal extends React.Component {
 
   componentDidMount(){
     if(this.props.location.pathname === '/notebooks'){
-      this.setState({modalIsOpen: true});//, () => {
-
-        // if(document.querySelector('.notebook-modal').classList.contains('.collapsed')){
-        //   console.log('has collapse');
-        //   debugger;
-        //   document.querySelector('.notebook-modal').classList.remove('.collapsed');
-        // }
+      this.setState({modalIsOpen: true});
     }
     if(this.state.modalIsOpen){
       let e = document.querySelector('.notebook-modal');
-      console.log(e.classList);
     }
 
   }

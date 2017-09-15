@@ -22,11 +22,6 @@ class NoteInfo extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
-  afterOpenModal(){
-    // console.log(this.state);
-  }
-
-
   render(){
     return(
       <div>

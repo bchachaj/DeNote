@@ -25,7 +25,6 @@ class NoteIndexItem extends React.Component {
 
     const date = this.props.note.updated_at;
     const test = new Date(date);
-    // console.info(test);
     return(
       <div>
         <li className={this.handleActive()}>

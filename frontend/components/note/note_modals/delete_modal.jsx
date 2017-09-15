@@ -24,10 +24,6 @@ class DeleteNote extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
-  afterOpenModal(){
-    // console.log(this.state);
-  }
-
   handleAction(e){
     e.preventDefault();
     const keep = this.props.nextProp.id || '';
