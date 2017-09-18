@@ -56,7 +56,7 @@ class DeleteNotebook extends React.Component {
           </div>
 
           <h1 className="modal-text">Are you sure you want to delete this notebook?</h1>
-          
+
           <div className="modal-button-group">
           <button
             className="modal-button cancel"

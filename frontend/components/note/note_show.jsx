@@ -88,7 +88,7 @@ class NoteShow extends React.Component {
     }
 
 
-    if(nextProps.note && nextProps.note.title !== 'Your First Note'){
+    if(nextProps.note){
       this.setState({note: nextProps.note});
       this.setState({book_id: nextProps.note.notebook_id});
       this.setState({title: nextProps.note.title});

@@ -17,6 +17,9 @@ class NotebookModal extends React.Component {
     }
     if(this.state.modalIsOpen){
       let e = document.querySelector('.notebook-modal');
+      if(e){
+        e.classList.remove('collapsed');
+      }
     }
 
   }
@@ -39,7 +42,7 @@ class NotebookModal extends React.Component {
 
   closeModal(){
     let e = document.querySelector('.notebook-modal');
-    console.log(e.classList);
+    // console.log(e.classList);
     e.classList.add('collapsed');
     this.setState({modalIsOpen: false});
   }
@@ -57,6 +60,7 @@ class NotebookModal extends React.Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="Notebook Index"
+          closeTimeoutMS={400}
          >
 
          <div className="notebook-modal-header">
