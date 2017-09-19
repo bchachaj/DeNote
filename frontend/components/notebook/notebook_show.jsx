@@ -73,7 +73,6 @@ class NotebookShow extends React.Component {
       </Link>
      );
 
-     debugger;
 
      let renderThis;
 

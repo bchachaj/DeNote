@@ -405,6 +405,31 @@ em {
   z-index: 200;
 }
 
+.note-index-body {
+  display: block;
+}
+
+#credit {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  color: gray;
+  padding: 3px;
+  font-size: 16px;
+}
+
+#credit a {
+  color: teal;
+  padding: 1px;
+}
+
+#credit a:hover {
+  background: gray;
+  color: white;
+  cursor: pointer;
+  padding: 1px;
+}
+
 
 
 

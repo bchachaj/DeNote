@@ -218,6 +218,8 @@ class NoteShow extends React.Component {
             placeholder="Just start typing..."
            />
         </div>
+
+        <p id="credit">Built by <a href="http://bchachaj.com">Ben Chachaj</a></p> 
       </div>
       );
     }
