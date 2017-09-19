@@ -673,16 +673,19 @@
   padding: 4px 8px;
   position: absolute;
   white-space: nowrap;
+  z-index: 999;
+  opacity: 1;
 }
 .ql-snow .ql-picker-options .ql-picker-item {
   cursor: pointer;
   display: block;
   padding-bottom: 5px;
   padding-top: 5px;
+  z-index: 999;
 }
 .ql-snow .ql-picker.ql-expanded .ql-picker-label {
   color: #ccc;
-  z-index: 2;
+  z-index: 99;
 }
 .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
   fill: #ccc;
@@ -694,7 +697,7 @@
   display: block;
   margin-top: -1px;
   top: 100%;
-  z-index: 1;
+  z-index: 999;
 }
 .ql-snow .ql-color-picker,
 .ql-snow .ql-icon-picker {
@@ -1046,4 +1049,50 @@ border: 0;
 
 .ReactModal__Overlay .ReactModal__Overlay--after-open {
   background-color: white !important;
+}
+
+.ql-picker-options > * {
+  z-index: 9999;
+  opacity: 1;
+}
+
+
+span.ql-picker-options {
+  opacity: 1;
+  z-index: 9999;
+  background: white;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.ql-picker-item {
+  height: 40px;
+  margin: 2px;
+}
+
+ div.ql-toolbar.ql-snow >  span.ql-picker-options {
+  display: flex;
+ }
+
+ .ql-expanded > * {
+  display: flex;
+  opacity: 1;
+  z-index: 999;
+ }
+
+.ql-expanded > span.ql-picker-options {
+   display: flex !important;
+   justify-content: center !important;
+   align-items: center !important;
+   opacity: 1;
+ }
+
+.ql-expanded > span.ql-picker-options > *{
+}
+
+.ql-expanded > .ql-picker-item {
+  height: 20px;
 }

@@ -52,11 +52,6 @@ class NoteShow extends React.Component {
     const currentNote = this.props.note;
     this.state.note.id = this.props.note.id;
 
-    // let noteshow = document.querySelector('.note-show-main');
-    // const e = noteshow.querySelector(".ql-editor");
-    // let x = e.innerHTML;
-
-
     if(this.state.note && this.state.note.title === '') {
       this.state.title = currentNote.title;
     }

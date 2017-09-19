@@ -386,17 +386,25 @@ em {
 }
 
 .ReactModalPortal > div {
-    // opacity: 0;
-    width: 0px;
+     opacity: 0;
+
 }
 
 .ReactModalPortal .ReactModal__Overlay {
-  transition: width 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
   background: rgba(0, 0, 0, 0.15);
   &--after-open {
-    width: 400px;
+    opacity: 1;
   }
   &--before-close {
-      width: 0px;
+      opacity: 0;
   }
 }
+
+.ql-editor {
+  z-index: 200;
+}
+
+
+
+
