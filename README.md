@@ -13,6 +13,7 @@ FullStack Web application built with:
 
 Denote is a note categorization application inspired by Evernote. Users can compile collections of notes in notebooks, and apply taggings to notes. The application takes strides to remain faithful to the Evernote experience, with a similar layout and styling.
 
+
 ### Key features
 
  * User authentication
@@ -21,10 +22,10 @@ Denote is a note categorization application inspired by Evernote. Users can comp
  * Rich text editing enabled for a better note taking experience
 
 
-![UI](./docs/images/context-shot.png)
+![AUTH](./docs/images/auth-screen.png)
 
 ### UI / UX
-
+ 
 The project was designed around Evernote's existing hierarchy of components, however the implementation was completely original. No styling libraries were involved either, all visible elements (besides perhaps ReactModal) were styled by hand.
 
 
@@ -33,7 +34,7 @@ The project was designed around Evernote's existing hierarchy of components, how
 This app was designed and implemented keeping the core methodologies of these technologies in mind. The state of Denote is stored in an object tree within a single store. This state is read only, and changes are made using pure functions.
 
 
-![Component](./docs/images/screenshot.png)
+![UI](./docs/images/context-shot.png)
 
 ### Notebooks and Notes
 A large part of this undertaking was not just constructing the components that make up the application, but making use off them as a whole in an efficient manner. This was taken care of by limiting which pieces of the state were being fetched and when, as well as making data only available to the pieces of the application that needed it.
