@@ -429,7 +429,24 @@ em {
   cursor: pointer;
   padding: 1px;
 }
+/*
+.side-section {
+  background: red;
+  min-height: 160px;
+}*/
+
+.side-section.section-a {
+  height: 50px;
+  margin-bottom: 0px;
+}
+.side-section.section-b {
+  min-height: 180px;
+}
+.github-link > i {
+  background: teal;
+}
 
 
-
-
+.github-link > i:hover {
+  color: teal;
+}

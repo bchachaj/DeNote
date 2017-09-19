@@ -37,6 +37,10 @@ return(
         <Link to="/tags">
           <i className="fa fa-tag" aria-hidden="true"></i>
         </Link>
+
+        <a className="github-link" href="http://github.com/bchachaj/denote">
+          <i className="fa fa-github" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
   </section>
