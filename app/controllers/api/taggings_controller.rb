@@ -10,6 +10,7 @@ class Api::TaggingsController < ApplicationController
 
   def create
     @tagging = Tagging.new(t_params)
+    debugger
     if @tagging.save
       render :show
     else
@@ -35,6 +36,6 @@ class Api::TaggingsController < ApplicationController
   private
 
   def t_params
-    params.require(:taggings).permit(:tag_id, :note_id)
+    params.require(:tagging).permit(:tag_id, :note_id)
   end
 end
