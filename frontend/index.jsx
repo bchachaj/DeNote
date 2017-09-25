@@ -39,8 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchAllNotes = NoteAPI.fetchAllNotes;
-  window.fetchSingleNote = NoteAPI.fetchSingleNote;
 
   window.fetchAllTags = TagAPI.fetchAllTags;
   window.requestAllTags = requestAllTags;
@@ -48,11 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchSingleTag = TagAPI.fetchSingleTag;
   window.requestDeleteTag = requestDeleteTag;
 
-  window.requestAllNotes = requestAllNotes;
-  window.requestAllNotebooks = requestAllNotebooks;
-  window.requestSingleNote = requestSingleNote;
-  window.selectAllNotes = selectAllNotes;
-  window.selectAllNotebooks = selectAllNotebooks;
+
   //notebook
   window.fetchAllNotebooks = NotebookAPI.fetchAllNotebooks;
 
