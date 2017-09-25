@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchSingleTag = TagAPI.fetchSingleTag;
   window.requestDeleteTag = requestDeleteTag;
 
-
   //notebook
   window.fetchAllNotebooks = NotebookAPI.fetchAllNotebooks;
 

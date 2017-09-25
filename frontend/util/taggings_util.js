@@ -6,6 +6,10 @@ export const createTagging = (tagging) => {
   });
 };
 
-// export const deleteTagging = (tagId) => {
-//
-// };
+
+export const deleteTagging = (tagId) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/taggings/${tagId}`
+  });
+};

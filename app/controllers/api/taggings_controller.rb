@@ -1,11 +1,15 @@
-class Api::TaggingController < ApplicationController
+class Api::TaggingsController < ApplicationController
 
   def show
     @tagging = Tagging.find(params[:id])
   end
 
+  def index
+    @taggings = Tagging.all
+  end
+
   def create
-    @tagging - Tagging.new(t_params)
+    @tagging = Tagging.new(t_params)
     if @tagging.save
       render :show
     else

@@ -11,6 +11,8 @@ export const createTaggings = tagging => dispatch => {
   );
 };
 
+
+
 export const receiveTaggings = (tagging) => ({
   type: RECEIVE_TAGGING,
   tagging
