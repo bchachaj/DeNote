@@ -1,6 +1,4 @@
 export const createTagging = (tagging) => {
-  debugger;
-  console.log(tagging);
   return $.ajax({
     method: 'POST',
     url: '/api/taggings',

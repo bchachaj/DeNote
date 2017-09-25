@@ -10,7 +10,6 @@ class Api::TaggingsController < ApplicationController
 
   def create
     @tagging = Tagging.new(t_params)
-    debugger
     if @tagging.save
       render :show
     else
