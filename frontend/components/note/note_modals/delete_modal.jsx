@@ -25,6 +25,7 @@ class DeleteNote extends React.Component {
 
   handleAction(e){
     e.preventDefault();
+    if(this.props.nextProp) {
     const keep = this.props.nextProp.id || '';
     const path = this.props.location.pathname.split('/');
     this.props.delete(this.props.id).then(() => {
@@ -35,6 +36,9 @@ class DeleteNote extends React.Component {
         this.props.history.push(`/notes/${keep}`);
       }
     });
+  } else {
+    this.props.delete(this.props.id).then(this.props.history.push('/notes'));
+  }
   }
 
 

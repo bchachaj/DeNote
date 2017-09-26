@@ -18,14 +18,15 @@ const noteReducer = (state ={}, action) => {
       return action.notes;
     case RECEIVE_ONE_NOTE:
       const note = action.note;
-      newState = merge({}, state, {[action.note.id]: action.note});
+      newState = merge({}, state,
+     {[action.note.id]: action.note});
       return newState;
     case REMOVE_NOTE:
       let delState = merge({}, state);
       delete delState[action.note.id];
       return delState;
     case RECEIVE_TAGGING:
-      const { note_id, tag_id } = action.data;
+      const { note_id, tag_id } = action.tagging;
       return state;
     default:
       return state;

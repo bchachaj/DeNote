@@ -43,9 +43,7 @@ class TagIndex extends React.Component {
       this.props.createTag({
         name: tagName
       }).then((newTag) => {
-        let data = newTag.id;
-        this.handleTaggings({tag_id: data, note_id: 1});
-
+        this.handleTaggings({tag_id: newTag.id, note_id: 1});
       });
       this.setState({name: ''});
     }
@@ -59,7 +57,7 @@ class TagIndex extends React.Component {
     const noteId = this.props.match.params.noteId;
     const taggingsObject = {tag_id: tag.tag_id, note_id: parseInt(noteId)};
 
-    this.props.createTaggings(taggingsObject).then((data) => console.log(data));
+    this.props.createTaggings(taggingsObject);
   }
 
 
