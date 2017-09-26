@@ -13,6 +13,8 @@ class DeleteNote extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleAction = this.handleAction.bind(this);
+    this.lastNote = this.lastNote.bind(this);
+    this.removeAndShowNext = this.removeAndShowNext.bind(this);
   }
 
   openModal(){
@@ -26,6 +28,13 @@ class DeleteNote extends React.Component {
   handleAction(e){
     e.preventDefault();
     if(this.props.nextProp) {
+      this.removeAndShowNext();
+    } else {
+    this.lastNote();
+   }
+  }
+
+  removeAndShowNext(){
     const keep = this.props.nextProp.id || '';
     const path = this.props.location.pathname.split('/');
     this.props.delete(this.props.id).then(() => {
@@ -35,10 +44,11 @@ class DeleteNote extends React.Component {
       } else {
         this.props.history.push(`/notes/${keep}`);
       }
-    });
-  } else {
-    this.props.delete(this.props.id).then(this.props.history.push('/notes'));
+   });
   }
+
+  lastNote(){
+    this.props.delete(this.props.id).then(this.props.history.push('/notes'));
   }
 
 

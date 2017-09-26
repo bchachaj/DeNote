@@ -29,15 +29,14 @@ class NoteShow extends React.Component {
   }
 
   componentDidMount(){
-    if(this.props.match.url === '/notes/new'){
-      return null;
-    }
+    if(this.props.match.url === '/notes/new') return null;
     if(this.props.notebook ){
       this.setState({ category: this.props.notebook.title });
     }
     this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
       this.props.requestAllNotebooks();
     });
+
     setInterval(() => {
       this.autoSave();
     }, 5000);
@@ -219,7 +218,7 @@ class NoteShow extends React.Component {
            />
         </div>
 
-        <p id="credit">Built by <a href="http://bchachaj.com">Ben Chachaj</a></p> 
+        <p id="credit">Built by <a href="http://bchachaj.com">Ben Chachaj</a></p>
       </div>
       );
     }
