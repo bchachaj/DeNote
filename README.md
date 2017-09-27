@@ -11,7 +11,7 @@ FullStack Web application built with:
  Heroku Link : https://denote.herokuapp.com/
 
 
-Denote is a note categorization application inspired by Evernote. Users can compile collections of notes in notebooks, and apply taggings to notes. The application takes strides to remain faithful to the Evernote experience, with a similar layout and styling.
+Denote is a note categorization application inspired by the web application version of Evernote. Users can compile collections of notes in notebooks, and apply tags to notes. The application takes strides to remain faithful to the Evernote experience, with a similar layout and styling.
 
 
 ### Key features
@@ -20,12 +20,13 @@ Denote is a note categorization application inspired by Evernote. Users can comp
  * Users can create, view, edit, and delete notes
  * Notes can be organized into collections (notebooks)
  * Rich text editing enabled for a better note taking experience
+ * Autosave to ensure changes are saved regularly
 
 
 ![AUTH](./docs/images/auth-screen.png)
 
 ### UI / UX
- 
+
 The project was designed around Evernote's existing hierarchy of components, however the implementation was completely original. No styling libraries were involved either, all visible elements (besides perhaps ReactModal) were styled by hand.
 
 
@@ -68,7 +69,7 @@ const mapStateToProps = (state, ownProps) => {
 
 ##### Future features:
 Next steps for Denote involve implementing the following:
- * Autosave
+
  * Search
  * Reminders
- * Additional UX - friendly animations
+ * Favorites

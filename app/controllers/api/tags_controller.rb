@@ -14,8 +14,11 @@ class Api::TagsController < ApplicationController
 
   end
 
+  # update
+
   def destroy
     @tag = Tag.find(params[:id])
+    taggings = Tagging.find_by(tag_id: params[:id])
     if @tag.delete
       render :show
     else

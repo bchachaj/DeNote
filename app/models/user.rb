@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :notes
   has_many :notebooks
+  has_many :tags
 
   after_initialize :ensure_session_token
 

@@ -37,6 +37,8 @@ class TagIndex extends React.Component {
 
     if(_existingTag) {
       this.setState({name: ''});
+      //not desired behavior
+
     } else {
       this.props.createTag({
         name: tagName
@@ -45,7 +47,6 @@ class TagIndex extends React.Component {
       });
       this.setState({name: ''});
     }
-
   }
 
   handleTaggings(tag){
@@ -60,7 +61,6 @@ class TagIndex extends React.Component {
     if(!this.props.tags) {
       return null;
     }
-
     const allTags = tags.map((tag, idx) =>
       <TagIndexItem className="tag-item" tag={tag} key={tag.id}
         delete={this.props.removeTag}
