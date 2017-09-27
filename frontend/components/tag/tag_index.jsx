@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { Link, Route, withRouter } from 'react-router-dom';
-
 import TagIndexItem from './tag_index_item';
 
 class TagIndex extends React.Component {
@@ -16,7 +14,7 @@ class TagIndex extends React.Component {
   }
 
   componentWillMount(){
-    this.props.requestAllTags().then(() => this.props.requestAllTaggings());
+    this.props.requestAllTags();
   }
 
   componentWillReceiveProps(nextProps){
@@ -51,12 +49,8 @@ class TagIndex extends React.Component {
   }
 
   handleTaggings(tag){
-    //checking this.props.match.(path/params) involves note id
-    //will only
-
     const noteId = this.props.match.params.noteId;
     const taggingsObject = {tag_id: tag.tag_id, note_id: parseInt(noteId)};
-
     this.props.createTaggings(taggingsObject);
   }
 
@@ -80,7 +74,6 @@ class TagIndex extends React.Component {
     return(
       <div className="tag-index-wrapper">
         <form className="create-tag-form" onSubmit={this.handleAction}>
-          {/* display none on modal */}
           <input type="text" className="tag-item" placeholder="New Tag..."
           value={this.state.name}
           onChange={this.updateState('name')}
