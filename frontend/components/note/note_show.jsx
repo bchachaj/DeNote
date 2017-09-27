@@ -42,7 +42,7 @@ class NoteShow extends React.Component {
       this.setState({category: this.props.notebook.title});
     }
     this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
-      this.props.requestAllNotebooks().then(() => this.props.requestAllTaggings());
+      this.props.requestAllNotebooks();
     });
 
     setInterval(() => {
@@ -61,7 +61,6 @@ class NoteShow extends React.Component {
   autoSave() {
     const currentNote = this.props.note;
     this.state.note.id = this.props.note.id;
-
     if (this.state.note && this.state.note.title === '') {
       this.state.title = currentNote.title;
     }

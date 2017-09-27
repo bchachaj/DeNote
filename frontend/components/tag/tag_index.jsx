@@ -16,7 +16,7 @@ class TagIndex extends React.Component {
   }
 
   componentWillMount(){
-    this.props.requestAllTags();
+    this.props.requestAllTags().then(() => this.props.requestAllTaggings());
   }
 
   componentWillReceiveProps(nextProps){

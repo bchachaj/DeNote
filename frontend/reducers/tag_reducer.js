@@ -6,6 +6,8 @@ import {
   DELETE_TAG,
 } from '../actions/tag_actions';
 
+
+
 import {
   RECEIVE_ONE_NOTE
 } from '../actions/note_actions';

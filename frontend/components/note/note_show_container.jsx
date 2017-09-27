@@ -38,7 +38,6 @@ const mapDispatchToProps = (dispatch) => {
    requestAllNotebooks: () => dispatch(requestAllNotebooks()),
    deleteNote: (noteId) => dispatch(deleteNote(noteId)),
    createNotebook: (notebook) => dispatch(createNotebook(notebook)),
-   requestAllTaggings: () => dispatch(requestAllTaggings())
  };
 };
 
