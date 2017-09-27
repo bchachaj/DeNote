@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
 import ReactQuill from 'react-quill';
@@ -29,6 +30,7 @@ class NoteShow extends React.Component {
     this.displayDropdown = this.displayDropdown.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.autoSave = this.autoSave.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   shouldComponentUpdate() {
@@ -36,6 +38,9 @@ class NoteShow extends React.Component {
   }
 
   componentDidMount() {
+
+    document.addEventListener('click', this.handleClick, false);
+
     if (this.props.match.url === '/notes/new')
       return null;
     if (this.props.notebook) {
@@ -49,13 +54,19 @@ class NoteShow extends React.Component {
       this.autoSave();
     }, 5000);
 
-
   }
+
+  handleClick(e){
+    console.log(e.target.classList);
+  }
+
 
   componentWillUnmount() {
     if (this.props.match.url !== '/notes/new') {
       this.autoSave();
     }
+
+    document.removeEventListener('click', this.handleClick, false);
   }
 
   autoSave() {
@@ -168,8 +179,9 @@ class NoteShow extends React.Component {
                onClick={this.displayDropdown}
                aria-hidden="true"></i>
             <i className="category-label"
-               onClick={this.displayDropdown}>{this.state.category}
-              &#9660;</i>
+               onClick={this.displayDropdown}>{this.state.category}&nbsp;
+              &#9660;
+            </i>
             <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
               <div className="drop-container">
 

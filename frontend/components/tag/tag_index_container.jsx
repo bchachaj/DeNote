@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
     requestAllTaggings: () => dispatch(requestAllTaggings()),
     removeTag: (id) => dispatch(requestDeleteTag(id)),
     createTag: (tag) => dispatch(createTag(tag)),
-    createTaggings: (taggings) => dispatch(createTaggings(taggings))
+    createTaggings: (taggings, name) => dispatch(createTaggings(taggings, name))
     //deleteTaggings
   };
 };

@@ -5,7 +5,7 @@ import { fetchSingleNote } from './note_actions';
 export const RECEIVE_TAGGING = 'RECEIVE_TAGGING';
 export const RECEIVE_ALL_TAGGINGS = 'RECEIVE_ALL_TAGGINGS';
 
-export const createTaggings = tagging => dispatch => {
+export const createTaggings = (tagging) => dispatch => {
   return TaggingAPI.createTagging(tagging)
     .then(tag => {dispatch(receiveTaggings(tag));
     }

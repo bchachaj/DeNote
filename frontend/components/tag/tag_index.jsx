@@ -34,7 +34,7 @@ class TagIndex extends React.Component {
     const _existingTag = tags.find((tagItem) => {
       return tagItem.name === tagName;
     });
-    let that = this;
+
     if(_existingTag) {
       this.setState({name: ''});
     } else {
@@ -53,9 +53,6 @@ class TagIndex extends React.Component {
     const taggingsObject = {tag_id: tag.tag_id, note_id: parseInt(noteId)};
     this.props.createTaggings(taggingsObject);
   }
-
-
-
 
   render() {
     const { tags } = this.props;
