@@ -42,12 +42,14 @@ class NoteShow extends React.Component {
       this.setState({category: this.props.notebook.title});
     }
     this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
-      this.props.requestAllNotebooks();
+      this.props.requestAllNotebooks().then(() => this.props.requestAllTaggings());
     });
 
     setInterval(() => {
       this.autoSave();
     }, 5000);
+
+
   }
 
   componentWillUnmount() {
@@ -143,22 +145,31 @@ class NoteShow extends React.Component {
     }
 
     const notebookOptions = this.props.notebooks.map((el) => <div key={el.id} className="notebook-drop-item">
-      <span className="notebook-option" data-element={el} onClick={(e) => this.setNotebook(e, el)}>{el.title}</span>
+      <span className="notebook-option"
+            data-element={el}
+            onClick={(e) => this.setNotebook(e, el)}>{el.title}</span>
     </div>);
 
     return (
       <div className="note-show-main">
         <div className="note-show-header">
           <div className="top-controls">
-            <DeleteNote delete={this.props.deleteNote} id={note.id} nextProp={nextNote}/>
-            <NoteInfo note={note} change={note.updated_at} created={note.created_at}/>
+            <DeleteNote delete={this.props.deleteNote}
+                        id={note.id}
+                        nextProp={nextNote}/>
+            <NoteInfo note={note}
+                      change={note.updated_at}
+                      created={note.created_at}/>
           </div>
         </div>
 
         <div className="note-controls">
           <div className="note-menu">
-            <i className="fa fa-book" onClick={this.displayDropdown} aria-hidden="true"></i>
-            <i className="category-label" onClick={this.displayDropdown}>{this.state.category}
+            <i className="fa fa-book"
+               onClick={this.displayDropdown}
+               aria-hidden="true"></i>
+            <i className="category-label"
+               onClick={this.displayDropdown}>{this.state.category}
               &#9660;</i>
             <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
               <div className="drop-container">
@@ -183,15 +194,20 @@ class NoteShow extends React.Component {
 
         <div className="note-show note">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" className="note-title" onChange={this.update('title')} value={this.state.title}/>
+            <input type="text"
+                  className="note-title"
+                  onChange={this.update('title')}
+                  value={this.state.title}/>
 
           </form>
 
-          <ReactQuill theme="snow" value={this.state.note.body} onChange={this.handleUpdate} placeholder="Just start typing..."/>
+          <ReactQuill theme="snow"
+                      value={this.state.note.body}
+                      onChange={this.handleUpdate}
+                      placeholder="Just start typing..."/>
         </div>
 
-        <p id="credit">Built by
-          <a href="http://bchachaj.com">Ben Chachaj</a>
+        <p id="credit">Built by&nbsp;<a href="http://bchachaj.com">Ben Chachaj</a>
         </p>
       </div>
     );

@@ -3,10 +3,7 @@ class Api::NotesController < ApplicationController
   def index
     @notes = Note.all.order(:updated_at)
     @notes = @notes.select { |note| note.author_id == current_user.id }
-    # @notes = @notes.sort!{ |a,b| b.updated_at <=> a.updated_at }
     @notes.sort_by(&:updated_at).reverse
-    @notes
-    # render 'api/notes/index'
   end
 
   def show

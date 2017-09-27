@@ -7,6 +7,13 @@ export const createTagging = (tagging) => {
 };
 
 
+export const fetchAllTaggings = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/taggings'
+  });
+};
+
 export const deleteTagging = (tagId) => {
   return $.ajax({
     method: 'POST',

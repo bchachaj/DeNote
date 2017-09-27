@@ -3,8 +3,12 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_SINGLE_TAG,
   RECEIVE_ALL_TAGS,
-  DELETE_TAG
+  DELETE_TAG,
 } from '../actions/tag_actions';
+
+import {
+  RECEIVE_ONE_NOTE
+} from '../actions/note_actions';
 
 const tagReducer = (state = {}, action) => {
   Object.freeze(state);

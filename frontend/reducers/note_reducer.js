@@ -9,7 +9,8 @@ import {
   RECEIVE_ONE_NOTEBOOK
 } from '../actions/notebook_actions';
 
-import { RECEIVE_TAGGING } from '../actions/tagging_actions';
+
+import { RECEIVE_ALL_TAGGINGS } from '../actions/tagging_actions';
 
 const noteReducer = (state ={}, action) => {
   let newState;
@@ -21,13 +22,12 @@ const noteReducer = (state ={}, action) => {
       newState = merge({}, state,
      {[action.note.id]: action.note});
       return newState;
+    case RECEIVE_ALL_TAGGINGS:
+      return state;
     case REMOVE_NOTE:
       let delState = merge({}, state);
       delete delState[action.note.id];
       return delState;
-    case RECEIVE_TAGGING:
-      const { note_id, tag_id } = action.tagging;
-      return state;
     default:
       return state;
   }

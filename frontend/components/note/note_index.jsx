@@ -9,6 +9,7 @@ class NoteIndex extends React.Component {
   componentDidMount() {
     this.props.requestAllNotes().then(() => this.props.history.push(`/notes/${this.props.notes[0].id}`));
   }
+  
   // shouldComponentUpdate(nextProps, nextState){
   //   return nextProps.notes.length > 0;
   // }

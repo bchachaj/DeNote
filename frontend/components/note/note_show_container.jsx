@@ -9,7 +9,7 @@ import { requestSingleNote,
         } from '../../actions/note_actions';
 import { requestSingleNotebook, requestAllNotebooks,
          createNotebook } from '../../actions/notebook_actions';
-
+import requestAllTaggings from '../../actions/tagging_actions';
 
 import NoteShow from './note_show';
 
@@ -37,7 +37,8 @@ const mapDispatchToProps = (dispatch) => {
    requestUpdateNote: (note) => dispatch(requestUpdateNote(note)),
    requestAllNotebooks: () => dispatch(requestAllNotebooks()),
    deleteNote: (noteId) => dispatch(deleteNote(noteId)),
-   createNotebook: (notebook) => dispatch(createNotebook(notebook))
+   createNotebook: (notebook) => dispatch(createNotebook(notebook)),
+   requestAllTaggings: () => dispatch(requestAllTaggings())
  };
 };
 

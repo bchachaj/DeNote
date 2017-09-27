@@ -1,6 +1,6 @@
 class Api::TagsController < ApplicationController
   def index
-    @tags = Tag.all.select{ |tag| tag.author_id == current_user.id } 
+    @tags = Tag.all.select { |tag| tag.author_id == current_user.id }
   end
 
   def create
@@ -32,6 +32,5 @@ class Api::TagsController < ApplicationController
   def t_params
     params.require(:tag).permit(:name, :author_id)
   end
-
 
 end
