@@ -15,15 +15,6 @@ User.create!(username: 'Demo', password: 'password')
 Note.destroy_all
 
 
-# randomTitle = ['1', '2', '3', '4']
-#
-# 15.times do
-#
-# Note.create!(title: "Title #{randomTitle.sample}", body: 'Master cleanse pickled franzen trust fund woke fashion axe. Affogato skateboard everyday carry fashion axe DIY, letterpress bespoke heirloom VHS try-hard gentrify. Paleo hoodie tote bag whatever. Williamsburg fashion axe drinking vinegar meh iceland. Tousled af quinoa DIY lumbersexual cred flannel mlkshk bespoke 3 wolf moon', author_id: 1, notebook_id: 1, archived: false);
-#
-# end
-
-
 Note.create!(title: 'Refactoring', body: "<ol><li><strong>Refactoring</strong> -</li><li>code smells — drivers for refactoring, less risk of bugs or failure</li><li>Duplicated/similar code</li><li>Long methods</li><li>Too many parameters—excessively complex or too coupled</li><li>Indecent Exposure&nbsp;— minimize coupling between classes and objects.&nbspspeculative Generality __ YAGNI __ don’t try to solve abstract problems with needing to&nbsp;</li><li>God object — tightly connected to all other objects in the system. Nothing in the program needs to even know about the existence of everything else.&nbsp;</li><li>Dead code — comments or unused code</li></ol><br></p>Coupling (dependency) is the degree to which each program module relies on each one of the other modules.</span></p>— If you have to change internals of one class because of another, then coupled too closely.&nbsp;</p>", author_id: 1, notebook_id: 2, archived: true);
 
 
@@ -48,34 +39,7 @@ site:sitename.com will return only results from that site", author_id: 1, notebo
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 Note.create!(title: 'Cover Letter power words', body: "<p>Cover letter power word</p><p> </p><p><br></p><p> </p><p>Produced</p><p> </p><p>Organized</p><p> </p><p>controlled</p><p> </p><p><br></p><p> </p><p>established</p><p> </p><p>formulated&nbsp;</p><p> </p><p>implemented</p><p> </p><p>Correspond</p><p> </p><p>convey</p><p> </p><p>navigated</p><p> </p><p><br></p><p> </p><p>Spearheaded</p><p> </p><p>Pioneered</p><p> </p><p>Amplified</p><p> </p><p>Advocated</p><p> </p><p>Qualified</p><p> </p><p>Discovered</p><p> </p><p><br></p><p> </p><p>Targeted</p><p> </p><p>Demonstrated</p><p> </p><p>Attained</p><p> </p><p><br></p><p> </p><p>Scrutinize</p><p> </p><p>inspect</p><p> </p><p>verify</p><p> </p><p>validate</p>", author_id: 1, notebook_id: 1, archived: false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

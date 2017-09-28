@@ -1,5 +1,5 @@
 import * as NoteAPI from '../util/note_util';
-
+import * as TagAPI from '../util/tag_util';
 export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
 export const RECEIVE_ONE_NOTE = 'RECEIVE_ONE_NOTE';
 
@@ -13,6 +13,12 @@ export const requestAllNotes = () => (dispatch) => {
   return NoteAPI.fetchAllNotes()
     .then(notes => dispatch(receiveAllNotes(notes))
   );
+};
+
+export const requestTagNotes = (name) => dispatch => {
+  return TagAPI.fetchTagNotes(name)
+    .then(notes => {dispatch(receiveAllNotes(notes));
+  });
 };
 
 

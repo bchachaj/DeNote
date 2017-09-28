@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import NoteIndex from './note_index';
 import { selectAllNotes, selectAllNotebooks } from '../../reducers/selectors';
-import { requestAllNotes, deleteNote } from '../../actions/note_actions';
-
+import { requestAllNotes, requestTagNotes, deleteNote } from '../../actions/note_actions';
 
 const mapStateToProps = (state) => {
   const currentNote = state.ui.note_ui;
@@ -16,6 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     requestAllNotes: () => dispatch(requestAllNotes()),
+    requestTagNotes: (name) => dispatch(requestTagNotes(name)),
     deleteNote: () => dispatch(deleteNote),
   };
 };

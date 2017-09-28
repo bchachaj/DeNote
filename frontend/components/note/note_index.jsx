@@ -5,11 +5,25 @@ import NoteShow from './note_show';
 
 class NoteIndex extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.handleTagIndex = this.handleTagIndex.bind(this);
+  }
 
   componentDidMount() {
-    this.props.requestAllNotes().then(() => this.props.history.push(`/notes/${this.props.notes[0].id}`));
+    this.handleTagIndex();
   }
-  
+
+  handleTagIndex(){
+    let requestAction;
+    let param = this.props.match.params;
+    if(param && param.tag_name){
+      this.props.requestTagNotes(param).then(() => this.props.history.push(`/tags/${param.tag_name}/notes/${this.props.notes[0].id}`));
+    } else {
+      this.props.requestAllNotes().then(() => this.props.history.push(`/notes/${this.props.notes[0].id}`));
+    }
+  }
+
   // shouldComponentUpdate(nextProps, nextState){
   //   return nextProps.notes.length > 0;
   // }

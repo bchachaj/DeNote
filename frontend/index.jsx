@@ -23,6 +23,8 @@ import {
   requestSingleTag, requestAllTags, requestDeleteTag
 } from './actions/tag_actions';
 
+import { createTaggings, requestAllTaggings } from './actions/tagging_actions';
+
 document.addEventListener('DOMContentLoaded', () => {
 
   let store;
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestSingleTag = requestSingleTag;
   window.fetchSingleTag = TagAPI.fetchSingleTag;
   window.requestDeleteTag = requestDeleteTag;
-
+  window.requestAllTaggings = requestAllTaggings;
   //notebook
   window.fetchAllNotebooks = NotebookAPI.fetchAllNotebooks;
 

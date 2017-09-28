@@ -26,3 +26,10 @@ export const deleteTag = id => {
     url:`/api/tags/${id}`
   });
 };
+
+export const fetchTagNotes = (tag) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/tags/${tag.tag_name}/notes`
+  });
+};

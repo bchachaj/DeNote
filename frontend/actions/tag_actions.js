@@ -4,6 +4,7 @@ export const RECEIVE_ALL_TAGS = 'RECEIVE_ALL_TAGS';
 export const RECEIVE_SINGLE_TAG = 'RECEIVE_SINGLE_TAG';
 export const DELETE_TAG = 'DELETE_TAG';
 
+
 export const requestAllTags = () => (dispatch) => {
   return TagAPI.fetchAllTags()
     .then(tags => dispatch(receiveAllTags(tags)));

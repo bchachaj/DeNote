@@ -17,7 +17,7 @@ class Api::TagsController < ApplicationController
   # update
 
   def destroy
-    @tag = Tag.find_by(id: params[:id])
+    @tag = Tag.find_by(id: params[:name])
     taggings = Tagging.where(tag_name: @tag.name)
     if @tag.delete
       taggings.destroy_all
@@ -28,7 +28,7 @@ class Api::TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by(name: params[:name])
   end
 
   private

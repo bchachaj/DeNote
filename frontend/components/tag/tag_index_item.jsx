@@ -24,7 +24,7 @@ class TagIndexItem extends React.Component {
       <div className="tag-item">
           <li className="tag-list-item">
               <div className="tag-contain">
-              <Link to={`/tags/${tag.id}/notes`}>
+              <Link to={`/tags/${tag.name}/notes`}>
                 <p className="tag">{tag.name}</p>
               </Link>
                 <span
