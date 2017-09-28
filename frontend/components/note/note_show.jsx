@@ -57,7 +57,7 @@ class NoteShow extends React.Component {
   }
 
   handleClick(e){
-    console.log(e.target.classList);
+    // console.log(e.target.classList);
   }
 
 

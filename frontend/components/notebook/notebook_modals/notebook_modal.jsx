@@ -42,7 +42,6 @@ class NotebookModal extends React.Component {
 
   closeModal(){
     let e = document.querySelector('.notebook-modal');
-    // console.log(e.classList);
     e.classList.add('collapsed');
     this.setState({modalIsOpen: false});
   }
