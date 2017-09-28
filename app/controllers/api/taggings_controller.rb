@@ -11,6 +11,9 @@ class Api::TaggingsController < ApplicationController
   def create
     @tagging = Tagging.new(t_params)
     tag = Tag.find_by(name: @tagging.tag_name)
+    if !tag
+      Tag.create!(name: @tagging.tag_name, author_id: current_user.id)
+    end
     if @tagging.save
       render :show
     else

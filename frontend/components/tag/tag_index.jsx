@@ -40,12 +40,13 @@ class TagIndex extends React.Component {
       //not desired behavior
 
     } else {
-      this.props.createTag({
-        name: tagName
-      }).then((newTag) => {
-
-        this.handleTaggings({tag_name: newTag.name});
-      });
+      // this.props.createTag({
+      //   name: tagName
+      // }).then((newTag) => {
+      //
+      //   this.handleTaggings({tag_name: newTag.name});
+      // });
+      this.handleTaggings({tag_name: tagName});
       this.setState({name: ''});
     }
   }
