@@ -92,9 +92,9 @@ to waste a moment on the yesterdays.”</p>", author_id: 1, notebook_id: 1, arch
 
 Notebook.destroy_all
 
-Notebook.create!(title:'Useful things', description: 'This notebook is pretty great', author_id: 1);
-Notebook.create!(title:'Work notes ', description: 'This notebook is also pretty great', author_id: 1);
-Notebook.create!(title:'Important 🔓', description: 'This notebook is just great', author_id: 1);
+Notebook.create!(title:'Useful things', author_id: 1);
+Notebook.create!(title:'Work notes ', author_id: 1);
+Notebook.create!(title:'Important 🔓', author_id: 1);
 
 Tag.destroy_all
 
@@ -105,6 +105,6 @@ Tag.create!(name: 'Super cool', author_id: 1);
 
 Tagging.destroy_all
 
-Tagging.create!(note_id: 1, tag_id: 1);
-Tagging.create!(note_id: 1, tag_id: 2);
-Tagging.create!(note_id: 2, tag_id: 3);
+Tagging.create!(note_id: 1, tag_name: 'javascript');
+Tagging.create!(note_id: 1, tag_name: 'shared');
+Tagging.create!(note_id: 2, tag_name: 'meh');

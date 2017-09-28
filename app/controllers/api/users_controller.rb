@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      notebook = Notebook.create!(author_id: @user.id, title: "Notes", description:'default notebook')
+      notebook = Notebook.create!(author_id: @user.id, title: "Notes")
       Note.create!(title: 'Your First Note', body: "<p>Welcome to Denote! Create notes, save them to notebooks, and access them anywhere.</p>
       <br/>
       <p>

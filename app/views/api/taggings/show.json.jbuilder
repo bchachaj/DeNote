@@ -1,1 +1,1 @@
-json.extract! @tagging, :id, :tag_id, :note_id
+json.extract! @tagging, :id, :tag_name, :note_id

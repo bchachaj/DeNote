@@ -10,18 +10,20 @@ class Api::TaggingsController < ApplicationController
 
   def create
     @tagging = Tagging.new(t_params)
-    tag = Tag.find_by(id: @tagging.tag_id)
+    tag = Tag.find_by(name: @tagging.tag_name)
+
     if @tagging.save
       render :show
     else
       render json: @tagging.errors.full_messages, status: 422
     end
+
   end
 
   def destroy
     @tagging = Tagging.find_by(
       note_id: params[:tagging][:note_id],
-      tag_id: params[:tagging][:tag_id]
+      tag_name: params[:tagging][:tag_name]
     )
     if @tagging
       @tagging.delete
@@ -34,6 +36,7 @@ class Api::TaggingsController < ApplicationController
   private
 
   def t_params
-    params.require(:tagging).permit(:tag_id, :note_id, :name)
+    params.require(:tagging).permit(:tag_name, :note_id)
   end
+
 end

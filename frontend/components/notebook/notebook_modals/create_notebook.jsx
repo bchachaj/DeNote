@@ -11,8 +11,7 @@ class CreateNotebookModal extends React.Component {
 
     this.state = {
       modalIsOpen: false,
-      title: '',
-      description: ''
+      title: ''
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -46,8 +45,7 @@ class CreateNotebookModal extends React.Component {
     let correctPath;
     e.preventDefault();
     this.props.createNotebook({
-       title: this.state.title,
-       description: 'This is a notebook'}).then(() => {
+       title: this.state.title}).then(() => {
       this.props.history.push(`/notebooks`);
     });
   }
