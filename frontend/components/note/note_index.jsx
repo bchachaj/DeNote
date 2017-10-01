@@ -10,6 +10,8 @@ class NoteIndex extends React.Component {
     this.handleTagIndex = this.handleTagIndex.bind(this);
   }
 
+
+
   componentDidMount() {
     this.handleTagIndex();
   }
@@ -24,9 +26,7 @@ class NoteIndex extends React.Component {
     }
   }
 
-  // shouldComponentUpdate(nextProps, nextState){
-  //   return nextProps.notes.length > 0;
-  // }
+
 
   componentWillReceiveProps(nextProps) {
     const test = nextProps.location;
@@ -77,12 +77,19 @@ class NoteIndex extends React.Component {
     } else {
       renderThis = allNotes;
     }
-
+    debugger;
+    let noteHeader;
+    let tagName = this.props.match.params.tag_name;
+    if(tagName){
+      noteHeader = `NOTES: '${tagName}'`;
+    } else {
+      noteHeader = 'NOTES';
+    }
     return (
       <div>
         <section className="note-index">
           <div className="note-index-header">
-            <h1 className="note-header">Notes</h1>
+            <h1 className="note-header">{noteHeader}</h1>
             <span className="note-count">
               <h4 className="note-header">{notes.length} notes</h4>
             </span>

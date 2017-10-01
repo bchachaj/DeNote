@@ -47,7 +47,9 @@ class TagIndex extends React.Component {
     const noteId = this.props.match.params.noteId;
     const taggingsObject = {tag_name: tag.tag_name, note_id: parseInt(noteId)};
     this.props.createTaggings(taggingsObject)
-      .then(() => this.props.requestAllTags());
+      .then(() => this.props.requestAllTags()
+    )
+    .then(() => this.props.requestSingleNote(noteId));
   }
 
   render() {

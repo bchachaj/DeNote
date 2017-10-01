@@ -2,7 +2,7 @@ import React from 'react';
 import TagIndex from './tag_index';
 
 import { requestAllTags, requestDeleteTag, createTag } from '../../actions/tag_actions';
-import { requestAllNotes } from '../../actions/note_actions';
+import { requestAllNotes, requestSingleNote } from '../../actions/note_actions';
 import { selectAllTags } from '../../reducers/selectors';
 import { createTaggings, requestAllTaggings } from '../../actions/tagging_actions';
 import { connect } from 'react-redux';
@@ -24,6 +24,7 @@ const mapDispatchToProps = dispatch => {
     requestAllTaggings: () => dispatch(requestAllTaggings()),
     removeTag: (id) => dispatch(requestDeleteTag(id)),
     createTag: (tag) => dispatch(createTag(tag)),
+    requestSingleNote: (id) => dispatch(requestSingleNote(id)),
     createTaggings: (taggings, name) => dispatch(createTaggings(taggings, name))
     //deleteTaggings
   };
