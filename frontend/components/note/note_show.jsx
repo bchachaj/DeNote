@@ -9,10 +9,8 @@ class NoteShow extends React.Component {
 
   constructor(props) {
     super(props);
-    //seperate state properties instead of _dangerously setting html
     this.state = {
       title: '',
-      body: '',
       note: {
         body: null,
         title: null,
@@ -76,9 +74,7 @@ class NoteShow extends React.Component {
       return null;
     }
     if (this.props.match.params.noteId !== nextProps.match.params.noteId && nextProps.match.params.noteId !== 'new') {
-      this.props.requestSingleNote(nextProps.match.params.noteId).then(() =>
-      //arg passed is action
-      this.props.requestAllNotebooks());
+      this.props.requestSingleNote(nextProps.match.params.noteId);
 
     }
 

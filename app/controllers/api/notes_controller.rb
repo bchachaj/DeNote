@@ -2,9 +2,11 @@ class Api::NotesController < ApplicationController
 
   def index
     # @notes = Note.all.order(:updated_at)
+
     if(params[:tag_name])
-      tag = Tag.all.where(name: params[:tag_name])
-      @notes = Note.where(author_id: current_user.id).order(:updated_at)
+      tag = Tag.find_by(name: params[:tag_name])
+      @notes = tag.notes
+
       #@notes = tag.notes on current user
     else
       @notes = Note.where(author_id: current_user.id).order(:updated_at)

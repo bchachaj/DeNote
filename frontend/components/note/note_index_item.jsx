@@ -26,8 +26,8 @@ class NoteIndexItem extends React.Component {
     const date = this.props.note.updated_at;
     const test = new Date(date);
     return(
-      <div>
-        <li className={this.handleActive()}>
+      <div className={this.handleActive()}>
+        <li className="ex">
           <h3 className="index-title">{this.props.note.title}</h3>
           <div className="note-index-date">{DateUtil.formatDate(date)}</div>
 

@@ -450,3 +450,7 @@ em {
 .github-link > i:hover {
   color: teal;
 }
+
+li.ex:hover > * {
+  color: white !important;
+}

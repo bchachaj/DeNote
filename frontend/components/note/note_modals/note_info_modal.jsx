@@ -22,6 +22,9 @@ class NoteInfo extends React.Component {
   }
 
   render(){
+    let createdAt = Date(this.props.created).split(' ');
+    let updatedAt = Date(this.props.change).split(' ');
+    const parse = (date) => date.slice(0,5).join(' ');
     return(
       <div>
        <i className="fa fa-info" onClick={this.openModal}></i>

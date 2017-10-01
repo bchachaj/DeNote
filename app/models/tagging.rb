@@ -9,7 +9,7 @@ class Tagging < ApplicationRecord
 
 
   belongs_to :tag,
-    primary_key: :id,
+    primary_key: :name,
     foreign_key: :tag_name,
     class_name: 'Tag',
     optional: true

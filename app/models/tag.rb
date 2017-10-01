@@ -6,7 +6,10 @@ class Tag < ApplicationRecord
     foreign_key: :author_id,
     class_name: 'User'
 
-  has_many :taggings
+  has_many :taggings,
+    primary_key: :name,
+    foreign_key: :tag_name,
+    class_name: 'Tagging'
 
-  has_many :notes, through: :taggings, source: :note
+  has_many :notes, through: :taggings
 end
