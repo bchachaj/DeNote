@@ -119,6 +119,7 @@ class NoteShow extends React.Component {
   setNotebook(e, data) {
     e.preventDefault();
     this.setState({category: data.title, book_id: data.id});
+    this.setState({ showHideDropdown: 'hidden'});
   }
 
   render() {
