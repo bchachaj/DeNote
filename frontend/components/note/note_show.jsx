@@ -54,6 +54,7 @@ class NoteShow extends React.Component {
 
   autoSave() {
     const currentNote = this.props.note;
+    if(!currentNote) return null;
     this.state.note.id = this.props.note.id;
     this.state.note.notebook_id = this.state.book_id;
     if (this.state.note && this.state.note.title === '') {
@@ -75,7 +76,6 @@ class NoteShow extends React.Component {
     }
     if (this.props.match.params.noteId !== nextProps.match.params.noteId && nextProps.match.params.noteId !== 'new') {
       this.props.requestSingleNote(nextProps.match.params.noteId);
-
     }
 
     if (nextProps.note) {
@@ -175,7 +175,7 @@ class NoteShow extends React.Component {
 
             <div className="note-show-tags">
               <i className="fa fa-tag" aria-hidden="true"></i>
-              <TagIndex/>
+              <TagIndex noteTags={note.tags}/>
             </div>
           </div>
         </div>

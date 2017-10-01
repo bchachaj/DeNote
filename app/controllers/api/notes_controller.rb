@@ -6,8 +6,6 @@ class Api::NotesController < ApplicationController
     if(params[:tag_name])
       tag = Tag.find_by(name: params[:tag_name])
       @notes = tag.notes
-
-      #@notes = tag.notes on current user
     else
       @notes = Note.where(author_id: current_user.id).order(:updated_at)
     end

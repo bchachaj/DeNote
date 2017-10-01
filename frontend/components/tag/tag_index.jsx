@@ -35,12 +35,12 @@ class TagIndex extends React.Component {
       return tagItem.name === tagName;
     });
 
-    if(_existingTag) {
-      this.setState({name: ''});
-    } else {
+    // if(_existingTag) {
+    //   // this.setState({name: ''});
+    // } else {
       this.handleTaggings({tag_name: tagName});
       this.setState({name: ''});
-    }
+    // }
   }
 
   handleTaggings(tag){
@@ -51,12 +51,17 @@ class TagIndex extends React.Component {
   }
 
   render() {
-    const { tags } = this.props;
-
+    let { tags } = this.props;
+    let tagIndexItems;
     if(!this.props.tags) {
       return null;
     }
-    const allTags = tags.map((tag, idx) =>
+    let allTags;
+    if(this.props.noteTags){
+      tags = tags.filter(tag => this.props.noteTags.includes(tag.name));
+    }
+
+    allTags = tags.map((tag, idx) =>
       <TagIndexItem className="tag-item" tag={tag} key={tag.id}
         delete={this.props.removeTag}
         createTaggings={this.props.createTaggings}

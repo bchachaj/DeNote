@@ -11,6 +11,7 @@ import { selectAllNotes } from '../../reducers/selectors';
 const mapStateToProps = state => {
   const tags = selectAllTags(state);
   const notes = selectAllNotes(state);
+  const noteId = state.ui.note_ui;
   return {
     tags,
     notes
