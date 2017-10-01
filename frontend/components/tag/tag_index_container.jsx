@@ -1,5 +1,4 @@
 import React from 'react';
-
 import TagIndex from './tag_index';
 
 import { requestAllTags, requestDeleteTag, createTag } from '../../actions/tag_actions';

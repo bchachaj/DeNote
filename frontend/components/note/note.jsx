@@ -24,7 +24,7 @@ class Note extends React.Component {
             <Route path={`/notes`} component={NoteIndex}/>
             <Route exact path={"/tags/:tag_name/notes"} component={NoteIndex}/>
           </Switch>
-          {/* <Route exact path="/tags/:tag_name/notes/:noteId" component={NoteShow}/> */}
+
         </div>
         </div>
       );

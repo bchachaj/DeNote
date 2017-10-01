@@ -16,7 +16,7 @@ class NoteIndex extends React.Component {
 
   handleTagIndex(){
     let requestAction;
-    let param = this.props.match.params;
+    const param = this.props.match.params;
     if(param && param.tag_name){
       this.props.requestTagNotes(param).then(() => this.props.history.push(`/tags/${param.tag_name}/notes/${this.props.notes[0].id}`));
     } else {

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
 import ReactQuill from 'react-quill';
@@ -25,59 +24,45 @@ class NoteShow extends React.Component {
     };
     this.onChange = editorState => this.setState({editorState});
     this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.setNotebook = this.setNotebook.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.autoSave = this.autoSave.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
-  }
-
-  shouldComponentUpdate() {
-    return true;
   }
 
   componentDidMount() {
-
-    document.addEventListener('click', this.handleClick, false);
-
-    if (this.props.match.url === '/notes/new')
-      return null;
+    if (this.props.match.url === '/notes/new') return null;
     if (this.props.notebook) {
       this.setState({category: this.props.notebook.title});
     }
     this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
-      this.props.requestAllNotebooks();
+      if(this.props.notebooks.length === 0) {
+        this.props.requestAllNotebooks();
+      }
     });
 
     setInterval(() => {
       this.autoSave();
     }, 5000);
 
-  }
 
-  handleClick(e){
-    // console.log(e.target.classList);
   }
-
 
   componentWillUnmount() {
     if (this.props.match.url !== '/notes/new') {
       this.autoSave();
     }
-
-    document.removeEventListener('click', this.handleClick, false);
   }
 
   autoSave() {
     const currentNote = this.props.note;
     this.state.note.id = this.props.note.id;
+    this.state.note.notebook_id = this.state.book_id;
     if (this.state.note && this.state.note.title === '') {
       this.state.title = currentNote.title;
     }
-
     //Listen for changes before requesting update
-    if (this.state.note.title !== currentNote.title || this.state.note.title !== this.state.title && typeof this.state.note.title !== 'undefined') {
+    if (this.state.note.title !== this.state.title || this.state.note.body !== currentNote.body) {
       this.state.note.title = this.state.title;
       this.state.note.notebook_id = this.state.book_id;
       this.props.requestUpdateNote(this.state.note);
@@ -120,23 +105,20 @@ class NoteShow extends React.Component {
   }
 
   handleUpdate(value) {
-    let noteshow = document.querySelector('.note-show-main');
-    const e = noteshow.querySelector(".ql-editor");
-    let x = e.innerHTML;
 
+    let noteshow = document.querySelector('.note-show-main');
+    const titleText = noteshow.querySelector('.note-title');
+    const editor = noteshow.querySelector(".ql-editor");
+    let bodyText = editor.innerHTML;
     this.setState({
       note: {
-        body: x
+        body: bodyText,
+        title: titleText.value
       }
     });
 
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.state.note.id = this.props.note.id;
-    this.props.requestUpdateNote({title: this.state.note.title, body: this.state.note.body, id: this.state.note.id, notebook_id: this.state.book_id});
-  }
 
   setNotebook(e, data) {
     e.preventDefault();
@@ -179,9 +161,8 @@ class NoteShow extends React.Component {
                onClick={this.displayDropdown}
                aria-hidden="true"></i>
             <i className="category-label"
-               onClick={this.displayDropdown}>{this.state.category}&nbsp;
-              &#9660;
-            </i>
+               onClick={this.displayDropdown}>{this.state.category}
+              &#9660;</i>
             <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
               <div className="drop-container">
 
@@ -204,7 +185,7 @@ class NoteShow extends React.Component {
         </div>
 
         <div className="note-show note">
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <input type="text"
                   className="note-title"
                   onChange={this.update('title')}

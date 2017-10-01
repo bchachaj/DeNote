@@ -6,6 +6,7 @@ import {
   DELETE_TAG,
 } from '../actions/tag_actions';
 
+import { RECEIVE_TAGGING } from '../actions/tagging_actions';
 
 
 import {
@@ -22,6 +23,9 @@ const tagReducer = (state = {}, action) => {
     case RECEIVE_SINGLE_TAG:
       nextState = merge({}, state);
       nextState[action.tag.id] = action.tag;
+      return nextState;
+    case RECEIVE_TAGGING:
+      nextState = merge({}, state);
       return nextState;
     case DELETE_TAG:
       nextState = merge({}, state);
