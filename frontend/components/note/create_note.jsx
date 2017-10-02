@@ -62,6 +62,7 @@ class CreateNote extends React.Component {
       category: data.title,
       book_id: data.id
     });
+    this.setState({showHideDropdown: 'hidden'});
   }
 
   displayDropdown(e){

@@ -7,7 +7,7 @@ class Api::NotesController < ApplicationController
       tag = Tag.find_by(name: params[:tag_name])
       @notes = tag.notes
     else
-      @notes = Note.where(author_id: current_user.id).order(:updated_at)
+      @notes = Note.where(author_id: current_user.id).sort_by(&:updated_at).reverse
     end
     # @notes = @notes.select { |note| note.author_id == current_user.id }
     # @notes.sort_by(&:updated_at).reverse

@@ -30,6 +30,7 @@ class NoteShow extends React.Component {
 
   componentDidMount() {
     if (this.props.match.url === '/notes/new') return null;
+    debugger;
     if (this.props.notebook) {
       this.setState({category: this.props.notebook.title});
     }
@@ -53,15 +54,16 @@ class NoteShow extends React.Component {
   }
 
   autoSave() {
+    if (this.props.match.url === '/notes/new') return null;
     const currentNote = this.props.note;
     if(!currentNote) return null;
     this.state.note.id = this.props.note.id;
     this.state.note.notebook_id = this.state.book_id;
     if (this.state.note && this.state.note.title === '') {
       this.state.title = currentNote.title;
-    }
-    //Listen for changes before requesting update
-    if (this.state.note.title !== this.state.title || this.state.note.body !== currentNote.body) {
+    }    //Listen for changes before requesting update\
+
+     if (this.state.note.title !== currentNote.title || this.state.note.title !== this.state.title || this.state.note.body !== currentNote.body && typeof this.state.note.title !== 'undefined') {
       this.state.note.title = this.state.title;
       this.state.note.notebook_id = this.state.book_id;
       this.props.requestUpdateNote(this.state.note);
@@ -97,7 +99,7 @@ class NoteShow extends React.Component {
   }
 
   update() {
-    return e => this.setState({title: e.target.value});
+    return e => this.setState({ title: e.target.value});
   }
 
   handleUpdate(value) {
