@@ -11,6 +11,11 @@ User.destroy_all
 User.create!(username: 'Ben', password:'password')
 User.create!(username: 'Demo', password: 'password')
 
+Notebook.destroy_all
+
+Notebook.create!(title:'Useful things', author_id: 1);
+Notebook.create!(title:'Work notes ', author_id: 1);
+Notebook.create!(title:'Important 🔓', author_id: 1);
 
 Note.destroy_all
 
@@ -54,11 +59,6 @@ to waste a moment on the yesterdays.”</p>", author_id: 1, notebook_id: 1, arch
 
 
 
-Notebook.destroy_all
-
-Notebook.create!(title:'Useful things', author_id: 1);
-Notebook.create!(title:'Work notes ', author_id: 1);
-Notebook.create!(title:'Important 🔓', author_id: 1);
 
 Tag.destroy_all
 
