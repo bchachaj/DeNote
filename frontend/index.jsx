@@ -37,22 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-//Testing ////////
-  window.store = store;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-
-  window.fetchAllTags = TagAPI.fetchAllTags;
-  window.requestAllTags = requestAllTags;
-  window.requestSingleTag = requestSingleTag;
-  window.fetchSingleTag = TagAPI.fetchSingleTag;
-  window.requestDeleteTag = requestDeleteTag;
-  window.requestAllTaggings = requestAllTaggings;
-  //notebook
-  window.fetchAllNotebooks = NotebookAPI.fetchAllNotebooks;
-
-/////////End
-
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 

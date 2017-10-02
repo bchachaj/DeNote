@@ -30,7 +30,6 @@ class NoteShow extends React.Component {
 
   componentDidMount() {
     if (this.props.match.url === '/notes/new') return null;
-    debugger;
     if (this.props.notebook) {
       this.setState({category: this.props.notebook.title});
     }
