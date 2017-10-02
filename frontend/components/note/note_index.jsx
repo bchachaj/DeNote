@@ -71,13 +71,12 @@ class NoteIndex extends React.Component {
     </Link>);
 
     let renderThis;
-
     if (notes.length === 0) {
       renderThis = this.noNotes();
     } else {
       renderThis = allNotes;
     }
-    debugger;
+
     let noteHeader;
     let tagName = this.props.match.params.tag_name;
     if(tagName){

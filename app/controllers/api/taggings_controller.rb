@@ -24,8 +24,7 @@ class Api::TaggingsController < ApplicationController
 
   def destroy
     @tagging = Tagging.find_by(
-      note_id: params[:tagging][:note_id],
-      tag_name: params[:tagging][:tag_name]
+      note_id: params[:tagging][:note_id]
     )
     if @tagging
       @tagging.delete
