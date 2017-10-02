@@ -14,7 +14,7 @@ class TagIndex extends React.Component {
   }
 
   componentWillMount(){
-    this.props.requestAllTags();
+    this.props.requestAllTags().then( this.props.requestAllNotes());
   }
 
   componentWillReceiveProps(nextProps){
@@ -35,12 +35,8 @@ class TagIndex extends React.Component {
       return tagItem.name === tagName;
     });
 
-    // if(_existingTag) {
-    //   // this.setState({name: ''});
-    // } else {
       this.handleTaggings({tag_name: tagName});
       this.setState({name: ''});
-    // }
   }
 
   handleTaggings(tag){
@@ -67,6 +63,7 @@ class TagIndex extends React.Component {
       <TagIndexItem className="tag-item" tag={tag} key={tag.id}
         delete={this.props.removeTag}
         createTaggings={this.props.createTaggings}
+        notes={this.props.notes}
       />
     );
 

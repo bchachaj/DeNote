@@ -25,6 +25,7 @@ const mapDispatchToProps = dispatch => {
     removeTag: (id) => dispatch(requestDeleteTag(id)),
     createTag: (tag) => dispatch(createTag(tag)),
     requestSingleNote: (id) => dispatch(requestSingleNote(id)),
+    requestAllNotes: () => dispatch(requestAllNotes()),
     createTaggings: (taggings, name) => dispatch(createTaggings(taggings, name))
     //deleteTaggings
   };

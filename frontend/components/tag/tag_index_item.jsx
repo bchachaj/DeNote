@@ -16,7 +16,6 @@ class TagIndexItem extends React.Component {
   render() {
     const { tag } = this.props;
 
-
     return(
 
       <div className="tag-item">
@@ -24,6 +23,7 @@ class TagIndexItem extends React.Component {
               <div className="tag-contain">
               <Link to={`/tags/${tag.name}/notes`}>
                 <p className="tag">{tag.name}</p>
+
               </Link>
                 <span
                   className="remove-tag-button"
