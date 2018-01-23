@@ -9,40 +9,40 @@ import { deleteNote } from '../../actions/note_actions';
 
 class NotebookShow extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  componentDidMount(){
-    let e = this.props.notes[0];
-    if(e) {
+  componentDidMount() {
+    const props = this.props;
+    const e = props.notes[0];
+    const req = props.requestSingleNotebook;
 
-    this.props.requestSingleNotebook(this.props.match.params.notebookId)
-      .then(() => {
-        this.props.history.push(`/notebooks/${this.props.notebook.id}/notes/${e.id}`);
+    if(e) {
+      const uri = `/notebooks/${props.notebook.id}/notes/${e.id}`;
+      req(props.match.params.notebookId).then(() => {
+        props.history.push(uri);
       });
     } else {
-      this.props.requestSingleNotebook(this.props.match.params.notebookId).then(() =>
-        this.props.requestAllNotes()
+      req(props.match.params.notebookId).then(() =>
+        props.requestAllNotes()
       );
     }
-
   }
 
 
   componentWillReceiveProps(nextProps) {
-    let e = this.props.notes[0];
+    const props = this.props;
+    const e = props.notes[0];
+    const ref = 'params.notebookId';
 
-    if (e && (this.props.match.params.notebookId !==
-      nextProps.match.params.notebookId))
-    {
-      this.props.requestSingleNotebook(nextProps.match.params.notebookId);
+    if (e && (props.match[ref] !== nextProps.match[ref])) {
+      props.requestSingleNotebook(nextProps.match[ref]);
     }
 
+  }
 
-    }
-
-  noNotes(){
+  noNotes() {
     return(
       <div className="no-note-zone">
         <div className="no-zone-inner">
@@ -57,9 +57,8 @@ class NotebookShow extends React.Component {
 
   render() {
     let { notes, notebook } = this.props;
-    if(!notes || !notebook) {
-      return null;
-    }
+    if(!notes || !notebook) return null;
+
     let allNotes = notes.map((note, idx) =>
       <Link key={note.id}
             className="index-link"
@@ -81,8 +80,6 @@ class NotebookShow extends React.Component {
      } else {
        renderThis = allNotes;
      }
-
-
 
     return (
       <div className="notebook-show">
