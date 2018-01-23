@@ -455,13 +455,24 @@ li.ex:hover > * {
   color: white !important;
 }
 
+.notification-bar {
+  background: none !important;
+  color: transparent !important;
+  box-shadow: none !important;
+}
+
 .notification-bar-active {
-  z-index: 99999;
-  opacity: 0.6;
+  z-index: 9999999 !important;
+  opacity: 0.72 !important;
   background: teal !important;
   color: #eee !important;
 }
 
 span.notification-bar-action {
-  color: white !important;
+  color: #eee !important;
+  font-weight: 300 !important;
+}
+
+button.logout:hover {
+  cursor: pointer;
 }

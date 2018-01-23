@@ -15,9 +15,27 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: true
+      isActive: false
     };
     this.responsiveAlert = this.responsiveAlert.bind(this);
+    this.viewPort = this.viewPort.bind(this);
+  }
+
+  componentDidMount() {
+    this.viewPort();
+    window.addEventListener("resize", this.viewPort);
+  }
+
+  viewPort() {
+    if (window.visualViewport.width <= 700) {
+      this.setState({
+        isActive: true
+      });
+    } else {
+      this.setState({
+        isActive: false
+      });
+    }
   }
 
   responsiveAlert() {
@@ -32,9 +50,8 @@ class App extends React.Component {
 
       <Notification
         isActive={this.state.isActive}
-        message="Notification"
+        message="This app is best suited for a larger viewport!"
         action="Dismiss"
-        title="Title!"
         onDismiss={this.responsiveAlert}
         onClick={() =>  this.setState({ isActive: false })}
 />
