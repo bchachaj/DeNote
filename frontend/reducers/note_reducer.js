@@ -5,27 +5,25 @@ import {
    RECEIVE_ONE_NOTE,
    REMOVE_NOTE,
  } from '../actions/note_actions';
-import {
-  RECEIVE_ONE_NOTEBOOK
-} from '../actions/notebook_actions';
-
 
 import { RECEIVE_ALL_TAGGINGS } from '../actions/tagging_actions';
 
 const noteReducer = (state ={}, action) => {
+  Object.freeze(state);
   let newState;
+  const { note } = action;
+
   switch (action.type) {
     case RECEIVE_ALL_NOTES:
       return action.notes;
     case RECEIVE_ONE_NOTE:
-      const note = action.note;
       note.tags = action.note.tags;
       newState = merge({}, state,
-     {[action.note.id]: note});
+     {[note.id]: note});
       return newState;
     case REMOVE_NOTE:
       let delState = merge({}, state);
-      delete delState[action.note.id];
+      delete delState[note.id];
       return delState;
     default:
       return state;

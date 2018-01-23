@@ -9,23 +9,22 @@ import {
 
 
 const notebookReducer = (state = {}, action) => {
+  Object.freeze(state);
   let newState;
-  switch (action.type) {
+  const { notebook } = action;
 
+  switch (action.type) {
     case RECEIVE_ALL_NOTEBOOKS:
       return action.notebooks;
 
     case RECEIVE_ONE_NOTEBOOK:
-      newState = merge(
-                    {},
-                    state,
-                   {[action.notebook.id]: action.notebook}
-                    );
+      const assign = {[notebook.id]: notebook};
+      newState = merge({}, state, assign);
       return newState;
 
     case REMOVE_NOTEBOOK:
       let delState = merge({}, state);
-      delete delState[action.notebook.id];
+      delete delState[notebook.id];
       return delState;
 
     default:

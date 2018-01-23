@@ -16,20 +16,21 @@ import {
 const tagReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState;
+  const { tag } = action;
 
   switch (action.type) {
     case RECEIVE_ALL_TAGS:
       return action.tags;
     case RECEIVE_SINGLE_TAG:
       nextState = merge({}, state);
-      nextState[action.tag.id] = action.tag;
+      nextState[tag.id] = tag;
       return nextState;
     case RECEIVE_TAGGING:
       nextState = merge({}, state);
       return nextState;
     case DELETE_TAG:
       nextState = merge({}, state);
-      delete nextState[action.tag.id];
+      delete nextState[tag.id];
       return nextState;
     default:
       return state;
