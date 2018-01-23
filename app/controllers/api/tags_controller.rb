@@ -18,9 +18,8 @@ class Api::TagsController < ApplicationController
 
   def destroy
     @tag = Tag.find_by(id: params[:name])
-    taggings = Tagging.where(tag_name: @tag.name)
+
     if @tag.delete
-      # taggings.destroy_all
       render :show
     else
       render json: @tag.errors.full_messages, status: 422

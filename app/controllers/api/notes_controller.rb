@@ -1,7 +1,6 @@
 class Api::NotesController < ApplicationController
 
   def index
-    # @notes = Note.all.order(:updated_at)
 
     if(params[:tag_name])
       tag = Tag.find_by(name: params[:tag_name])
@@ -9,8 +8,7 @@ class Api::NotesController < ApplicationController
     else
       @notes = Note.where(author_id: current_user.id).sort_by(&:updated_at).reverse
     end
-    # @notes = @notes.select { |note| note.author_id == current_user.id }
-    # @notes.sort_by(&:updated_at).reverse
+
   end
 
   def show
