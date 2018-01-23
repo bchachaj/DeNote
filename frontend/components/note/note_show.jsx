@@ -2,7 +2,7 @@ import React from 'react';
 import NoteInfo from './note_modals/note_info_modal';
 import DeleteNote from './note_modals/delete_modal';
 import ReactQuill from 'react-quill';
-import { withRouter, Link } from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import TagIndex from '../tag/tag_index_container';
 
 class NoteShow extends React.Component {
@@ -29,12 +29,13 @@ class NoteShow extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.match.url === '/notes/new') return null;
+    if (this.props.match.url === '/notes/new')
+      return null;
     if (this.props.notebook) {
       this.setState({category: this.props.notebook.title});
     }
     this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
-      if(this.props.notebooks.length === 0) {
+      if (this.props.notebooks.length === 0) {
         this.props.requestAllNotebooks();
       }
     });
@@ -42,7 +43,6 @@ class NoteShow extends React.Component {
     setInterval(() => {
       this.autoSave();
     }, 5000);
-
 
   }
 
@@ -53,19 +53,28 @@ class NoteShow extends React.Component {
   }
 
   autoSave() {
-    if (this.props.match.url === '/notes/new') return null;
+    const {note, book_id, title} = this.state;
     const currentNote = this.props.note;
-    if(!currentNote) return null;
-    this.state.note.id = this.props.note.id;
-    this.state.note.notebook_id = this.state.book_id;
-    if (this.state.note && this.state.note.title === '') {
-      this.state.title = currentNote.title;
-    }    //Listen for changes before requesting update\
 
-     if (this.state.note.title !== currentNote.title || this.state.note.title !== this.state.title || this.state.note.body !== currentNote.body && typeof this.state.note.title !== 'undefined') {
-      this.state.note.title = this.state.title;
-      this.state.note.notebook_id = this.state.book_id;
-      this.props.requestUpdateNote(this.state.note);
+    if (this.props.match.url === '/notes/new' || !currentNote)
+      return null;
+
+    note.id = currentNote.id;
+    note.notebook_id = book_id;
+
+    if (note && note.title === '') {
+      this.state.title = currentNote.title;
+    }
+
+    // Listen for changes before requesting update
+    const titleChange = (note.title !== currentNote.title || title);
+    const bodyChange = note.body !== currentNote.body;
+    const noTitle = typeof note.title !== 'undefined';
+
+    if (titleChange || bodyChange && noTitle) {
+      this.state.note.title = title;
+      note.notebook_id = book_id;
+      this.props.requestUpdateNote(note);
     }
 
   }
@@ -98,7 +107,7 @@ class NoteShow extends React.Component {
   }
 
   update() {
-    return e => this.setState({ title: e.target.value});
+    return e => this.setState({title: e.target.value});
   }
 
   handleUpdate(value) {
@@ -116,11 +125,10 @@ class NoteShow extends React.Component {
 
   }
 
-
   setNotebook(e, data) {
     e.preventDefault();
     this.setState({category: data.title, book_id: data.id});
-    this.setState({ showHideDropdown: 'hidden'});
+    this.setState({showHideDropdown: 'hidden'});
     this.autoSave();
   }
 
@@ -136,72 +144,55 @@ class NoteShow extends React.Component {
     }
 
     const notebookOptions = this.props.notebooks.map((el) => <div key={el.id} className="notebook-drop-item">
-      <span className="notebook-option"
-            data-element={el}
-            onClick={(e) => this.setNotebook(e, el)}>{el.title}</span>
+      <span className="notebook-option" data-element={el} onClick={(e) => this.setNotebook(e, el)}>{el.title}</span>
     </div>);
 
-    return (
-      <div className="note-show-main">
-        <div className="note-show-header">
-          <div className="top-controls">
-            <DeleteNote delete={this.props.deleteNote}
-                        id={note.id}
-                        nextProp={nextNote}/>
-            <NoteInfo note={note}
-                      change={note.updated_at}
-                      created={note.created_at}/>
-          </div>
+    return (<div className="note-show-main">
+      <div className="note-show-header">
+        <div className="top-controls">
+          <DeleteNote delete={this.props.deleteNote} id={note.id} nextProp={nextNote}/>
+          <NoteInfo note={note} change={note.updated_at} created={note.created_at}/>
         </div>
-
-        <div className="note-controls">
-          <div className="note-menu">
-            <i className="fa fa-book"
-               onClick={this.displayDropdown}
-               aria-hidden="true"></i>
-            <i className="category-label"
-               onClick={this.displayDropdown}>{this.state.category}
-              &#9660;</i>
-            <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
-              <div className="drop-container">
-
-                <div className="notebook-drop-item">
-                  <Link to="/notebooks/new">
-                    <span className="notebook-option">
-                      Create new notebook<strong>+</strong>
-                    </span>
-                  </Link>
-                </div>
-                {notebookOptions}
-              </div>
-            </ul>
-
-            <div className="note-show-tags">
-              <i className="fa fa-tag" aria-hidden="true"></i>
-              <TagIndex noteTags={note.tags}/>
-            </div>
-          </div>
-        </div>
-
-        <div className="note-show note">
-          <form>
-            <input type="text"
-                  className="note-title"
-                  onChange={this.update('title')}
-                  value={this.state.title}/>
-
-          </form>
-
-          <ReactQuill theme="snow"
-                      value={this.state.note.body}
-                      onChange={this.handleUpdate}
-                      placeholder="Just start typing..."/>
-        </div>
-
-        <p id="credit">Built by&nbsp;<a href="http://bchachaj.com">Ben Chachaj</a>
-        </p>
       </div>
-    );
+
+      <div className="note-controls">
+        <div className="note-menu">
+          <i className="fa fa-book" onClick={this.displayDropdown} aria-hidden="true"></i>
+          <i className="category-label" onClick={this.displayDropdown}>{this.state.category}
+            &#9660;</i>
+          <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
+            <div className="drop-container">
+
+              <div className="notebook-drop-item">
+                <Link to="/notebooks/new">
+                  <span className="notebook-option">
+                    Create new notebook<strong>+</strong>
+                  </span>
+                </Link>
+              </div>
+              {notebookOptions}
+            </div>
+          </ul>
+
+          <div className="note-show-tags">
+            <i className="fa fa-tag" aria-hidden="true"></i>
+            <TagIndex noteTags={note.tags}/>
+          </div>
+        </div>
+      </div>
+
+      <div className="note-show note">
+        <form>
+          <input type="text" className="note-title" onChange={this.update('title')} value={this.state.title}/>
+
+        </form>
+
+        <ReactQuill theme="snow" value={this.state.note.body} onChange={this.handleUpdate} placeholder="Just start typing..."/>
+      </div>
+
+      <p id="credit">Built by&nbsp;<a href="http://bchachaj.com">Ben Chachaj</a>
+      </p>
+    </div>);
   }
 }
 
