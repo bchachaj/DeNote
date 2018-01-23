@@ -92,9 +92,9 @@ class CreateNote extends React.Component {
 
   handleUpdate(value) {
     const e = document.querySelector(".new-note-overlay");
-    const x = e.querySelector(".ql-editor").innerHTML;
+    const innerText = e.querySelector(".ql-editor").innerHTML;
     this.setState({
-      body: x
+      body: innerText
     });
   }
 

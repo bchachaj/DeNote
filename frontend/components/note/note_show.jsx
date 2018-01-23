@@ -29,20 +29,16 @@ class NoteShow extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.match.url === '/notes/new')
-      return null;
-    if (this.props.notebook) {
-      this.setState({category: this.props.notebook.title});
-    }
-    this.props.requestSingleNote(this.props.match.params.noteId).then(() => {
-      if (this.props.notebooks.length === 0) {
-        this.props.requestAllNotebooks();
-      }
+    const props = this.props;
+
+    if (props.match.url === '/notes/new') return null;
+    if (props.notebook) this.setState({category: props.notebook.title});
+
+    props.requestSingleNote(props.match.params.noteId).then(() => {
+      if (props.notebooks.length === 0) props.requestAllNotebooks();
     });
 
-    setInterval(() => {
-      this.autoSave();
-    }, 5000);
+    setInterval(() => { this.autoSave(); }, 5000);
 
   }
 
@@ -56,22 +52,19 @@ class NoteShow extends React.Component {
     const {note, book_id, title} = this.state;
     const currentNote = this.props.note;
 
-    if (this.props.match.url === '/notes/new' || !currentNote)
-      return null;
+    if (this.props.match.url === '/notes/new' || !currentNote) return null;
 
     note.id = currentNote.id;
     note.notebook_id = book_id;
 
-    if (note && note.title === '') {
-      this.state.title = currentNote.title;
-    }
+    if (note && note.title === '') this.state.title = currentNote.title;
 
     // Listen for changes before requesting update
-    const titleChange = (note.title !== currentNote.title || title);
-    const bodyChange = note.body !== currentNote.body;
+    const titleChg = (note.title !== currentNote.title || note.title !== title);
+    const bodyChg = note.body !== currentNote.body;
     const noTitle = typeof note.title !== 'undefined';
 
-    if (titleChange || bodyChange && noTitle) {
+    if (titleChg || bodyChg && noTitle) {
       this.state.note.title = title;
       note.notebook_id = book_id;
       this.props.requestUpdateNote(note);
@@ -81,19 +74,20 @@ class NoteShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const testParam = nextProps.match.params.noteId;
-    if (nextProps.match.url === "/notes/new") {
-      return null;
-    }
-    if (this.props.match.params.noteId !== nextProps.match.params.noteId && nextProps.match.params.noteId !== 'new') {
-      this.props.requestSingleNote(nextProps.match.params.noteId);
+    const { note, match, notebook } = nextProps;
+    const thisId = this.props.match.params.noteId;
+    const nextId = match.params.noteId;
+    if (match.url === "/notes/new") return null;
+
+    if (thisId !== nextId && nextId !== 'new') {
+      this.props.requestSingleNote(nextId);
     }
 
-    if (nextProps.note) {
-      this.setState({note: nextProps.note});
-      this.setState({book_id: nextProps.note.notebook_id});
-      this.setState({title: nextProps.note.title});
+    if (note) {
+      this.setState({note: note, book_id: note.book_id});
+      this.setState({title: note.title});
     }
-    if (nextProps.notebook) {
+    if (notebook) {
       this.setState({category: nextProps.notebook.title});
     }
   }
@@ -143,9 +137,16 @@ class NoteShow extends React.Component {
       nextNote = this.props.notes[1];
     }
 
-    const notebookOptions = this.props.notebooks.map((el) => <div key={el.id} className="notebook-drop-item">
-      <span className="notebook-option" data-element={el} onClick={(e) => this.setNotebook(e, el)}>{el.title}</span>
-    </div>);
+    const notebookOptions = this.props.notebooks.map((el) => {
+     return (
+      <div key={el.id} className="notebook-drop-item">
+        <span className="notebook-option"
+              data-element={el}
+              onClick={(e) => this.setNotebook(e, el)}>{el.title}
+        </span>
+      </div>
+            );
+    });
 
     return (<div className="note-show-main">
       <div className="note-show-header">
@@ -157,8 +158,11 @@ class NoteShow extends React.Component {
 
       <div className="note-controls">
         <div className="note-menu">
-          <i className="fa fa-book" onClick={this.displayDropdown} aria-hidden="true"></i>
-          <i className="category-label" onClick={this.displayDropdown}>{this.state.category}
+          <i className="fa fa-book"
+             onClick={this.displayDropdown}
+             aria-hidden="true">
+          </i>
+          <i className="category-label"               onClick={this.displayDropdown}>{this.state.category}
             &#9660;</i>
           <ul className={this.state.showHideDropdown + " notebook-dropdown"}>
             <div className="drop-container">
@@ -183,11 +187,17 @@ class NoteShow extends React.Component {
 
       <div className="note-show note">
         <form>
-          <input type="text" className="note-title" onChange={this.update('title')} value={this.state.title}/>
+          <input type="text"
+                  className="note-title"
+                  onChange={this.update('title')}
+                  value={this.state.title}/>
 
         </form>
 
-        <ReactQuill theme="snow" value={this.state.note.body} onChange={this.handleUpdate} placeholder="Just start typing..."/>
+        <ReactQuill theme="snow"
+                    value={this.state.note.body}
+                    onChange={this.handleUpdate}
+                    placeholder="Just start typing..."/>
       </div>
 
       <p id="credit">Built by&nbsp;<a href="http://bchachaj.com">Ben Chachaj</a>

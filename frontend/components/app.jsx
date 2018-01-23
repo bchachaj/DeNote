@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {ProtectedRoute, AuthRoute} from '../util/route_util';
 import {Switch, Redirect, Link, Route} from 'react-router-dom';
-import Greeting from './greeting/greeting_container';
+import NavBar from './greeting/greeting_container';
 import SessionFormContainer from './session/session_form_container';
 import Note from './note/note';
 import NoteShow from './note/note_show';
@@ -28,13 +28,9 @@ class App extends React.Component {
 
   viewPort() {
     if (window.visualViewport.width <= 700) {
-      this.setState({
-        isActive: true
-      });
+      this.setState({isActive: true});
     } else {
-      this.setState({
-        isActive: false
-      });
+      this.setState({isActive: false});
     }
   }
 
@@ -46,15 +42,12 @@ class App extends React.Component {
 
   render() {
     return (<div>
-      <Greeting/>
+      <NavBar/>
 
-      <Notification
-        isActive={this.state.isActive}
-        message="This app is best suited for a larger viewport!"
-        action="Dismiss"
-        onDismiss={this.responsiveAlert}
-        onClick={() =>  this.setState({ isActive: false })}
-/>
+      <Notification isActive={this.state.isActive}
+                    message="Denote is best suited for a desktop viewport" action="Dismiss"
+                    onDismiss={this.responsiveAlert}
+                    onClick={() => this.setState({isActive: false})}/>
 
       <div className="container">
 
