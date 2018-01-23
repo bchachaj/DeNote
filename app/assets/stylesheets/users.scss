@@ -454,3 +454,14 @@ em {
 li.ex:hover > * {
   color: white !important;
 }
+
+.notification-bar-active {
+  z-index: 99999;
+  opacity: 0.6;
+  background: teal !important;
+  color: #eee !important;
+}
+
+span.notification-bar-action {
+  color: white !important;
+}

@@ -1,7 +1,7 @@
 {
   "name": "DeNote",
   "version": "1.0.0",
-  "description": "React on RoR",
+  "description": "React view layer on Rails app",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -25,10 +25,12 @@
     "babel-preset-react": "^6.24.1",
     "draft-js": "^0.10.1",
     "lodash": "^4.17.4",
+    "moment": "^2.20.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-error-overlay": "^2.0.1",
     "react-modal": "^2.2.4",
+    "react-notification": "^6.8.2",
     "react-quill": "^1.1.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.2",
